@@ -34,8 +34,8 @@
    "flagship": true,
    "hidden": false,
    "year": "2026",
-   "img": "img/unforsaken.webp",
-   "imgSm": "img/unforsaken-sm.webp",
+   "img": "unforsaken.webp",
+   "imgSm": "unforsaken-sm.webp",
    "genre": "Survival Drama",
    "tags": [
     "Survival",
@@ -245,8 +245,8 @@
    "title": "I Was There",
    "hidden": false,
    "year": "2026",
-   "img": "img/i-was-there.webp",
-   "imgSm": "img/i-was-there-sm.webp",
+   "img": "i-was-there.webp",
+   "imgSm": "i-was-there-sm.webp",
    "genre": "Cinematic Anthology",
    "tags": [
     "Epic",
@@ -394,8 +394,8 @@
    "title": "Stories He Told",
    "hidden": false,
    "year": "2026",
-   "img": "img/stories-he-told.webp",
-   "imgSm": "img/stories-he-told-sm.webp",
+   "img": "stories-he-told.webp",
+   "imgSm": "stories-he-told-sm.webp",
    "genre": "Short Film Anthology",
    "tags": [
     "Drama",
@@ -538,8 +538,8 @@
    "title": "Cold Case: Ummah",
    "hidden": false,
    "year": "2026",
-   "img": "img/cold-case.webp",
-   "imgSm": "img/cold-case-sm.webp",
+   "img": "cold-case.webp",
+   "imgSm": "cold-case-sm.webp",
    "genre": "Investigative Thriller",
    "tags": [
     "Mystery",
@@ -695,8 +695,8 @@
    "title": "Bab-ul-Islam",
    "hidden": false,
    "year": "2026",
-   "img": "img/bab-ul-islam.webp",
-   "imgSm": "img/bab-ul-islam-sm.webp",
+   "img": "bab-ul-islam.webp",
+   "imgSm": "bab-ul-islam-sm.webp",
    "genre": "Historical Epic",
    "tags": [
     "History",
@@ -853,8 +853,8 @@
    "title": "Ayah",
    "hidden": false,
    "year": "2026",
-   "img": "img/ayah.webp",
-   "imgSm": "img/ayah-sm.webp",
+   "img": "ayah.webp",
+   "imgSm": "ayah-sm.webp",
    "genre": "Nature Documentary",
    "tags": [
     "Nature",
@@ -993,8 +993,8 @@
    "title": "The Other Side",
    "hidden": false,
    "year": "2026",
-   "img": "img/the-other-side.webp",
-   "imgSm": "img/the-other-side-sm.webp",
+   "img": "the-other-side.webp",
+   "imgSm": "the-other-side-sm.webp",
    "genre": "Historical Drama",
    "tags": [
     "Drama",
@@ -1134,7 +1134,7 @@
     {
      "id": "drawing",
      "t": "The Drawing",
-     "img": "img/work/drawing.webp",
+     "img": "drawing.webp",
      "g": [
       "Horror",
       "Psychological"
@@ -1162,77 +1162,77 @@
     {
      "id": "poppy",
      "t": "Murder at Poppy Field Farm",
-     "img": "img/work/poppy.webp",
+     "img": "poppy.webp",
      "d": "A body in the poppies, and a village that knows more than it says. A cinematic AI hook with full creative control over concept, storyboard and shots.",
      "hidden": false
     },
     {
      "id": "letter",
      "t": "A Letter From the Dead",
-     "img": "img/work/letter.webp",
+     "img": "letter.webp",
      "d": "A letter arrives in a hand that should have stopped writing years ago.",
      "hidden": false
     },
     {
      "id": "vanishing",
      "t": "The Vanishing Lady of Elmhurst",
-     "img": "img/work/vanishing.webp",
+     "img": "vanishing.webp",
      "d": "A woman walks into Elmhurst and never walks out.",
      "hidden": false
     },
     {
      "id": "sloane",
      "t": "The Shadow Over Sloane Street",
-     "img": "img/work/sloane.webp",
+     "img": "sloane.webp",
      "d": "Something follows the residents of Sloane Street home at night.",
      "hidden": false
     },
     {
      "id": "dove",
      "t": "The Last Guest at Dove Cottage",
-     "img": "img/work/dove.webp",
+     "img": "dove.webp",
      "d": "One guest too many at Dove Cottage, and one fewer by morning.",
      "hidden": false
     },
     {
      "id": "will",
      "t": "A Will Written in Pencil",
-     "img": "img/work/will.webp",
+     "img": "will.webp",
      "d": "A fortune left in pencil, and a family ready to rub it out.",
      "hidden": false
     },
     {
      "id": "perfumer",
      "t": "The Perfumer of Portobello",
-     "img": "img/work/perfumer.webp",
+     "img": "perfumer.webp",
      "d": "A scent that lingers long after the crime.",
      "hidden": false
     },
     {
      "id": "heiress",
      "t": "The Heiress of Hyde Park Gate",
-     "img": "img/work/heiress.webp",
+     "img": "heiress.webp",
      "d": "An heiress, a locked house, and too many people who want what is inside.",
      "hidden": false
     },
     {
      "id": "duchess",
      "t": "Duchess in Disguise",
-     "img": "img/work/duchess.webp",
+     "img": "duchess.webp",
      "d": "A duchess hides in plain sight, until someone sees through the mask.",
      "hidden": false
     },
     {
      "id": "diplomat",
      "t": "The Diplomat and the Dying Lark",
-     "img": "img/work/diplomat.webp",
+     "img": "diplomat.webp",
      "d": "A diplomat's secret, and the songbird that gave it away.",
      "hidden": false
     },
     {
      "id": "blackswan",
      "t": "The Black Swan of Bloomsbury",
-     "img": "img/work/blackswan.webp",
+     "img": "blackswan.webp",
      "d": "A quiet square in Bloomsbury, and the one woman who did not belong.",
      "hidden": false
     }
@@ -1255,21 +1255,21 @@
     {
      "id": "london",
      "t": "London, 410 to 1485",
-     "img": "img/work/london.webp",
+     "img": "london.webp",
      "d": "A thousand years of London rebuilt with AI, from the end of Roman rule to the close of the medieval city.",
      "hidden": false
     },
     {
      "id": "egypt",
      "t": "From River to Pyramid",
-     "img": "img/work/egypt.webp",
+     "img": "egypt.webp",
      "d": "The rise of Egypt, from farming villages on the Nile to the age of the pyramids, reconstructed shot by shot.",
      "hidden": false
     },
     {
      "id": "edinburgh",
      "t": "Edinburgh: The City Above the Land",
-     "img": "img/work/edinburgh.webp",
+     "img": "edinburgh.webp",
      "d": "Edinburgh rising on its ridge of rock across the centuries, rebuilt street by street.",
      "hidden": false
     }
@@ -1293,21 +1293,21 @@
     {
      "id": "sanfrancisco",
      "t": "The High Altitude Dinner Party",
-     "img": "img/work/sanfrancisco.webp",
+     "img": "sanfrancisco.webp",
      "d": "A dinner party floating above 1955 San Francisco, set to slow retro-futuristic jazz.",
      "hidden": false
     },
     {
      "id": "starlight",
      "t": "Starlight Skyline",
-     "img": "img/work/starlight.webp",
+     "img": "starlight.webp",
      "d": "A chrome city after dark, lit by neon and starlight, with jazz drifting from the lounges.",
      "hidden": false
     },
     {
      "id": "midnight",
      "t": "Midnight Train to Tomorrow",
-     "img": "img/work/midnight.webp",
+     "img": "midnight.webp",
      "d": "A night journey on a train bound for the future, as the 1950s imagined it.",
      "hidden": false
     }
