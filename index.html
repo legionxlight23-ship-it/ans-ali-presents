@@ -1,0 +1,1284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Ans Ali Presents">
+<meta property="og:image" content="img/unforsaken.webp">
+</head>
+<body>
+<title>Ans Ali Presents</title>
+<meta name="description" content="Seven original Islamic cinema concepts, and the work of AI filmmaker Ans Ali.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: a streaming-service browse experience. Full-bleed billboard, horizontal rows, hover previews, title pages. */
+:root{
+  --bg:#0a0a0a;
+  --bg2:#141414;
+  --card:#181818;
+  --ink:#ffffff;
+  --soft:#d2d2d2;
+  --muted:#9a9a9a;
+  --faint:#5f5f5f;
+  --red:#e50914;
+  --red2:#b20710;
+  --green:#46d369;
+  --line:rgba(255,255,255,.12);
+  --ui:"Manrope","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mark:"Bebas Neue",Impact,"Arial Narrow",sans-serif;
+  --pad:clamp(16px,4vw,60px);
+  --ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bglight{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(110% 60% at 50% -10%,rgba(255,255,255,.08),rgba(255,255,255,.02) 40%,transparent 70%),linear-gradient(180deg,#0e0e0e 0%,#0a0a0a 40%,#070707 100%)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:4px}
+::selection{background:var(--red);color:#fff}
+
+/* ---------- intro ---------- */
+.intro{position:fixed;inset:0;z-index:200;background:#000;display:grid;place-items:center;cursor:pointer;transition:opacity .6s ease,visibility .6s}
+.intro.done{opacity:0;visibility:hidden}
+.intro-mark{font-family:var(--mark);font-size:clamp(70px,16vw,220px);color:var(--red);letter-spacing:.02em;line-height:1;position:relative;
+  text-shadow:0 0 40px rgba(229,9,20,.45);animation:mark 2.3s cubic-bezier(.6,0,.2,1) forwards}
+.intro-mark::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.75) 48%,transparent 66%);mix-blend-mode:overlay;transform:translateX(-120%);animation:sheen 1.2s .5s ease forwards}
+.intro-sub{position:absolute;bottom:22%;font-size:12px;letter-spacing:.5em;text-transform:uppercase;color:#bbb;animation:sub 2.3s ease forwards}
+@keyframes mark{0%{transform:scale(1.9);opacity:0;filter:blur(18px);letter-spacing:.4em}30%{opacity:1;filter:blur(0);letter-spacing:.02em;transform:scale(1)}70%{transform:scale(1.04);opacity:1}100%{transform:scale(7);opacity:0;filter:blur(6px)}}
+@keyframes sheen{to{transform:translateX(120%)}}
+@keyframes sub{0%,20%{opacity:0}40%,70%{opacity:1}100%{opacity:0}}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;left:0;right:0;top:0;z-index:60;padding:calc(env(safe-area-inset-top,0px) + 16px) var(--pad) 16px;display:flex;align-items:center;gap:clamp(16px,3vw,40px);
+  background:linear-gradient(180deg,rgba(0,0,0,.75),transparent);transition:background .4s}
+.nav.solid{background:rgba(10,10,10,.96)}
+.logo{font-family:var(--mark);font-size:clamp(28px,3vw,36px);color:var(--red);letter-spacing:.03em;line-height:1;white-space:nowrap}
+.links{display:flex;gap:clamp(12px,1.6vw,22px);font-size:14px}
+.links a{color:#e5e5e5;transition:color .3s;white-space:nowrap}
+.links a:hover{color:#b3b3b3}
+.links a.on{color:#fff;font-weight:700}
+.nav-r{margin-left:auto;display:flex;align-items:center;gap:14px}
+.avatar{width:34px;height:34px;border-radius:6px;overflow:hidden;flex:none}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.cta-s{font-size:13.5px;font-weight:700;background:var(--red);padding:8px 14px;border-radius:4px;white-space:nowrap}
+.cta-s:hover{background:var(--red2)}
+@media (max-width:820px){.links .hm{display:none}}
+@media (max-width:520px){.links{display:none}.cta-s{display:none}}
+
+/* ---------- views ---------- */
+main{transition:opacity .35s ease}
+main.out{opacity:0}
+
+/* billboard */
+.bill{position:relative;margin-bottom:clamp(8px,2vw,24px)}
+.bill-stage{position:relative;aspect-ratio:21/9;max-height:84vh;width:100%;overflow:hidden;background:#000}
+.bill-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.4s ease,transform 9s linear}
+.bill-stage img.on{opacity:1;transform:scale(1)}
+.bill-stage::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,transparent 18%,transparent 72%,var(--bg) 100%)}
+.bill-info{position:relative;z-index:2;padding:0 var(--pad);margin-top:clamp(-40px,-3vw,-12px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+@media (max-width:860px){.bill-info{grid-template-columns:1fr}}
+.tagline{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#e5e5e5}
+.tagline b{font-family:var(--mark);font-weight:400;font-size:26px;letter-spacing:0;color:var(--red);line-height:1}
+.bill h1{font-size:clamp(34px,4.6vw,64px);font-weight:800;letter-spacing:-.025em;line-height:1.02;margin:10px 0 12px;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:15px;color:var(--soft)}
+.meta .new{color:var(--green);font-weight:800}
+.meta .box{border:1px solid rgba(255,255,255,.4);padding:0 6px;font-size:12px;border-radius:3px;line-height:1.6}
+.syn{font-size:clamp(16px,1.35vw,19px);color:#e8e8e8;max-width:60ch;margin:14px 0 22px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:11px 26px;border-radius:5px;font-size:17px;font-weight:700;transition:background .2s,transform .2s}
+.btn svg{width:22px;height:22px}
+.btn-w{background:#fff;color:#000}
+.btn-w:hover{background:rgba(255,255,255,.78)}
+.btn-g{background:rgba(109,109,110,.7);color:#fff}
+.btn-g:hover{background:rgba(109,109,110,.45)}
+.bill-thumbs{display:flex;gap:8px;align-items:flex-end}
+.bt{position:relative;width:96px;aspect-ratio:21/9;border-radius:4px;overflow:hidden;opacity:.45;transition:opacity .3s,transform .4s var(--ease);outline:2px solid transparent;outline-offset:2px}
+.bt img{width:100%;height:100%;object-fit:cover}
+.bt.on{opacity:1;outline-color:#fff}
+.bt:hover{opacity:.9;transform:translateY(-3px)}
+.bt i{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:0 50%}
+.bt.on i{animation:prog 8s linear forwards}
+.bill.paused .bt.on i{animation-play-state:paused}
+@keyframes prog{to{transform:scaleX(1)}}
+@media (max-width:860px){.bill-thumbs{overflow-x:auto;padding-bottom:4px}.bt{width:78px;flex:none}}
+.bill-fade{animation:fadeup .9s var(--ease)}
+@keyframes fadeup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* rows */
+.row{position:relative;margin:clamp(26px,3.6vw,46px) 0}
+.row-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:0 var(--pad);margin-bottom:12px}
+.row-h h2{font-size:clamp(18px,1.6vw,23px);font-weight:800;margin:0;letter-spacing:-.01em}
+.row-h .sub{font-size:13.5px;color:var(--muted)}
+.row-h .more{font-size:13px;font-weight:700;color:#54b9c5;opacity:0;transform:translateX(-6px);transition:.4s var(--ease)}
+.row:hover .row-h .more{opacity:1;transform:none}
+.track{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--pad);padding:6px var(--pad) 10px;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.arrow{position:absolute;top:44px;bottom:12px;width:var(--pad);min-width:40px;z-index:5;display:grid;place-items:center;background:rgba(10,10,10,.55);opacity:0;transition:opacity .3s,background .3s}
+.arrow svg{width:30px;height:30px;transition:transform .2s}
+.arrow:hover{background:rgba(10,10,10,.8)}
+.arrow:hover svg{transform:scale(1.25)}
+.arrow.l{left:0}.arrow.r{right:0}
+.row:hover .arrow{opacity:1}
+@media (hover:none){.arrow{display:none}}
+
+.tile{position:relative;flex:none;scroll-snap-align:start;border-radius:6px;overflow:hidden;background:var(--card);transition:transform .45s var(--ease),box-shadow .45s;cursor:pointer}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.tile.wide{width:clamp(280px,31vw,470px);aspect-ratio:21/9}
+.tile.std{width:clamp(220px,21vw,320px);aspect-ratio:16/9}
+.tile.big{width:clamp(280px,38vw,600px);aspect-ratio:16/9}
+.tile .lbl{position:absolute;left:10px;bottom:8px;right:10px;font-size:13px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.9);opacity:0;transition:opacity .3s}
+.tile.cap .lbl{opacity:1}
+.tile .flag{position:absolute;top:0;left:10px;background:var(--red);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.08em;padding:4px 7px 3px;border-radius:0 0 3px 3px;text-transform:uppercase}
+.tile:hover img{transform:scale(1.04)}
+
+/* reveal rows */
+.rv{transition:opacity .9s var(--ease),transform 1s var(--ease)}
+.rv.pre{opacity:0;transform:translateY(30px)}
+.track .tile{transition:transform .45s var(--ease),opacity .7s var(--ease)}
+.track.pre .tile{opacity:0;transform:translateX(40px)}
+
+/* hover pop */
+.pop{position:fixed;z-index:80;border-radius:8px;overflow:hidden;background:var(--card);box-shadow:0 18px 50px rgba(0,0,0,.75);
+  transform-origin:50% 50%;opacity:0;transform:scale(.72);pointer-events:none;transition:opacity .28s ease,transform .38s var(--ease)}
+.pop.on{opacity:1;transform:scale(1);pointer-events:auto}
+.pop-img{position:relative;cursor:pointer}
+.pop-img img{width:100%;height:100%;object-fit:cover}
+.pop-body{padding:14px 16px 16px;display:grid;gap:10px}
+.pop-ctl{display:flex;gap:8px;align-items:center}
+.circ{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:2px solid rgba(255,255,255,.5);background:rgba(42,42,42,.6);transition:border-color .2s}
+.circ:hover{border-color:#fff}
+.circ svg{width:18px;height:18px}
+.circ.w{background:#fff;border-color:#fff;color:#000}
+.circ.w:hover{background:#e6e6e6}
+.circ.end{margin-left:auto}
+.pop h4{margin:0;font-size:15px;font-weight:800}
+.pop .meta{font-size:13px;gap:8px}
+.dots{display:flex;flex-wrap:wrap;gap:6px;font-size:13px;color:#e5e5e5}
+.dots span+span::before{content:"•";color:#646464;margin-right:6px}
+.pop p{margin:0;font-size:13px;color:var(--soft);line-height:1.45}
+
+/* bands */
+.band{padding:clamp(48px,7vw,96px) var(--pad);border-top:1px solid rgba(255,255,255,.06)}
+.band-h{display:grid;gap:10px;margin-bottom:28px;max-width:820px}
+.kick{font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+.band-h h2{font-size:clamp(28px,3.6vw,48px);font-weight:800;letter-spacing:-.025em;line-height:1.05;margin:0;text-wrap:balance}
+.band-h p{margin:0;color:var(--soft);font-size:clamp(16px,1.3vw,18px);max-width:62ch}
+
+.maker{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(24px,4vw,64px);align-items:center}
+@media (max-width:860px){.maker{grid-template-columns:1fr}}
+.maker-img{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/5;max-width:520px;width:100%}
+.maker-img img{width:100%;height:100%;object-fit:cover}
+.maker-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.65))}
+.maker-img span{position:absolute;left:16px;bottom:14px;z-index:1;font-family:var(--mark);font-size:28px;letter-spacing:.04em}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.08);border-radius:8px;overflow:hidden;margin-top:28px}
+@media (max-width:640px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat{background:var(--bg2);padding:20px 18px;display:grid;gap:4px;min-width:0}
+.stat b{font-family:var(--mark);font-weight:400;font-size:clamp(40px,4.4vw,58px);line-height:.95;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted);line-height:1.4}
+.credits{display:grid;gap:10px;margin-top:22px;font-size:14.5px;color:var(--muted)}
+.credits b{color:#fff;font-weight:600}
+
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:980px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.g4{grid-template-columns:1fr}}
+.panel{background:var(--bg2);border-radius:8px;padding:24px 22px;display:grid;gap:10px;align-content:start;min-width:0;border:1px solid rgba(255,255,255,.05)}
+.panel .n{font-family:var(--mark);font-size:34px;color:var(--red);line-height:1}
+.panel h3{margin:0;font-size:18px;font-weight:800}
+.panel p{margin:0;color:var(--soft);font-size:14.5px}
+
+.contact{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:end;background:linear-gradient(120deg,#1a0607 0%,#120a0a 40%,#0d0d0d 100%);border-radius:10px;padding:clamp(26px,5vw,64px);border:1px solid rgba(229,9,20,.18)}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+.contact h2{margin:8px 0 10px;font-size:clamp(30px,4vw,54px);font-weight:800;letter-spacing:-.03em;line-height:1.02}
+.contact p{margin:0;color:var(--soft);max-width:52ch}
+.mail{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.mail code{font-family:var(--ui);font-weight:700;font-size:17px;background:rgba(0,0,0,.4);padding:12px 16px;border-radius:5px;user-select:all;overflow-wrap:anywhere}
+.foot{padding:40px var(--pad) calc(env(safe-area-inset-bottom,0px) + 40px);color:var(--faint);font-size:13px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+
+/* ---------- title page ---------- */
+.t-hero{position:relative;width:100%;aspect-ratio:21/9;max-height:86vh;overflow:hidden;background:#000}
+.t-hero img{width:100%;height:100%;object-fit:cover;animation:heroin 1.6s var(--ease) both}
+@keyframes heroin{from{transform:scale(1.12);filter:brightness(.4) blur(6px)}to{transform:scale(1);filter:none}}
+.t-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.5) 0%,transparent 16%,transparent 70%,var(--bg) 100%)}
+.back{position:absolute;top:calc(env(safe-area-inset-top,0px) + 78px);left:var(--pad);z-index:3;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;background:rgba(0,0,0,.55);padding:8px 14px 8px 10px;border-radius:999px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.back:hover{background:rgba(0,0,0,.8)}
+.t-info{padding:0 var(--pad);margin-top:clamp(-30px,-2vw,-8px);position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);animation:fadeup 1s .3s var(--ease) both}
+@media (max-width:900px){.t-info{grid-template-columns:1fr}}
+.t-info h1{font-size:clamp(38px,5.4vw,78px);font-weight:800;letter-spacing:-.035em;line-height:.98;margin:12px 0 14px}
+.t-side{display:grid;gap:12px;font-size:14px;color:var(--muted);align-content:start;padding-top:8px}
+.t-side b{color:#fff;font-weight:600}
+.t-side .lg{font-size:15px;line-height:1.55}
+
+.tabs{position:sticky;top:calc(env(safe-area-inset-top,0px) + 66px);z-index:40;margin-top:clamp(32px,5vw,56px);background:rgba(10,10,10,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+.tabs-in{display:flex;gap:clamp(18px,3vw,36px);padding:0 var(--pad);overflow-x:auto;scrollbar-width:none}
+.tabs-in::-webkit-scrollbar{display:none}
+.tabs button{position:relative;padding:16px 0 14px;font-size:15px;font-weight:700;color:var(--muted);white-space:nowrap;transition:color .3s}
+.tabs button:hover{color:#fff}
+.tabs button.on{color:#fff}
+.tabs button::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--red);transform:scaleX(0);transition:transform .4s var(--ease)}
+.tabs button.on::after{transform:scaleX(1)}
+.sect{padding:clamp(40px,6vw,72px) var(--pad) 0;scroll-margin-top:130px}
+.sect-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px}
+.sect-h h2{font-size:clamp(22px,2.2vw,30px);font-weight:800;margin:0;letter-spacing:-.02em}
+
+/* episode list */
+.eps{display:grid;border-top:1px solid #2a2a2a}
+.ep{display:grid;grid-template-columns:40px minmax(130px,220px) minmax(0,1fr);gap:clamp(12px,2vw,24px);align-items:center;padding:clamp(16px,2vw,24px) clamp(8px,1.6vw,20px);border-bottom:1px solid #2a2a2a;border-radius:6px;transition:background .3s}
+.ep:hover{background:#1f1f1f}
+.ep .no{font-size:clamp(20px,2vw,26px);color:#d2d2d2;text-align:center;font-weight:500}
+.ep-th{position:relative;aspect-ratio:16/9;border-radius:4px;overflow:hidden;background:#000}
+.ep-th img{width:100%;height:100%;object-fit:cover;transform:scale(var(--z,1.8));object-position:var(--op,50% 50%);transition:transform .8s var(--ease)}
+.ep:hover .ep-th img{transform:scale(calc(var(--z,1.8) + .12))}
+.ep-th .play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .3s;background:rgba(0,0,0,.25)}
+.ep-th .play span{width:40px;height:40px;border-radius:50%;border:2px solid #fff;display:grid;place-items:center;background:rgba(0,0,0,.4)}
+.ep:hover .ep-th .play{opacity:1}
+.ep-b{display:grid;gap:6px;min-width:0}
+.ep-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.ep-top h3{margin:0;font-size:16.5px;font-weight:800}
+.ep-top span{font-size:14px;color:var(--soft);white-space:nowrap}
+.ep-b p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.5}
+.ep-b .src{font-size:12.5px;color:#7d7d7d}
+@media (max-width:640px){.ep{grid-template-columns:110px minmax(0,1fr)}.ep .no{display:none}}
+.reveal{display:grid;gap:8px;margin-top:6px}
+.beat{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;font-size:14px;color:var(--soft)}
+.beat small{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#7d7d7d;padding-top:2px}
+.beat.tw small{color:#e5b33d}.beat.rl small{color:var(--red)}
+.sealed .val{filter:blur(6px);user-select:none;transition:filter .8s ease}
+.unseal{justify-self:start;font-size:13px;font-weight:800;padding:7px 12px;border-radius:4px;background:rgba(255,255,255,.1);margin-top:4px}
+.unseal:hover{background:rgba(255,255,255,.18)}
+@media (max-width:520px){.beat{grid-template-columns:1fr;gap:2px}}
+.door-box{margin-top:8px;padding:12px 14px;border-radius:6px;background:#1c1c1c;border:1px solid #2c2c2c;display:grid;gap:6px;font-size:14px}
+.door-box .edge{color:#ff8a8a}
+.door-box .dr .val{color:#fff}
+.door-box q{font-style:italic;color:#e5e5e5;quotes:none}
+.door-box cite{font-style:normal;font-size:12.5px;color:#e5b33d}
+.select{position:relative}
+.select select{appearance:none;-webkit-appearance:none;background:#242424;color:#fff;border:1px solid #4d4d4d;border-radius:4px;padding:10px 40px 10px 14px;font:700 15px var(--ui);cursor:pointer}
+.select::after{content:"";position:absolute;right:15px;top:50%;width:8px;height:8px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.note{margin-top:16px;padding:14px 16px;border-left:3px solid var(--red);background:#151515;color:var(--soft);font-size:14.5px;border-radius:0 6px 6px 0}
+
+/* overview */
+.statement{font-size:clamp(26px,3.4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.12;max-width:24ch;margin:0 0 26px;text-wrap:balance}
+.prose{display:grid;gap:16px;max-width:68ch;color:var(--soft);font-size:17px;line-height:1.7}
+.prose p{margin:0}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:32px}
+@media (max-width:860px){.g3{grid-template-columns:1fr}}
+.anat{margin-top:34px;background:var(--bg2);border-radius:8px;padding:clamp(18px,3vw,30px);border:1px solid rgba(255,255,255,.05)}
+.anat h3{margin:0 0 4px;font-size:16px;font-weight:800}
+.anat .cap{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+.bar{display:flex;gap:3px;height:10px;border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;transform-origin:0 50%;transition:transform 1.2s var(--ease)}
+.bar.pre i{transform:scaleX(0)}
+.bar-l{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px 20px;margin-top:16px;font-size:14px;color:var(--soft)}
+.bar-l div{display:flex;align-items:center;gap:8px}
+.bar-l i{width:10px;height:10px;border-radius:2px;flex:none}
+.bar-l b{margin-left:auto;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* verse + laws + curve (flagship) */
+.verse{position:relative;text-align:center;padding:clamp(60px,10vw,120px) var(--pad);margin-top:clamp(30px,5vw,60px);overflow:hidden;isolation:isolate}
+.verse::before{content:"";position:absolute;left:50%;top:-20%;width:min(560px,70vw);height:140%;transform:translateX(-50%);z-index:-1;background:linear-gradient(180deg,rgba(255,248,232,.16),rgba(255,248,232,.03) 50%,transparent 85%);filter:blur(28px);clip-path:polygon(40% 0,60% 0,100% 100%,0 100%);animation:shaft 8s ease-in-out infinite alternate}
+@keyframes shaft{from{opacity:.5}to{opacity:1}}
+.verse .ar{font-family:"Geeza Pro","Traditional Arabic","Times New Roman",serif;font-size:clamp(22px,2.6vw,32px);color:#cfcfcf;margin:0 0 20px;direction:rtl}
+.verse blockquote{margin:0 auto;max-width:26ch;font-size:clamp(26px,3.4vw,46px);font-weight:700;letter-spacing:-.02em;line-height:1.18}
+.verse cite{display:block;margin-top:20px;font-style:normal;font-size:12.5px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#e5b33d}
+.laws{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;counter-reset:l}
+.laws li{background:var(--bg2);border-radius:8px;padding:20px;display:grid;gap:6px;border:1px solid rgba(255,255,255,.05);font-size:14.5px;color:var(--soft)}
+.laws li::before{counter-increment:l;content:counter(l);font-family:var(--mark);font-size:40px;line-height:1;color:var(--red)}
+.laws li b{color:#fff;font-size:15.5px}
+.curve-w{background:var(--bg2);border-radius:8px;padding:clamp(14px,2.4vw,26px);overflow-x:auto;border:1px solid rgba(255,255,255,.05)}
+.curve{width:100%;min-width:640px;height:auto;display:block}
+.curve .ln{fill:none;stroke:var(--red);stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:var(--len);stroke-dashoffset:0;transition:stroke-dashoffset 3s var(--ease)}
+.curve.pre .ln{stroke-dashoffset:var(--len)}
+.curve .ar2{transition:opacity 1.6s 1s}
+.curve.pre .ar2{opacity:0}
+.curve text{font-family:var(--ui);font-size:11px;fill:#8a8a8a;font-weight:700;letter-spacing:.08em}
+.curve .lb{fill:#fff;font-size:12.5px;letter-spacing:0}
+.curve .gl{stroke:rgba(255,255,255,.07)}
+.curve .bd{fill:rgba(255,255,255,.025)}
+.curve .mk{fill:var(--bg);stroke:var(--red);stroke-width:2}
+.curve .mk.dr{fill:#fff;stroke:#fff}
+
+/* look */
+.look{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,56px)}
+@media (max-width:860px){.look{grid-template-columns:1fr}}
+.sw{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.sw div{display:grid;gap:6px;font-size:13px;min-width:0}
+.sw i{aspect-ratio:1/1.25;border-radius:6px;display:block;border:1px solid rgba(255,255,255,.08)}
+.sw small{color:var(--muted);font-size:11px}
+.spec{display:grid;border-top:1px solid #2a2a2a;margin:0}
+.spec div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid #2a2a2a}
+.spec dt{color:var(--muted);font-size:14px}
+.spec dd{margin:0;color:#e5e5e5;font-size:15px}
+@media (max-width:480px){.spec div{grid-template-columns:1fr;gap:4px}}
+.rules{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:760px){.rules{grid-template-columns:1fr}}
+.rules li{display:flex;gap:12px;background:var(--bg2);padding:16px 18px;border-radius:6px;font-size:14.5px;color:var(--soft);border:1px solid rgba(255,255,255,.05)}
+.rules svg{width:18px;height:18px;flex:none;color:var(--green);margin-top:2px}
+
+.mlt{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.mlt a{background:#2f2f2f;border-radius:6px;overflow:hidden;transition:transform .4s var(--ease),background .3s}
+.mlt a:hover{transform:translateY(-4px);background:#363636}
+.mlt .im{aspect-ratio:21/9;overflow:hidden}
+.mlt .im img{width:100%;height:100%;object-fit:cover}
+.mlt .bd{padding:14px 16px 16px;display:grid;gap:6px}
+.mlt b{font-size:15.5px}
+.mlt span{font-size:13px;color:#bcbcbc;line-height:1.45}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.72);display:flex;justify-content:center;align-items:flex-start;overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 30px) 12px 40px;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.modal.on{opacity:1;visibility:visible}
+.sheet{width:min(860px,100%);background:#181818;border-radius:8px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.7);transform:scale(.92) translateY(20px);transition:transform .45s var(--ease)}
+.modal.on .sheet{transform:none}
+.sh-img{position:relative;aspect-ratio:16/9;background:#000}
+.sh-img img{width:100%;height:100%;object-fit:cover}
+.sh-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#181818 100%)}
+.x{position:absolute;top:14px;right:14px;z-index:3;width:38px;height:38px;border-radius:50%;background:#181818;display:grid;place-items:center}
+.x svg{width:20px;height:20px}
+.sh-b{padding:4px clamp(18px,4vw,44px) 34px;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px}
+@media (max-width:640px){.sh-b{grid-template-columns:1fr}}
+.sh-b h3{margin:0 0 10px;font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.sh-b p{margin:12px 0 0;color:#e5e5e5;font-size:15.5px}
+.sh-more{padding:0 clamp(18px,4vw,44px) 36px}
+.sh-more h4{margin:0 0 14px;font-size:20px;font-weight:800}
+.sh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.sh-grid button{text-align:left;background:#2f2f2f;border-radius:5px;overflow:hidden;display:grid;transition:background .3s}
+.sh-grid button:hover{background:#3a3a3a}
+.sh-grid img{aspect-ratio:16/9;object-fit:cover;width:100%}
+.sh-grid span{padding:10px 12px;font-size:13.5px;font-weight:700}
+
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 26px);transform:translate(-50%,20px);background:#fff;color:#000;font-weight:700;font-size:14px;padding:11px 18px;border-radius:5px;opacity:0;transition:.4s var(--ease);z-index:150;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv.pre,.track.pre .tile{opacity:1;transform:none}.intro{display:none}}
+
+/* ---------- manager ---------- */
+.mg{padding:calc(env(safe-area-inset-top,0px) + 96px) var(--pad) 80px;max-width:1240px;margin:0 auto}
+.mg h1{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-.02em;margin:0}
+.mg-top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:8px}
+.mg-actions{display:flex;flex-wrap:wrap;gap:8px}
+.mbtn{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:5px;font-size:14px;font-weight:700;background:#2a2a2a;transition:background .2s}
+.mbtn:hover{background:#383838}
+.mbtn.pri{background:var(--red)}.mbtn.pri:hover{background:var(--red2)}
+.mbtn.w{background:#fff;color:#000}.mbtn.w:hover{background:#ddd}
+.mbtn.dng{background:#3a1416;color:#ff9a9a}.mbtn.dng:hover{background:#561a1e}
+.mbtn.sm{padding:6px 10px;font-size:12.5px}
+.mbtn[disabled]{opacity:.35;pointer-events:none}
+.mg-status{font-size:13.5px;color:var(--muted);margin:6px 0 22px}
+.mg-status b{color:#e5b33d}
+.mg-tabs{display:flex;gap:24px;border-bottom:1px solid #2a2a2a;margin-bottom:24px;overflow-x:auto;scrollbar-width:none}
+.mg-tabs button{padding:12px 0;font-weight:700;color:var(--muted);position:relative;white-space:nowrap}
+.mg-tabs button.on{color:#fff}
+.mg-tabs button.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--red)}
+.mg-list{display:grid;gap:8px}
+.mg-item{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:14px;align-items:center;background:#161616;border:1px solid #242424;border-radius:8px;padding:10px}
+.mg-item.off{opacity:.5}
+.mg-item img,.mg-thumb{width:120px;aspect-ratio:16/9;object-fit:cover;border-radius:4px;background:#000}
+.mg-item b{font-size:15.5px;display:block}
+.mg-item small{color:var(--muted);font-size:12.5px}
+.mg-ctl{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+@media (max-width:720px){.mg-item{grid-template-columns:90px minmax(0,1fr)}.mg-item img{width:90px}.mg-ctl{grid-column:1/-1;justify-content:flex-start}}
+.badge{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:3px;margin-left:6px;vertical-align:2px}
+.badge.r{background:var(--red)}.badge.g{background:#333;color:#bbb}
+.mg-row{background:#121212;border:1px solid #242424;border-radius:10px;padding:16px;margin-bottom:16px}
+.mg-row-h{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:10px;align-items:end;margin-bottom:12px}
+@media (max-width:860px){.mg-row-h{grid-template-columns:1fr}}
+.fld{display:grid;gap:6px;min-width:0}
+.fld label{font-size:12.5px;font-weight:700;color:#bdbdbd}
+.fld .hint{font-size:12px;color:#7d7d7d;font-weight:500}
+.inp,.ta{width:100%;background:#0e0e0e;border:1px solid #333;border-radius:5px;color:#fff;font:500 14.5px var(--ui);padding:10px 12px}
+.inp:focus,.ta:focus{outline:none;border-color:#777}
+.ta{min-height:96px;resize:vertical;line-height:1.5}
+.ta.code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;min-height:340px}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.form .full{grid-column:1/-1}
+@media (max-width:760px){.form{grid-template-columns:1fr}}
+.up{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.up img{width:220px;aspect-ratio:21/9;object-fit:cover;border-radius:5px;background:#000}
+.up input[type=file]{font-size:13px;color:#bbb}
+.chk{display:flex;gap:8px;align-items:center;font-size:14px;font-weight:600}
+.mg-card{background:#121212;border:1px solid #242424;border-radius:10px;padding:clamp(16px,3vw,28px)}
+.mg-card h2{margin:0 0 16px;font-size:20px;font-weight:800}
+.login{max-width:420px;margin:12vh auto 0;background:#141414;border:1px solid #262626;border-radius:10px;padding:28px;display:grid;gap:14px}
+.login h1{font-size:26px}
+.login p{margin:0;color:var(--muted);font-size:14px}
+.err{color:#ff8a8a;font-size:13.5px;min-height:18px}
+.steps{margin:0;padding-left:20px;display:grid;gap:10px;color:var(--soft);font-size:15px}
+.steps code{background:#222;padding:2px 6px;border-radius:4px;font-size:13px}
+.draftpill{position:fixed;left:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);z-index:90;display:flex;gap:10px;align-items:center;background:#1c1c1c;border:1px solid #e5b33d;color:#fff;font-size:13px;font-weight:700;padding:9px 14px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.draftpill i{width:8px;height:8px;border-radius:50%;background:#e5b33d}
+</style>
+
+<div class="bglight" aria-hidden="true"></div>
+<div class="intro" id="intro" aria-hidden="true"><div class="intro-mark">ANS ALI</div><div class="intro-sub">presents</div></div>
+
+<header class="nav" id="nav">
+  <a class="logo" href="#home" aria-label="Ans Ali, home">ANS ALI</a>
+  <nav class="links" aria-label="Main">
+    <a href="#home" data-nav="home">Home</a>
+    <a href="#home" data-jump="concepts">Concepts</a>
+    <a class="hm" href="#home" data-jump="films">Films</a>
+    <a class="hm" href="#home" data-jump="cafe">Café Stories</a>
+    <a href="#about" data-nav="about">About</a>
+  </nav>
+  <div class="nav-r">
+    <a class="cta-s" href="#home" data-jump="contact">Contact</a>
+    <a class="avatar" href="#about" aria-label="About Ans Ali"><img src="img/ans.webp" alt=""></a>
+  </div>
+</header>
+
+<main id="app"></main>
+<div class="pop" id="pop"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Title details"><div class="sheet" id="sheet"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+/* =====================================================================
+   DEFAULT CONTENT. The live site loads data.json when it exists, which
+   the manager exports. This copy is the fallback.
+   ===================================================================== */
+const DEFAULT = {
+  version:2,
+  managerHash:"",
+  settings:{
+    email:"legionxlight23@gmail.com",
+    linkedin:"https://www.linkedin.com/in/ans-ali",
+    makerTitle:"Details are the film.",
+    makerBio:"I am an AI filmmaker and story director. I have built and grown narrative channels from zero, directed original short films, and produced commercial work for brands. Every project rests on one belief: an audience decides whether to trust a story in its smallest details.",
+    stats:[["20K+","Café Stories subscribers"],["20+","Films and episodes produced"],["4","YouTube channels built"],["10+","AI tools in one pipeline"]],
+    knownFor:"Café Stories, The Drawing, Viktor Reconstructions",
+    brands:"BizFocus AI, One Regimen, TRW spec commercial"
+  },
+  concepts:[
+  {
+    id:"unforsaken", title:"Unforsaken", flagship:true, hidden:false, year:"2026", img:"img/unforsaken.webp", imgSm:"img/unforsaken-sm.webp",
+    genre:"Survival Drama", tags:["Survival","Faith","Historical","Suspense"], moods:"Harrowing, hopeful, intense", runtime:"18 to 25 min",
+    logline:"When every door closes, one remains.",
+    synopsis:"In the old world, one person is stripped of everything and pushed to the very edge. Then help arrives from the one direction nobody expected.",
+    statement:"Each film throws one person into a nightmare, and keeps making it worse.",
+    prose:["Every time it seems nothing more can go wrong, something does. The audience should feel the horror and ask the question the film is really about: what would I do?","Then, at the very edge, with every exit shut, help arrives from the one direction nobody expected. Never magic. Always logical. Only at the end do we understand it was never chance.","The final image stays alive on screen. Over it, the ayah is heard in voiceover and its words appear. The film never preaches. The verse arrives as the answer to everything the audience has just felt."],
+    why:[["Survival is universal","Trapped, buried, lost or forgotten. Every viewer understands the fear, with no background knowledge needed."],["Faith is the payoff","The verse is the reveal, not the premise, so it lands with the full weight of the story."],["Built for retention","Escalating jeopardy keeps viewers to the final minute, which is exactly where the message lives."]],
+    verse:{ar:"وَمَن يَتَّقِ ٱللَّهَ يَجْعَل لَّهُۥ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ",en:"Whoever is mindful of Allah, He will make a way out for him, and provide for him from where he does not expect.",ref:"At-Talaq 65:2-3 · The spine of the series"},
+    shape:true,
+    laws:[["Historical, fictional people","No prophets or companions on screen."],["Act one plants a seed","One small act of goodness or faith that seems unimportant."],["Act two takes everything","The fall, then problem stacked on problem."],["Mercy in small doses","Just enough to survive to the next problem."],["The edge","The worst moment, with every exit closed."],["The door","Unexpected, but logical. Often the thing he feared, or the seed from act one."],["The verse ends it","A living final shot, the ayah in voiceover, its words on screen."]],
+    doors:[
+      {t:"The Well",era:"Arabia, 1100s",len:22,descent:"Betrayed by his partners and thrown into a dry well. His leg breaks. No water, a snake in the dark, a sandstorm burying the opening, and wolves circling the rim.",edge:"His voice is gone. The sand keeps falling.",door:"A flash flood. The water he thinks will drown him rises, and rises, and lifts him to the rim.",verse:"Indeed, with hardship comes ease.",ref:"Ash-Sharh 94:5-6"},
+      {t:"The Grave",era:"Damascus, 1000s",len:24,descent:"A sudden sickness leaves him in a deathlike sleep. His family mourns him, washes him and buries him. He wakes in the dark beneath the earth, and the air is running out.",edge:"He stops clawing at the earth. He begins to pray.",door:"Grave robbers, digging that same night for his shroud and rings. The worst of men are the ones who pull him out.",verse:"Do not despair of relief from Allah.",ref:"Yusuf 12:87"},
+      {t:"The Chain",era:"Mediterranean, 1500s",len:21,descent:"A fisherman captured at sea and chained to an oar as a galley slave. Whipped and starved for years. In battle, the ship burns and sinks with him locked to it.",edge:"The water closes over him, still chained.",door:"The oar breaks free and floats. The chain he cursed for years keeps him bound to it, unconscious, until the current carries him ashore.",verse:"And He will provide for him from where he does not expect.",ref:"At-Talaq 65:3"},
+      {t:"The Snow",era:"Hindu Kush, 1300s",len:23,descent:"A messenger crossing the mountains in winter. His horse dies, an avalanche buries him alive, and frostbite takes his fingers. Above him, wolves are digging toward the scent of his horse.",edge:"He hears them coming closer through the snow.",door:"The wolves break through the crust above him. The predators he feared are what set him free.",verse:"Perhaps you dislike a thing and it is good for you.",ref:"Al-Baqarah 2:216"},
+      {t:"The Siege",era:"Baghdad, 1258",len:25,descent:"A mother and her infant as the Mongols sack the city. She hides among the dead as fire spreads. The baby begins to cry, and a soldier walks the bodies, testing them with a spear.",edge:"The spear stops beside her.",door:"A Christian neighbor she once helped shelters her in a church. Historically, Christians who took refuge in a Baghdad church were spared. Her small kindness returns as her only door.",verse:"Unquestionably, the help of Allah is near.",ref:"Al-Baqarah 2:214"},
+      {t:"The Dungeon",era:"Aleppo, 1130s",len:22,descent:"Imprisoned for a crime he did not commit and forgotten for years. His tunnel collapses, his cellmate dies beside him, and the guards stop bringing food.",edge:"He has stopped counting the days.",door:"The great earthquake of 1138 cracks the prison wall open.",verse:"Whoever is mindful of Allah and patient, Allah does not let the reward of those who do good be lost.",ref:"Yusuf 12:90"}
+    ],
+    anatomy:[["Ordinary life",3],["The fall",3],["The descent",8],["The edge",4],["The door",3],["The ayah",1]],
+    palette:[["Pit","#0a0806"],["Earth","#3b2a1a"],["Sand light","#c9a46a"],["Dried blood","#6e1f17"],["Shaft","#f1e8d6"]],
+    look:[["Camera","Tight and physical through the struggle. One wide frame at the edge, so the audience feels how alone he is."],["Light","Hard single sources: a shaft of sun, a lantern, moonlight on snow. Darkness is a character."],["Sound","Breath, heartbeat, wind and earth. The score is held back until the door opens."],["Ending","Never a black screen. The ayah plays over a living final shot, with its text on screen."]],
+    rules:["No death and no afterlife endings. Every film ends in survival.","The rescue is physically plausible and quietly set up earlier in the film.","Every verse is quoted accurately, with surah and ayah on screen.","Injury and fear are felt, never exploited.","No prophets or companions on screen. Protagonists are fictional people in real eras.","Every script passes scholar review before production."]
+  },
+  {
+    id:"i-was-there", title:"I Was There", hidden:false, year:"2026", img:"img/i-was-there.webp", imgSm:"img/i-was-there-sm.webp",
+    genre:"Cinematic Anthology", tags:["Epic","Sacred History","Spectacle"], moods:"Awe-inspiring, reverent, immersive", runtime:"10 to 14 min",
+    logline:"Islamic history, narrated by the things that saw it happen.",
+    synopsis:"The sea that parted. The fire that turned cool. The cave where the first word was revealed. Sacred moments told in first person by the witnesses that never left.",
+    statement:"Some moments were too sacred to film, and too powerful to forget.",
+    prose:["I Was There tells them through the only witnesses that never left: the sea, the fire, the stone, the cave. Each episode is narrated in the first person by an object or place that stood at the center of history.","We never show the prophets. We show what they saw, what they touched, and what changed forever after. The camera becomes the witness, and the audience stands exactly where history happened."],
+    why:[["The rule becomes the style","Prophets are never depicted, so the format is built on point of view, absence and environment."],["Instantly recognizable","Audiences already know these stories. The new angle is what makes them stop scrolling."],["Spectacle at scale","Walls of water and colossal fires are exactly where AI filmmaking outperforms a traditional budget."]],
+    episodes:[["I Am the Sea","The Red Sea, the night it was commanded to split for Musa and close on Pharaoh's army.","Ash-Shu'ara 26:63",12],["I Am the Fire","The fire built for Ibrahim, so vast that birds could not fly over it, and the moment it was told to be cool.","Al-Anbiya 21:69",13],["I Am the Whale","The darkness inside, the voice praying within it, and the shore where it was finally released.","As-Saffat 37:139-146",11],["I Am the Cave","Hira, on the night the first word was revealed: Iqra.","Al-Alaq 96:1-5",12],["I Am the Elephant","Mahmud, the lead elephant of Abraha's army, who knelt and refused to march on the Kaaba.","Al-Fil 105",12],["I Am the Stone","The Black Stone. Kissed by the Prophet ﷺ, stolen in 930, broken, and returned after twenty two years.","Historical record",14],["I Am the Chain","The great chain across Constantinople's harbor, the night Sultan Mehmed's ships were dragged over the hills around it.","Constantinople, 1453",13]],
+    anatomy:[["Cold open",1],["The witness wakes",2],["The world before",3],["The moment",4],["The aftermath",1.5],["Verse and sources",0.5]],
+    palette:[["Abyss","#0b1a24"],["Deep teal","#1f4a5c"],["Moonlight","#c9d6dc"],["Torch","#e08a3c"],["Void","#0a0a0c"]],
+    look:[["Camera","Low, immersive angles from the witness's position. The lens sits where the object sits."],["Light","Practical sources only: moon, fire, torchlight."],["Sound","One intimate narrator voice against enormous natural sound."]],
+    rules:["No prophet or companion is ever shown, voiced, or detailed in silhouette.","Every Quranic reference appears on screen with surah and ayah.","Narration is reviewed by a qualified scholar before production.","Where history is uncertain, the witness says so."]
+  },
+  {
+    id:"stories-he-told", title:"Stories He Told", hidden:false, year:"2026", img:"img/stories-he-told.webp", imgSm:"img/stories-he-told-sm.webp",
+    genre:"Short Film Anthology", tags:["Drama","Parables","Hadith"], moods:"Emotional, intimate, moving", runtime:"8 to 12 min",
+    logline:"The parables the Prophet ﷺ told, brought to life as cinema.",
+    synopsis:"Trapped men, desperate sinners, tested souls. Stories preserved for fourteen centuries in authentic hadith, filmed as full dramatic shorts for the first time.",
+    statement:"The Prophet ﷺ was a storyteller, and almost none of his stories has ever been filmed.",
+    prose:["He spoke of trapped men, desperate sinners, tested souls and impossible faith. These stories have been preserved for fourteen centuries in authentic hadith.","Stories He Told turns them into short films with full characters, dialogue and drama. The characters are ordinary people, so we can show their faces, their fear and their choices.","Every film closes on the hadith itself, so the audience knows exactly who first told it."],
+    why:[["Untouched material","Some of the most dramatic stories in Islam have never been adapted. There is no competition on this shelf."],["Full drama is permitted","Ordinary people as characters means performance, faces and dialogue, without crossing any line."],["Teaches without preaching","The lesson arrives through the story. The hadith at the end lands as a revelation."]],
+    episodes:[["The Boulder","Three men are trapped in a cave by a falling rock. Each prays by the one sincere deed of his life, and the stone moves a little with every prayer.","Sahih al-Bukhari, Sahih Muslim",10],["The Ninety-Nine","A man who has killed ninety-nine people walks across the land looking for a way back to God.","Sahih al-Bukhari, Sahih Muslim",11],["The Test","A leper, a bald man and a blind man are each given everything. Years later, a stranger comes asking for help.","Sahih al-Bukhari, Sahih Muslim",12],["The Boy and the King","A boy the king cannot kill, and the one way he tells the king it can be done.","Sahih Muslim",9],["Juraij","A devoted monk is falsely accused by an entire town, until an infant speaks to clear his name.","Sahih al-Bukhari, Sahih Muslim",10],["The Debt at Sea","A man borrows a fortune, cannot find a ship to repay it, and throws the money into the ocean sealed inside a piece of wood.","Sahih al-Bukhari",9]],
+    anatomy:[["Cold open",1],["The ordinary life",2],["The trial",3.5],["The choice",2],["The resolution",1],["The hadith",0.5]],
+    palette:[["Umber","#2a1608"],["Lamp","#7a4316"],["Amber","#d99a4e"],["Steel","#3b5566"],["Night","#0d0b0a"]],
+    look:[["Camera","Intimate close-ups at the moment of choice. Wide, still frames for consequence."],["Light","Chiaroscuro. Oil lamps and slivers of daylight carving faces out of darkness."],["Sound","Performance first. A sparse score that enters only at the turn."]],
+    rules:["Only parables from authentic collections, with the source on screen.","Story beats stay faithful to the narration. Invention is limited to setting, costume and supporting dialogue.","The closing hadith is given in translation with its reference.","Scholar review on every script."]
+  },
+  {
+    id:"cold-case", title:"Cold Case: Ummah", hidden:false, year:"2026", img:"img/cold-case.webp", imgSm:"img/cold-case-sm.webp",
+    genre:"Investigative Thriller", tags:["Mystery","True History","Thriller"], moods:"Suspenseful, cerebral, gripping", runtime:"18 to 24 min",
+    logline:"The unsolved mysteries of the Muslim world, reopened.",
+    synopsis:"A vanished fleet of 2,000 ships. A tomb opened days before a world war. A lost map of Columbus hidden inside an Ottoman one. Real cases, real twists, told like a thriller.",
+    statement:"History is full of unanswered questions, and some of the greatest belong to the Muslim world.",
+    prose:["Cold Case: Ummah reopens them one file at a time. Every episode moves like a thriller: a hook, the evidence, the turn, and a reveal that changes what you thought you knew.","Every twist comes from the real historical record. Nothing is invented, because the truth is already stranger than fiction."],
+    why:[["A proven appetite","True crime and mystery are among the most watched documentary forms online."],["Twists that are real","Every reveal is drawn from the historical record, so it is both gripping and defensible."],["Years of supply","From Mali to Samarkand to Naples, there are centuries of open files."]],
+    cases:[
+      {t:"The Sultan Who Sailed West",id:"Mali, 1311",len:22,hook:"A king of Mali gives up his throne to find the end of the Atlantic.",turn:"His first fleet of 200 ships vanishes. A single captain returns, describing a river in the middle of the ocean that swallowed the rest.",twist:"The king does not stop. He sets out himself with 2,000 ships, and is never seen again.",reveal:"The only account of the voyage comes from the man who inherited his throne: Mansa Musa, the richest man in history. Was he telling the truth, or the story that made him king?",src:"Recorded by al-Umari from Mansa Musa's own account"},
+      {t:"The Tomb of Timur",id:"Samarkand, 1941",len:20,hook:"June 1941. Soviet scientists open the tomb of Timur, despite warnings of a curse.",turn:"Within days, Germany invades the Soviet Union. Tens of millions will die.",twist:"Late in 1942, Timur is reburied with full Islamic rites. Within weeks, the tide turns at Stalingrad.",reveal:"The skeletons confirmed what legend had claimed for five centuries: Timur really was lame, and his grandson Ulugh Beg really had been beheaded on his own son's orders.",src:"Gerasimov expedition records. The curse is presented as legend"},
+      {t:"The Admiral's Map",id:"Istanbul, 1929",len:21,hook:"Workers converting Topkapi Palace into a museum find a 400 year old map drawn on gazelle skin.",turn:"The world claims it shows Antarctica centuries before its discovery.",twist:"The real secret is in the admiral's notes. He built it from about twenty sources, including a map drawn by Christopher Columbus that has never been found.",reveal:"Its maker, Piri Reis, the greatest navigator of his empire, was later executed by that same empire, in his eighties.",src:"Piri Reis map, 1513, Topkapi Palace Library"},
+      {t:"The Peacock Throne",id:"Delhi, 1739",len:19,hook:"Shah Jahan's throne took seven years to build and was worth more than the Taj Mahal.",turn:"In 1739 Nader Shah sacks Delhi and carries it away to Persia.",twist:"Eight years later Nader Shah is assassinated in his tent, and in the chaos the throne disappears.",reveal:"The throne later shown in Iran under the same name is a different throne. The original was most likely broken apart, and the Koh-i-Noor, taken in the same plunder, now sits in the British Crown Jewels.",src:"Mughal and Persian court chronicles"},
+      {t:"The Prince Who Was Sold",id:"Naples, 1495",len:23,hook:"1481. An Ottoman prince loses a war for the throne to his brother and flees to Europe.",turn:"The Christian powers treat him as a weapon against the Ottomans. He becomes the Pope's most valuable prisoner.",twist:"His own brother, the Sultan, pays the Pope a fortune every year to keep him locked away.",reveal:"In 1495, in Naples, he dies suddenly at thirty five. The rumors point to poison, and to the Borgias.",src:"Ottoman and Vatican records of Cem Sultan"}
+    ],
+    anatomy:[["Hook",2],["Case file",4],["The turn",4],["The twist",5],["Final reveal",4],["Case status",1]],
+    palette:[["Noir","#0a0a0a"],["Archive","#3b2a14"],["Lamp gold","#c89b52"],["Thread red","#b3261e"],["Paper","#e8e2d4"]],
+    look:[["Camera","Top-down evidence tables, slow push-ins on documents, reconstructions as desaturated flashbacks."],["Light","Single tungsten pools against deep black."],["Sound","Ticking, paper, low synth pulses. Silence before every reveal."]],
+    rules:["Every twist is sourced from the historical record, with the source on screen.","Legend is labeled as legend. A curse is never presented as fact.","Open questions stay open. We never invent a solution.","Fact-checked against primary and academic sources."]
+  },
+  {
+    id:"bab-ul-islam", title:"Bab-ul-Islam", hidden:false, year:"2026", img:"img/bab-ul-islam.webp", imgSm:"img/bab-ul-islam-sm.webp",
+    genre:"Historical Epic", tags:["History","South Asia","Epic"], moods:"Majestic, unflinching, moving", runtime:"15 to 20 min",
+    logline:"How Islam entered South Asia, and the darkest chapters the Ummah has lived through.",
+    synopsis:"Season one follows the light: the arrival of Islam through Sindh and the civilization it built. Season two follows the dark: the tragedies Muslims have lived through, told without softening.",
+    statement:"Islam entered South Asia through Sindh, the land later called the Gate of Islam.",
+    prose:["This is our history, told in two seasons. The Light follows the arrival of Islam and the civilization it built. The Dark follows the darkest chapters Muslims have lived through.","A people that forgets its tragedies repeats them. Bab-ul-Islam remembers both, so the audience understands what was built, what was lost, and why."],
+    why:[["A story with a home","Almost everyone makes Arabia content. Almost nobody makes South Asia's Islamic history at this level."],["Range in one brand","Pride and wonder in one season, grief and reckoning in the next."],["Unseen by the world","Debal, Mansura and Makli are as cinematic as Rome, and almost unknown."]],
+    seasonNames:["Season 1: The Light","Season 2: The Dark"],
+    light:[["Debal, 711","Muhammad bin Qasim's fleet lands near what is now Karachi, and a new chapter of the subcontinent begins.","711 CE",18],["Mansura","The lost Arab capital of Sindh, rebuilt from its ruins at the height of its life.","8th to 11th century",17],["Makli","One of the largest necropolises on earth, reconstructed as it stood, with the dynasties beneath it.","14th to 18th century",16]],
+    dark:[["The Year the Kaaba Bled","The Qarmatians attack Makkah during Hajj, kill pilgrims inside the Haram, throw bodies into Zamzam and carry away the Black Stone.","930 CE",19],["Delhi, 1739","Nader Shah orders a massacre, and tens of thousands die in a single day. Muslim against Muslim.","1739",18],["The Bloody Gate","After the revolt fails, the British hunt Delhi. The Mughal princes are shot at a gate still called the Khooni Darwaza.","1857",17],["The Last of Andalusia","The Moriscos, Muslims forced to convert, are expelled from Spain entirely. Eight centuries end.","1609",16],["The Trains of 1947","Partition, through the eyes of the passengers on the trains that arrived carrying the dead.","1947",20]],
+    darkNote:"Karbala and 1971 belong among the darkest chapters, but given their sectarian and political weight, they enter the series only by mutual agreement.",
+    anatomy:[["Cold open",1.5],["Context",4],["The event",7],["The aftermath",4],["Legacy",1.5]],
+    palette:[["Honey","#e9c46a"],["Sandstone","#c4892f"],["Sea mist","#6b8f9e"],["Ash","#3a3a3c"],["Dried red","#7c1d1d"]],
+    look:[["Camera","The Light: sweeping aerials and warm, wide compositions. The Dark: grounded and handheld."],["Light","Golden dawn for the Light. Smoke-filtered, desaturated daylight for the Dark."],["Sound","Regional instruments for the Light. Near silence for the Dark."]],
+    rules:["Violence is implied, never graphic.","Every chapter rests on historians' sources, with competing accounts acknowledged.","No sectarian framing. Victims are honored, never used.","Sensitive chapters are reviewed with you before scripting."]
+  },
+  {
+    id:"ayah", title:"Ayah", hidden:false, year:"2026", img:"img/ayah.webp", imgSm:"img/ayah-sm.webp",
+    genre:"Nature Documentary", tags:["Nature","Reflection","Quran"], moods:"Calm, beautiful, contemplative", runtime:"6 to 9 min",
+    logline:"One verse. One wonder of creation. Filmed like the finest nature documentaries on earth.",
+    synopsis:"The Quran tells us to look: at the bee, the spider, the rain, the sea. Ayah looks, in macro, slow motion and silence, until the verse arrives.",
+    statement:"Fourteen centuries ago, the Quran told people to look.",
+    prose:["At the bee, the spider, the rain, the sea. Ayah is that instruction turned into cinema.","Each episode is built around a single verse and filmed with the ambition of the world's best natural history series. Very little narration, no lectures. Just the verse, the world it describes, and time to reflect.","The aim is wonder, never overclaimed science."],
+    why:[["The most shareable format","Short, beautiful and calm. Built to be shared, saved and replayed."],["Reflection over claims","We avoid the scientific miracle style. The verse invites looking, and the film looks."],["Evergreen","Nature does not date. Every episode keeps earning views for years."]],
+    episodes:[["The Bee","The creature inspired by its Lord to build its homes and make honey that heals.","An-Nahl 16:68-69",8],["The Weakest House","The spider's web: an engineering marvel the Quran calls the frailest of homes.","Al-Ankabut 29:41",7],["Darkness Upon Darkness","The deep ocean, waves beneath waves, where a hand held out can hardly be seen.","An-Nur 24:40",9],["The Barrier","Two seas that meet but do not mix.","Ar-Rahman 55:19-20",6],["The Dead Earth","Desert, then rain, then life rising out of what looked finished.","Ar-Rum 30:50",7],["The Camel","Do they not look at the camel, how it was created?","Al-Ghashiyah 88:17",8]],
+    anatomy:[["Silence",1],["Observation",3],["The detail",2],["The verse",1],["Reflection",1]],
+    palette:[["Honey","#f2b632"],["Amber","#a86a12"],["Deep sea","#0e2a47"],["Turquoise","#2bb3a8"],["Black","#060606"]],
+    look:[["Camera","Macro, high speed and aerial. Patient holds. The subject decides when the shot ends."],["Light","Natural light, backlit so subjects glow from within."],["Sound","Nature first, then a single recitation of the verse with translation."]],
+    rules:["Verses are quoted accurately with translation and reference.","No overstated scientific claims. Reflection, not proof.","Recitation by a qualified reciter.","All Arabic calligraphy is checked by an Arabic specialist before release."]
+  },
+  {
+    id:"the-other-side", title:"The Other Side", hidden:false, year:"2026", img:"img/the-other-side.webp", imgSm:"img/the-other-side-sm.webp",
+    genre:"Historical Drama", tags:["Drama","History","Redemption"], moods:"Bold, provocative, powerful", runtime:"12 to 16 min",
+    logline:"Famous turning points in Islamic history, told by the people who stood against them.",
+    synopsis:"Pharaoh's magician. Abraha's elephant handler. A Mongol in burning Baghdad. A Crusader in Jerusalem. The story you know, from the side you have never seen.",
+    statement:"Every great story in Islamic history had people on the wrong side of it.",
+    prose:["Soldiers who followed orders, servants of tyrants, men who came to destroy. The Other Side tells famous events through their eyes.","The audience stands with the enemy and watches the moment the truth reaches them. The story you know becomes the story you have never seen."],
+    why:[["A twist built in","Viewers know how it ends. They have never watched it from this side."],["Moral weight","Conversion, doubt, mercy, defiance. Every episode turns on one human decision."],["A conversation starter","The format that fills comment sections, without compromising belief."]],
+    episodes:[["The Magician","A sorcerer in Pharaoh's court prepares for the contest of his life. By sunset he and his fellow magicians have believed, and Pharaoh promises to crucify them all.","Ta-Ha 20:70-73",15],["The Handler","The man who drove Abraha's lead elephant toward Makkah, and watched it kneel.","Al-Fil 105",13],["The Fire of Baghdad","A young Mongol soldier helps burn the greatest city on earth in 1258. Within decades, his own rulers embrace the faith he came to destroy.","Baghdad, 1258",16],["The Crusader","Jerusalem, 1187. A Crusader waits for Salahuddin's army, expecting the massacre his grandfather took part in during 1099. Instead, he receives mercy.","Jerusalem, 1099 and 1187",14]],
+    anatomy:[["Cold open",1],["Inside the enemy",4],["The confrontation",4],["The breaking point",3],["The choice",2]],
+    palette:[["Sun bleach","#e6d3a3"],["Gold","#b8892f"],["Shadow","#2b2118"],["Steel","#5b6b73"],["Black","#0b0907"]],
+    look:[["Camera","Locked to the enemy's eye line. We see the believers only as he sees them, until he changes."],["Light","Harsh light on power. Warmer, softer light arrives with the turn."],["Sound","The empire is loud. Belief arrives in quiet."]],
+    rules:["Prophets are never shown, even from the enemy's view. Their presence is felt through reactions.","Fictional protagonists are placed inside documented events.","The enemy is human, never a cartoon, and never glorified.","Scholar review on every script."]
+  }],
+  rows:[
+    {id:"films",title:"Original Films",sub:"Written and directed by Ans Ali",label:"Short film",channel:"",credit:"Written and directed by",size:"big",genres:["Original","Cinematic"],hidden:false,items:[
+      {id:"drawing",t:"The Drawing",img:"img/work/drawing.webp",g:["Horror","Psychological"],d:"A primary school teacher keeps finding the same figure in her pupils' drawings. An original AI horror short in the prestige horror tradition, with one lead character held from the first frame to the last.",hidden:false}
+    ]},
+    {id:"cafe",title:"Café Stories",sub:"Classic detective mysteries · 20K+ subscribers",label:"Café Stories",channel:"Café Stories, 20K+ subscribers",credit:"Produced by",size:"std",genres:["Mystery","Classic detective","Series"],hidden:false,items:[
+      {id:"poppy",t:"Murder at Poppy Field Farm",img:"img/work/poppy.webp",d:"A body in the poppies, and a village that knows more than it says. A cinematic AI hook with full creative control over concept, storyboard and shots.",hidden:false},
+      {id:"letter",t:"A Letter From the Dead",img:"img/work/letter.webp",d:"A letter arrives in a hand that should have stopped writing years ago.",hidden:false},
+      {id:"vanishing",t:"The Vanishing Lady of Elmhurst",img:"img/work/vanishing.webp",d:"A woman walks into Elmhurst and never walks out.",hidden:false},
+      {id:"sloane",t:"The Shadow Over Sloane Street",img:"img/work/sloane.webp",d:"Something follows the residents of Sloane Street home at night.",hidden:false},
+      {id:"dove",t:"The Last Guest at Dove Cottage",img:"img/work/dove.webp",d:"One guest too many at Dove Cottage, and one fewer by morning.",hidden:false},
+      {id:"will",t:"A Will Written in Pencil",img:"img/work/will.webp",d:"A fortune left in pencil, and a family ready to rub it out.",hidden:false},
+      {id:"perfumer",t:"The Perfumer of Portobello",img:"img/work/perfumer.webp",d:"A scent that lingers long after the crime.",hidden:false},
+      {id:"heiress",t:"The Heiress of Hyde Park Gate",img:"img/work/heiress.webp",d:"An heiress, a locked house, and too many people who want what is inside.",hidden:false},
+      {id:"duchess",t:"Duchess in Disguise",img:"img/work/duchess.webp",d:"A duchess hides in plain sight, until someone sees through the mask.",hidden:false},
+      {id:"diplomat",t:"The Diplomat and the Dying Lark",img:"img/work/diplomat.webp",d:"A diplomat's secret, and the songbird that gave it away.",hidden:false},
+      {id:"blackswan",t:"The Black Swan of Bloomsbury",img:"img/work/blackswan.webp",d:"A quiet square in Bloomsbury, and the one woman who did not belong.",hidden:false}
+    ]},
+    {id:"history",title:"Viktor Reconstructions",sub:"History, rebuilt with AI",label:"Viktor Reconstructions",channel:"Viktor Reconstructions",credit:"Produced by",size:"std",genres:["History","Reconstruction"],hidden:false,items:[
+      {id:"london",t:"London, 410 to 1485",img:"img/work/london.webp",d:"A thousand years of London rebuilt with AI, from the end of Roman rule to the close of the medieval city.",hidden:false},
+      {id:"egypt",t:"From River to Pyramid",img:"img/work/egypt.webp",d:"The rise of Egypt, from farming villages on the Nile to the age of the pyramids, reconstructed shot by shot.",hidden:false},
+      {id:"edinburgh",t:"Edinburgh: The City Above the Land",img:"img/work/edinburgh.webp",d:"Edinburgh rising on its ridge of rock across the centuries, rebuilt street by street.",hidden:false}
+    ]},
+    {id:"retro",title:"Retro Tomorrow",sub:"Retro-futuristic jazz, visualized",label:"Retro Tomorrow",channel:"Retro Tomorrow",credit:"Produced by",size:"std",genres:["Retro-futurism","Jazz","Visual album"],hidden:false,items:[
+      {id:"sanfrancisco",t:"The High Altitude Dinner Party",img:"img/work/sanfrancisco.webp",d:"A dinner party floating above 1955 San Francisco, set to slow retro-futuristic jazz.",hidden:false},
+      {id:"starlight",t:"Starlight Skyline",img:"img/work/starlight.webp",d:"A chrome city after dark, lit by neon and starlight, with jazz drifting from the lounges.",hidden:false},
+      {id:"midnight",t:"Midnight Train to Tomorrow",img:"img/work/midnight.webp",d:"A night journey on a train bound for the future, as the 1950s imagined it.",hidden:false}
+    ]}
+  ]
+};
+
+/* =====================================================================
+   STATE: published data (data.json or default), plus a draft that only
+   exists in the manager's own browser until it is exported.
+   ===================================================================== */
+const clone = o=>JSON.parse(JSON.stringify(o));
+let PUB = clone(DEFAULT);
+let SITE = PUB;
+let hasDraft = false;
+const DKEY = "aap-draft-v2";
+function loadDraft(){ try{ const s=localStorage.getItem(DKEY); if(s){ SITE=JSON.parse(s); hasDraft=true; } }catch(e){} }
+function saveDraft(){ try{ localStorage.setItem(DKEY, JSON.stringify(SITE)); hasDraft=true; }catch(e){ toast("This browser blocked saving. Export now to keep your changes."); } updateDraftPill(); }
+function discardDraft(){ try{ localStorage.removeItem(DKEY); }catch(e){} SITE=clone(PUB); hasDraft=false; updateDraftPill(); }
+
+const SV = {
+  play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4v16a1 1 0 0 0 1.5.86l13-8a1 1 0 0 0 0-1.72l-13-8A1 1 0 0 0 6 4Z"/></svg>',
+  info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.5"/></svg>',
+  down:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg>',
+  plus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>',
+  l:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 5-7 7 7 7"/></svg>',
+  r:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 5 7 7-7 7"/></svg>',
+  x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+  ok:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>'
+};
+
+/* =================== HELPERS =================== */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
+const concepts=()=>SITE.concepts.filter(c=>!c.hidden);
+const byId=id=>SITE.concepts.find(c=>c.id===id);
+const cimg=(c,sm)=>sm?(c.imgSm||c.img):c.img;
+const rows=()=>SITE.rows.filter(r=>!r.hidden && r.items.some(i=>!i.hidden));
+function findWork(id){ for(const r of SITE.rows){ const w=r.items.find(x=>x.id===id); if(w) return {w,r}; } return null; }
+function shade(i,n){ return `hsl(${358-i*2} ${78-i*6}% ${58-i*(34/Math.max(n-1,1))}%)`; }
+const RESERVED=["home","about","manager","contact"];
+function slug(s,taken){ let b=String(s).toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"item"; if(RESERVED.includes(b)) b+="-1"; let k=b,n=2; while(taken.includes(k)) k=b+"-"+(n++); return k; }
+function allIds(){ return SITE.concepts.map(c=>c.id).concat(...SITE.rows.map(r=>r.items.map(i=>i.id)),SITE.rows.map(r=>r.id)); }
+function epCount(c){ return c.cases?c.cases.length:c.doors?c.doors.length:c.light?(c.light.length+(c.dark||[]).length):(c.episodes||[]).length; }
+
+/* =================== VIEWS =================== */
+function rowHTML(key,title,sub,items,kind,size){
+  return `<section class="row rv" id="row-${esc(key)}" aria-label="${esc(title)}">
+    <div class="row-h"><h2>${esc(title)}</h2>${sub?`<span class="sub">${esc(sub)}</span>`:""}</div>
+    <button class="arrow l" type="button" aria-label="Scroll left">${SV.l}</button>
+    <div class="track">${items.map(it=>tileHTML(it,kind,size)).join("")}</div>
+    <button class="arrow r" type="button" aria-label="Scroll right">${SV.r}</button>
+  </section>`;
+}
+function tileHTML(it,kind,size){
+  if(kind==="concept") return `<a class="tile ${size}" href="#${esc(it.id)}" data-kind="concept" data-id="${esc(it.id)}" aria-label="${esc(it.title)}"><img src="${esc(cimg(it,true))}" alt="${esc(it.title)} key art" loading="lazy"><span class="flag">${it.flagship?"Flagship":"New"}</span></a>`;
+  return `<button type="button" class="tile ${size}" data-kind="work" data-id="${esc(it.id)}" aria-label="${esc(it.t)}"><img src="${esc(it.img)}" alt="${esc(it.t)} poster" loading="lazy"></button>`;
+}
+function statsHTML(){ return `<div class="stats">${SITE.settings.stats.map(s=>{ const m=String(s[0]).match(/^(\d+)(.*)$/); return `<div class="stat"><b ${m?`data-count="${m[1]}" data-suf="${esc(m[2])}"`:""}>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`; }).join("")}</div>`; }
+
+function viewHome(){
+  const cs=concepts();
+  const bill = cs.length?`
+  <section class="bill" id="bill" aria-label="Featured concept">
+    <div class="bill-stage">${cs.map((c,i)=>`<img src="${esc(c.img)}" alt="" class="${i===0?"on":""}" ${i?'loading="lazy"':""}>`).join("")}</div>
+    <div class="bill-info"><div id="billText"></div>
+      <div class="bill-thumbs" role="tablist" aria-label="Concepts">${cs.map((c,i)=>`<button type="button" class="bt ${i===0?"on":""}" role="tab" aria-label="${esc(c.title)}"><img src="${esc(cimg(c,true))}" alt=""><i></i></button>`).join("")}</div>
+    </div>
+  </section>${rowHTML("concepts",`${cs.length} Original Concept${cs.length===1?"":"s"}`,"Proposed for your channel",cs,"concept","wide")}`:`<div style="height:120px"></div>`;
+  return `${bill}
+  <section class="band rv" style="border-top:0;padding-bottom:clamp(20px,3vw,36px)">
+    <div class="band-h"><span class="kick">Before the pitch</span><h2>The work behind the concepts.</h2><p>Every concept above is made the way these were: researched, written, designed and directed end to end. Hover any title to preview it.</p></div>
+  </section>
+  ${rows().map(r=>rowHTML(r.id,r.title,r.sub,r.items.filter(i=>!i.hidden),"work",r.size||"std")).join("")}
+  <section class="band" id="maker-band">
+    <div class="maker">
+      <div class="maker-img rv"><img src="img/ans.webp" alt="Portrait of Ans Ali" loading="lazy"><span>Ans Ali</span></div>
+      <div class="rv">
+        <span class="kick">The filmmaker</span>
+        <div class="band-h" style="margin:12px 0 0"><h2>${esc(SITE.settings.makerTitle)}</h2><p>${esc(SITE.settings.makerBio)}</p></div>
+        ${statsHTML()}
+        <div class="btns" style="margin-top:24px"><a class="btn btn-w" href="#about">${SV.info}Full profile</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="band-h rv"><span class="kick">Our standards</span><h2>Cinematic, and credible.</h2><p>Four rules apply to every concept, so the channel can carry its name with confidence.</p></div>
+    <div class="g4">
+      <div class="panel rv"><span class="n">01</span><h3>Prophets are never depicted</h3><p>Point of view, light and absence carry their presence. No exceptions.</p></div>
+      <div class="panel rv"><span class="n">02</span><h3>Scholar-reviewed scripts</h3><p>Every script is reviewed by a qualified scholar before a frame is generated.</p></div>
+      <div class="panel rv"><span class="n">03</span><h3>Sources on screen</h3><p>Every verse, hadith and historical claim is cited, so viewers can check it.</p></div>
+      <div class="panel rv"><span class="n">04</span><h3>Real history only</h3><p>Legend is labeled as legend. Nothing is invented to make a story land harder.</p></div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="band-h rv"><span class="kick">How we would begin</span><h2>One pilot. Then a season.</h2></div>
+    <div class="g4" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="panel rv"><span class="n">Pilot</span><h3>Choose a concept</h3><p>One flagship episode, produced to final quality, to set the look, voice and standard.</p></div>
+      <div class="panel rv"><span class="n">Season</span><h3>Release on a rhythm</h3><p>A full run of episodes on a steady schedule, so the audience learns when to return.</p></div>
+      <div class="panel rv"><span class="n">Reach</span><h3>Cut for every feed</h3><p>Vertical 60 to 90 second stories for Facebook, Reels and Shorts, each pointing to the full film.</p></div>
+    </div>
+  </section>
+  ${contactHTML()}`;
+}
+
+function contactHTML(){
+  const s=SITE.settings;
+  return `<section class="band" id="contact" style="scroll-margin-top:80px">
+    <div class="contact rv">
+      <div><span class="kick">Next step</span><h2>Pick a concept. We will build the pilot.</h2><p>Tell us which concept speaks to you, or which two you would like to compare, and we will prepare a full pilot treatment.</p></div>
+      <div style="display:grid;gap:12px;justify-items:start">
+        <div class="mail"><code id="email">${esc(s.email)}</code><button class="btn btn-w" type="button" id="copy" style="padding:11px 18px;font-size:15px">Copy</button></div>
+        ${s.linkedin?`<a class="btn btn-g" href="${esc(s.linkedin)}" target="_blank" rel="noopener" style="font-size:15px">LinkedIn ↗</a>`:""}
+      </div>
+    </div>
+  </section>
+  <footer class="foot"><span>Ans Ali · AI Filmmaker</span><span>A private pitch. Concept art and titles are proposals.</span></footer>`;
+}
+
+function billText(c){
+  return `<div class="bill-fade">
+    <div class="tagline"><b>A</b> ${c.flagship?"Flagship":"Concept"}</div>
+    <h1>${esc(c.title)}</h1>
+    <div class="meta"><span class="new">New concept</span><span>${esc(c.year)}</span><span class="box">Series</span><span>${esc(c.runtime)}</span><span class="box">HD</span><span>${esc(c.genre)}</span></div>
+    <p class="syn">${esc(c.synopsis)}</p>
+    <div class="btns"><a class="btn btn-w" href="#${esc(c.id)}">${SV.play}Explore</a><button class="btn btn-g" type="button" data-jump="concepts">${SV.info}All concepts</button></div>
+  </div>`;
+}
+
+/* ---------- concept page ---------- */
+function anatHTML(c){
+  if(!c.anatomy||!c.anatomy.length) return "";
+  const tot=c.anatomy.reduce((a,b)=>a+(+b[1]||0),0), n=c.anatomy.length;
+  return `<div class="anat rv"><h3>Inside an episode</h3><p class="cap">The planned structure of a typical ${tot}-minute episode.</p>
+    <div class="bar chart">${c.anatomy.map((a,i)=>`<i style="flex:${+a[1]||0};background:${shade(i,n)};transition-delay:${i*80}ms" title="${esc(a[0])}: ${esc(a[1])} min"></i>`).join("")}</div>
+    <div class="bar-l">${c.anatomy.map((a,i)=>`<div><i style="background:${shade(i,n)}"></i>${esc(a[0])}<b>${esc(a[1])}m</b></div>`).join("")}</div></div>`;
+}
+function epRow(i,t,len,desc,ref,c,extra){
+  const pos=[[20,40],[75,35],[50,70],[30,75],[80,65],[50,30],[15,60]][i%7];
+  return `<article class="ep rv">
+    <div class="no">${i+1}</div>
+    <div class="ep-th"><img src="${esc(cimg(c,true))}" alt="" loading="lazy" style="--op:${pos[0]}% ${pos[1]}%;--z:${1.7+(i%3)*.25}"><div class="play"><span>${SV.play.replace('<svg','<svg width="16" height="16"')}</span></div></div>
+    <div class="ep-b"><div class="ep-top"><h3>${esc(t)}</h3>${len?`<span>${esc(len)}m</span>`:""}</div><p>${esc(desc)}</p>${ref?`<span class="src">${esc(ref)}</span>`:""}${extra||""}</div>
+  </article>`;
+}
+function episodesHTML(c){
+  if(c.cases) return `<div class="eps">${c.cases.map((k,i)=>epRow(i,k.t,k.len,k.hook,"Case file: "+k.id,c,`
+      <div class="reveal">
+        <div class="beat"><small>The turn</small><span>${esc(k.turn)}</span></div>
+        <div class="beat tw sealed"><small>The twist</small><span class="val">${esc(k.twist)}</span></div>
+        <div class="beat rl sealed"><small>Reveal</small><span class="val">${esc(k.reveal)}</span></div>
+        <button type="button" class="unseal">Unseal the twist</button>
+        ${k.src?`<span class="src">Source: ${esc(k.src)}</span>`:""}
+      </div>`)).join("")}</div>`;
+  if(c.doors) return `<div class="eps">${c.doors.map((s,i)=>epRow(i,s.t,s.len,s.descent,s.era,c,`
+      <div class="door-box"><div class="edge"><b>The edge.</b> ${esc(s.edge)}</div>
+        <div class="dr sealed"><b>The door.</b> <span class="val">${esc(s.door)}</span></div>
+        <div class="sealed"><span class="val"><q>${esc(s.verse)}</q> <cite>${esc(s.ref)}</cite></span></div>
+        <button type="button" class="unseal">Open the door</button></div>`)).join("")}</div>`;
+  if(c.light) return `<div id="season-light" class="eps">${c.light.map((e,i)=>epRow(i,e[0],e[3],e[1],e[2],c)).join("")}</div>
+      <div id="season-dark" class="eps" hidden>${(c.dark||[]).map((e,i)=>epRow(i,e[0],e[3],e[1],e[2],c)).join("")}
+      ${c.darkNote?`<div class="note"><b style="color:#fff">Held for discussion.</b> ${esc(c.darkNote)}</div>`:""}</div>`;
+  return `<div class="eps">${(c.episodes||[]).map((e,i)=>epRow(i,e[0],e[3],e[1],e[2],c)).join("")}</div>`;
+}
+function curveSVG(){
+  const X=t=>40+t/22*920, Y=p=>330-p*2.9;
+  const pts=[[0,8,"Ordinary life"],[2.8,10],[3.6,30,"The fall"],[5.6,44],[6.6,56],[7.3,49],[8.4,66],[9.1,59],[10.2,76],[10.9,69],[12.1,86],[12.8,80],[14,92],[16.2,100,"The edge"],[17.8,98],[18.4,96,"The door"],[19.6,30],[21,14,"The ayah"],[22,10]];
+  const d=pts.map((p,i)=>`${i?"L":"M"}${X(p[0]).toFixed(1)} ${Y(p[1]).toFixed(1)}`).join(" ");
+  const bands=[[0,3,"ORDINARY"],[3,6,"FALL"],[6,14,"DESCENT"],[14,18,"EDGE"],[18,21,"DOOR"]];
+  const lab=[[0,8,"Ordinary life",6,-14],[3.6,30,"The fall",8,4],[9,62,"Problem, then small mercy",-60,-26],[16.2,100,"The edge",-30,-14],[18.4,96,"The door",14,26],[21,14,"The ayah",-30,-16]];
+  return `<svg class="curve chart" viewBox="0 0 1000 380" role="img" aria-label="Pressure climbs in steps of problem and small mercy to the edge, then drops sharply when the door opens">
+    <defs><linearGradient id="gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e50914" stop-opacity=".3"/><stop offset="1" stop-color="#e50914" stop-opacity="0"/></linearGradient></defs>
+    ${bands.map((b,i)=>i%2?"":`<rect class="bd" x="${X(b[0])}" y="20" width="${X(b[1])-X(b[0])}" height="${Y(0)-20}"/>`).join("")}
+    ${[0,25,50,75,100].map(v=>`<line class="gl" x1="40" x2="960" y1="${Y(v)}" y2="${Y(v)}"/>`).join("")}
+    ${bands.map(b=>`<text x="${X(b[0])+8}" y="${Y(0)+26}">${b[2]}</text>`).join("")}
+    <text x="0" y="${Y(100)+4}">HIGH</text><text x="0" y="${Y(0)+4}">CALM</text>
+    <path class="ar2" d="${d} L${X(22)} ${Y(0)} L${X(0)} ${Y(0)} Z" fill="url(#gr)"/>
+    <path class="ln" d="${d}"/>
+    ${pts.filter(p=>p[2]).map(p=>`<circle class="mk${p[2]==="The door"?" dr":""}" cx="${X(p[0]).toFixed(1)}" cy="${Y(p[1]).toFixed(1)}" r="6"/>`).join("")}
+    ${lab.map(l=>`<text class="lb" x="${(X(l[0])+l[3]).toFixed(1)}" y="${(Y(l[1])+l[4]).toFixed(1)}">${l[2]}</text>`).join("")}
+  </svg>`;
+}
+function viewConcept(c){
+  const hasShape=!!(c.shape||(c.laws&&c.laws.length));
+  const tabs=[["episodes",c.cases?"Case Files":"Episodes"],["overview","Overview"]].concat(hasShape?[["shape","The Shape"]]:[]).concat([["look","Look & Sound"],["standards","Standards"],["more","More Concepts"]]);
+  const others=concepts().filter(o=>o.id!==c.id);
+  return `
+  <section class="t-hero"><img src="${esc(c.img)}" alt="${esc(c.title)} key art"><a class="back" href="#home">${SV.l.replace('<svg','<svg width="18" height="18"')}Browse</a></section>
+  <section class="t-info">
+    <div>
+      <div class="tagline"><b>A</b> ${c.flagship?"Flagship":"Concept"}</div>
+      <h1>${esc(c.title)}</h1>
+      <div class="meta"><span class="new">New concept</span><span>${esc(c.year)}</span><span class="box">Series</span><span>${epCount(c)} episodes proposed</span><span class="box">HD</span></div>
+      <p class="syn" style="font-size:clamp(17px,1.5vw,21px)">${esc(c.synopsis)}</p>
+      <div class="btns"><button class="btn btn-w" type="button" data-tab="episodes">${SV.play}${c.cases?"Open the files":"See episodes"}</button><a class="btn btn-g" href="#home" data-jump="contact">${SV.plus}Choose this concept</a></div>
+    </div>
+    <div class="t-side">
+      <div class="lg"><b>${esc(c.logline)}</b></div>
+      <div>Genres: <b>${(c.tags||[]).map(esc).join(", ")}</b></div>
+      <div>This concept is: <b>${esc(c.moods)}</b></div>
+      <div>Runtime: <b>${esc(c.runtime)} per episode</b></div>
+      <div>Platforms: <b>YouTube, with vertical cuts for Facebook</b></div>
+    </div>
+  </section>
+  ${c.verse&&c.verse.en?`<section class="verse">${c.verse.ar?`<p class="ar rv" lang="ar">${esc(c.verse.ar)}</p>`:""}<blockquote class="rv">${esc(c.verse.en)}</blockquote><cite class="rv">${esc(c.verse.ref)}</cite></section>`:""}
+  <nav class="tabs" aria-label="Sections"><div class="tabs-in">${tabs.map((t,i)=>`<button type="button" data-tab="${t[0]}" class="${i===0?"on":""}">${t[1]}</button>`).join("")}</div></nav>
+  <section class="sect" id="episodes">
+    <div class="sect-h"><h2>${c.cases?"The Case Files":"Episodes"}</h2>${c.light?`<div class="select"><select id="season" aria-label="Season"><option value="light">${esc((c.seasonNames||[])[0]||"Season 1")}</option><option value="dark">${esc((c.seasonNames||[])[1]||"Season 2")}</option></select></div>`:`<span style="color:var(--muted);font-size:14px">${c.cases?"Twists are sealed, the way the episode holds them back":c.doors?"Read the descent, then open the door":"Proposed first season"}</span>`}</div>
+    ${episodesHTML(c)}
+  </section>
+  <section class="sect" id="overview">
+    <div class="sect-h"><h2>Overview</h2></div>
+    ${c.statement?`<p class="statement rv">${esc(c.statement)}</p>`:""}
+    <div class="prose">${(c.prose||[]).map(p=>`<p class="rv">${esc(p)}</p>`).join("")}</div>
+    ${c.why&&c.why.length?`<div class="g3">${c.why.map(w=>`<div class="panel rv"><h3>${esc(w[0])}</h3><p>${esc(w[1])}</p></div>`).join("")}</div>`:""}
+    ${anatHTML(c)}
+  </section>
+  ${hasShape?`<section class="sect" id="shape">
+    <div class="sect-h"><h2>The shape of every film</h2></div>
+    ${c.shape?`<p class="prose rv" style="margin:0 0 20px">Each climb is a new problem, each small dip a mercy that keeps him alive. At the edge the line holds at its highest point. Then the door opens.</p><div class="curve-w rv">${curveSVG()}</div>`:""}
+    ${c.laws&&c.laws.length?`<h3 style="font-size:18px;font-weight:800;margin:36px 0 14px">The laws of the series</h3><ol class="laws">${c.laws.map(l=>`<li class="rv"><b>${esc(l[0])}</b>${esc(l[1])}</li>`).join("")}</ol>`:""}
+  </section>`:""}
+  <section class="sect" id="look">
+    <div class="sect-h"><h2>Look &amp; Sound</h2></div>
+    <div class="look"><div class="rv"><div class="sw">${(c.palette||[]).map(p=>`<div><i style="background:${esc(p[1])}"></i>${esc(p[0])}<small>${esc(String(p[1]).toUpperCase())}</small></div>`).join("")}</div></div>
+    <dl class="spec rv">${(c.look||[]).map(l=>`<div><dt>${esc(l[0])}</dt><dd>${esc(l[1])}</dd></div>`).join("")}</dl></div>
+  </section>
+  <section class="sect" id="standards">
+    <div class="sect-h"><h2>Standards</h2></div>
+    <ul class="rules">${(c.rules||[]).map(r=>`<li class="rv">${SV.ok}<span>${esc(r)}</span></li>`).join("")}</ul>
+  </section>
+  <section class="sect" id="more" style="padding-bottom:clamp(40px,6vw,72px)">
+    <div class="sect-h"><h2>More Concepts</h2></div>
+    <div class="mlt">${others.map(o=>`<a class="rv" href="#${esc(o.id)}"><div class="im"><img src="${esc(cimg(o,true))}" alt="${esc(o.title)}" loading="lazy"></div><div class="bd"><div class="meta" style="font-size:13px"><span class="new">New</span><span class="box">Series</span><span>${esc(o.runtime)}</span></div><b>${esc(o.title)}</b><span>${esc(o.logline)}</span></div></a>`).join("")}</div>
+  </section>
+  ${contactHTML()}`;
+}
+
+/* ---------- about ---------- */
+function viewAbout(){
+  const all=[].concat(...rows().map(r=>r.items.filter(i=>!i.hidden).slice(0,r.id==="cafe"?4:6)));
+  const s=SITE.settings;
+  return `
+  <section class="t-hero" style="aspect-ratio:auto;height:min(78vh,760px)"><img src="img/ans.webp" alt="Portrait of Ans Ali" style="object-position:50% 22%"><a class="back" href="#home">${SV.l.replace('<svg','<svg width="18" height="18"')}Browse</a></section>
+  <section class="t-info">
+    <div>
+      <div class="tagline"><b>A</b> Filmmaker</div>
+      <h1>Ans Ali</h1>
+      <div class="meta"><span>AI Filmmaker</span><span class="box">Director</span><span>Writer</span><span class="box">Content strategist</span></div>
+      <p class="syn" style="font-size:clamp(17px,1.5vw,21px)">I direct films with AI the way a cinematographer works with light: deliberately, one decision at a time. Prompting is the easy part. Knowing what a scene needs, and what to leave out, is the work.</p>
+    </div>
+    <div class="t-side">
+      <div>Known for: <b>${esc(s.knownFor)}</b></div>
+      <div>Channels: <b>Café Stories, Hidden Library, Viktor Reconstructions, Retro Tomorrow</b></div>
+      ${s.brands?`<div>Brands: <b>${esc(s.brands)}</b></div>`:""}
+      <div>Credentials: <b>Higgsfield Academy certified, AI visualization teacher</b></div>
+    </div>
+  </section>
+  <section class="band" style="border-top:0">${statsHTML()}</section>
+  <section class="band">
+    <div class="maker" style="align-items:start">
+      <div class="band-h rv"><span class="kick">How I work</span><h2>Storyteller first. Systems builder second.</h2></div>
+      <div class="prose">
+        <p class="rv">My background is in content strategy and in teaching AI visualization, so I approach every project from two sides. As a storyteller, I care about structure, tension and the exact moment a viewer leans in.</p>
+        <p class="rv">As a systems builder, I create the pipelines, prompt libraries and locked character and location references that keep episode twelve as consistent as episode one. That is how Café Stories grew past 20,000 subscribers, and how The Drawing holds a single character from its first frame to its last.</p>
+        <p class="rv">For this pitch, it means research before generation, sources before spectacle, and a production process built to deliver cinematic quality on a schedule.</p>
+      </div>
+    </div>
+  </section>
+  ${all.length?rowHTML("about-work","Selected Work","Hover to preview",all,"work","std"):""}
+  <section class="band">
+    <div class="band-h rv"><span class="kick">Toolkit</span><h2>The tools behind the frames.</h2></div>
+    <div class="g4">
+      <div class="panel rv"><h3>Image and look</h3><p>Higgsfield, Midjourney, Flux</p></div>
+      <div class="panel rv"><h3>Motion</h3><p>Seedance, Kling, Runway</p></div>
+      <div class="panel rv"><h3>Voice and music</h3><p>ElevenLabs, Suno</p></div>
+      <div class="panel rv"><h3>Edit and grade</h3><p>DaVinci Resolve, CapCut</p></div>
+    </div>
+  </section>
+  ${contactHTML()}`;
+}
+
+/* =====================================================================
+   MANAGER
+   ===================================================================== */
+let authed=false; try{ authed=sessionStorage.getItem("aap-auth")==="1"; }catch(e){}
+let mgTab="concepts", mgEdit=null;
+async function sha(s){ const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode("aap::"+s)); return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,"0")).join(""); }
+
+function viewManager(){
+  if(!authed){
+    const first=!SITE.managerHash;
+    return `<div class="mg"><form class="login" id="login">
+      <h1>Manager</h1>
+      <p>${first?"Set a password to protect the manager. It is saved with your exported data.json.":"Enter your manager password."}</p>
+      <div class="fld"><label for="pw1">Password</label><input class="inp" id="pw1" type="password" autocomplete="${first?"new-password":"current-password"}" required></div>
+      ${first?`<div class="fld"><label for="pw2">Repeat password</label><input class="inp" id="pw2" type="password" autocomplete="new-password" required></div>`:""}
+      <div class="err" id="lerr"></div>
+      <button class="mbtn pri" type="submit">${first?"Set password and enter":"Enter"}</button>
+      <a class="mbtn" href="#home">Back to site</a>
+    </form></div>`;
+  }
+  return `<div class="mg">
+    <div class="mg-top"><h1>Manager</h1>
+      <div class="mg-actions">
+        <a class="mbtn" href="#home">View site</a>
+        <button class="mbtn w" type="button" id="mgExport">Download data.json</button>
+        <button class="mbtn" type="button" id="mgCopy">Copy data</button>
+        <button class="mbtn dng" type="button" id="mgDiscard">Discard draft</button>
+        <button class="mbtn" type="button" id="mgLock">Lock</button>
+      </div></div>
+    <p class="mg-status">${hasDraft?"<b>Unpublished draft.</b> Your changes are saved in this browser and show only to you. Download data.json and upload it to GitHub to publish them.":"No unpublished changes. Everything matches the published site."}</p>
+    <div class="mg-tabs">${[["concepts","Concepts"],["work","Previous work"],["profile","Profile and contact"],["publish","How to publish"]].map(t=>`<button type="button" data-mg="${t[0]}" class="${mgTab===t[0]?"on":""}">${t[1]}</button>`).join("")}</div>
+    <div id="mgBody">${mgBody()}</div>
+  </div>`;
+}
+function mgBody(){
+  if(mgEdit&&mgEdit.type==="concept") return conceptForm(mgEdit);
+  if(mgEdit&&mgEdit.type==="item") return itemForm(mgEdit);
+  if(mgTab==="concepts") return `<div class="mg-list">${SITE.concepts.map((c,i)=>`
+      <div class="mg-item ${c.hidden?"off":""}"><img src="${esc(cimg(c,true))}" alt="">
+        <div><b>${esc(c.title)}${c.flagship?'<span class="badge r">Flagship</span>':""}${c.hidden?'<span class="badge g">Hidden</span>':""}</b><small>${esc(c.genre)} · ${epCount(c)} episodes · ${esc(c.runtime)}</small></div>
+        <div class="mg-ctl">
+          <button class="mbtn sm" data-act="c-up" data-i="${i}" ${i===0?"disabled":""} aria-label="Move up">↑</button>
+          <button class="mbtn sm" data-act="c-down" data-i="${i}" ${i===SITE.concepts.length-1?"disabled":""} aria-label="Move down">↓</button>
+          <button class="mbtn sm" data-act="c-vis" data-i="${i}">${c.hidden?"Show":"Hide"}</button>
+          <button class="mbtn sm" data-act="c-edit" data-i="${i}">Edit</button>
+          <button class="mbtn sm dng" data-act="c-del" data-i="${i}">Delete</button>
+        </div></div>`).join("")}</div>
+      <div style="margin-top:14px"><button class="mbtn pri" type="button" data-act="c-new">+ New concept</button></div>`;
+  if(mgTab==="work") return SITE.rows.map((r,ri)=>`
+      <div class="mg-row">
+        <div class="mg-row-h">
+          <div class="fld"><label for="rt-${ri}">Row title</label><input class="inp" id="rt-${ri}" data-row-f="title" data-ri="${ri}" value="${esc(r.title)}"></div>
+          <div class="fld"><label for="rs-${ri}">Subtitle</label><input class="inp" id="rs-${ri}" data-row-f="sub" data-ri="${ri}" value="${esc(r.sub)}"></div>
+          <div class="mg-ctl">
+            <button class="mbtn sm" data-act="r-up" data-ri="${ri}" ${ri===0?"disabled":""}>↑</button>
+            <button class="mbtn sm" data-act="r-down" data-ri="${ri}" ${ri===SITE.rows.length-1?"disabled":""}>↓</button>
+            <button class="mbtn sm" data-act="r-vis" data-ri="${ri}">${r.hidden?"Show row":"Hide row"}</button>
+            <button class="mbtn sm dng" data-act="r-del" data-ri="${ri}">Delete row</button>
+          </div>
+        </div>
+        <div class="mg-list">${r.items.map((it,ii)=>`
+          <div class="mg-item ${it.hidden?"off":""}"><img src="${esc(it.img)}" alt="">
+            <div><b>${esc(it.t)}${it.hidden?'<span class="badge g">Hidden</span>':""}</b><small>${esc((it.d||"").slice(0,90))}${(it.d||"").length>90?"…":""}</small></div>
+            <div class="mg-ctl">
+              <button class="mbtn sm" data-act="i-up" data-ri="${ri}" data-ii="${ii}" ${ii===0?"disabled":""}>↑</button>
+              <button class="mbtn sm" data-act="i-down" data-ri="${ri}" data-ii="${ii}" ${ii===r.items.length-1?"disabled":""}>↓</button>
+              <button class="mbtn sm" data-act="i-vis" data-ri="${ri}" data-ii="${ii}">${it.hidden?"Show":"Hide"}</button>
+              <button class="mbtn sm" data-act="i-edit" data-ri="${ri}" data-ii="${ii}">Edit</button>
+              <button class="mbtn sm dng" data-act="i-del" data-ri="${ri}" data-ii="${ii}">Delete</button>
+            </div></div>`).join("")}</div>
+        <div style="margin-top:12px"><button class="mbtn" type="button" data-act="i-new" data-ri="${ri}">+ Add a title to this row</button></div>
+      </div>`).join("")+`<button class="mbtn pri" type="button" data-act="r-new">+ New row</button>`;
+  if(mgTab==="profile"){ const s=SITE.settings; return `<div class="mg-card"><form class="form" id="profForm">
+      <div class="fld"><label for="p-email">Email</label><input class="inp" id="p-email" value="${esc(s.email)}"></div>
+      <div class="fld"><label for="p-li">LinkedIn link</label><input class="inp" id="p-li" value="${esc(s.linkedin)}"></div>
+      <div class="fld full"><label for="p-title">Filmmaker headline</label><input class="inp" id="p-title" value="${esc(s.makerTitle)}"></div>
+      <div class="fld full"><label for="p-bio">Filmmaker bio</label><textarea class="ta" id="p-bio">${esc(s.makerBio)}</textarea></div>
+      <div class="fld full"><label for="p-stats">Stats <span class="hint">One per line: value | label</span></label><textarea class="ta" id="p-stats">${esc(s.stats.map(x=>x.join(" | ")).join("\n"))}</textarea></div>
+      <div class="fld"><label for="p-known">Known for</label><input class="inp" id="p-known" value="${esc(s.knownFor)}"></div>
+      <div class="fld"><label for="p-brands">Brands</label><input class="inp" id="p-brands" value="${esc(s.brands)}"></div>
+      <div class="fld full"><label for="p-pw">Change manager password <span class="hint">Leave empty to keep the current one</span></label><input class="inp" id="p-pw" type="password" autocomplete="new-password"></div>
+      <div class="full"><button class="mbtn pri" type="submit">Save profile</button></div>
+    </form></div>`; }
+  return `<div class="mg-card"><h2>Publishing your changes</h2>
+    <ol class="steps">
+      <li>Make your changes in this manager. They save automatically in this browser as a draft.</li>
+      <li>Press <b>Download data.json</b>. If the download does not start, press <b>Copy data</b>, then create a file called <code>data.json</code> and paste into it.</li>
+      <li>On GitHub, open your site's repository, choose <b>Add file</b>, then <b>Upload files</b>, and drop in <code>data.json</code>. Replace the old one and press <b>Commit changes</b>.</li>
+      <li>Vercel updates the live site in about a minute. Then press <b>Discard draft</b> here so this browser shows the published version again.</li>
+    </ol>
+    <p class="mg-status" style="margin-top:18px">Images you upload are stored inside data.json, so you only ever upload that one file. Keep each image under about 2 MB before uploading.</p>
+    <p class="mg-status">The manager is only reachable at the address ending in <b>#manager</b>. It is not linked anywhere on the site. Visitors cannot change the live site even if they open it, because publishing only happens through your GitHub.</p>
+  </div>`;
+}
+
+/* --- line helpers --- */
+const L=t=>String(t||"").split("\n").map(s=>s.trim()).filter(Boolean);
+const P=t=>L(t).map(l=>l.split("|").map(s=>s.trim()));
+const paras=t=>String(t||"").split(/\n\s*\n/).map(s=>s.replace(/\s*\n\s*/g," ").trim()).filter(Boolean);
+const J=a=>(a||[]).map(x=>Array.isArray(x)?x.join(" | "):x).join("\n");
+function epLines(arr){ return (arr||[]).map(e=>[e[0],e[1],e[2]||"",e[3]||""].join(" | ")).join("\n"); }
+function parseEps(t){ return P(t).map(p=>[p[0]||"",p[1]||"",p[2]||"",p[3]?+p[3]||p[3]:""]); }
+
+function conceptForm(ed){
+  const c=ed.draft;
+  const special=c.cases?"case files":c.doors?"door stories":"";
+  return `<div class="mg-card"><h2>${ed.isNew?"New concept":"Edit concept"}</h2>
+  <form class="form" id="cForm">
+    <div class="fld full"><label>Key art <span class="hint">21:9 image works best</span></label><div class="up"><img id="cImgPrev" src="${esc(cimg(c,true)||"")}" alt=""><input type="file" accept="image/*" id="cImg"></div></div>
+    <div class="fld"><label for="f-title">Title</label><input class="inp" id="f-title" value="${esc(c.title)}" required></div>
+    <div class="fld"><label for="f-genre">Genre</label><input class="inp" id="f-genre" value="${esc(c.genre)}"></div>
+    <div class="fld"><label for="f-tags">Tags <span class="hint">Comma separated</span></label><input class="inp" id="f-tags" value="${esc((c.tags||[]).join(", "))}"></div>
+    <div class="fld"><label for="f-moods">This concept is</label><input class="inp" id="f-moods" value="${esc(c.moods)}"></div>
+    <div class="fld"><label for="f-run">Runtime per episode</label><input class="inp" id="f-run" value="${esc(c.runtime)}"></div>
+    <div class="fld"><label for="f-year">Year</label><input class="inp" id="f-year" value="${esc(c.year)}"></div>
+    <div class="fld full"><label class="chk"><input type="checkbox" id="f-flag" ${c.flagship?"checked":""}> Mark as flagship</label></div>
+    <div class="fld full"><label for="f-log">Logline</label><input class="inp" id="f-log" value="${esc(c.logline)}"></div>
+    <div class="fld full"><label for="f-syn">Synopsis</label><textarea class="ta" id="f-syn">${esc(c.synopsis)}</textarea></div>
+    <div class="fld full"><label for="f-stat">Overview headline</label><input class="inp" id="f-stat" value="${esc(c.statement)}"></div>
+    <div class="fld full"><label for="f-prose">Overview paragraphs <span class="hint">Leave a blank line between paragraphs</span></label><textarea class="ta" id="f-prose" style="min-height:150px">${esc((c.prose||[]).join("\n\n"))}</textarea></div>
+    <div class="fld full"><label for="f-why">Why it works <span class="hint">One per line: title | text</span></label><textarea class="ta" id="f-why">${esc(J(c.why))}</textarea></div>
+    ${special?`<div class="fld full"><label>Episodes</label><p class="mg-status" style="margin:0">This concept uses ${special}. Edit them in Advanced below.</p></div>`:
+      c.light?`<div class="fld"><label for="f-s1">Season 1 name</label><input class="inp" id="f-s1" value="${esc((c.seasonNames||[])[0]||"")}"></div><div class="fld"><label for="f-s2">Season 2 name</label><input class="inp" id="f-s2" value="${esc((c.seasonNames||[])[1]||"")}"></div>
+        <div class="fld full"><label for="f-light">Season 1 episodes <span class="hint">One per line: title | description | reference | minutes</span></label><textarea class="ta" id="f-light" style="min-height:130px">${esc(epLines(c.light))}</textarea></div>
+        <div class="fld full"><label for="f-dark">Season 2 episodes <span class="hint">Same format</span></label><textarea class="ta" id="f-dark" style="min-height:150px">${esc(epLines(c.dark))}</textarea></div>
+        <div class="fld full"><label for="f-dnote">Season 2 note</label><textarea class="ta" id="f-dnote" style="min-height:60px">${esc(c.darkNote||"")}</textarea></div>`:
+      `<div class="fld full"><label for="f-eps">Episodes <span class="hint">One per line: title | description | reference | minutes</span></label><textarea class="ta" id="f-eps" style="min-height:170px">${esc(epLines(c.episodes))}</textarea></div>`}
+    <div class="fld full"><label for="f-anat">Inside an episode <span class="hint">One per line: part | minutes</span></label><textarea class="ta" id="f-anat">${esc(J(c.anatomy))}</textarea></div>
+    <div class="fld"><label for="f-pal">Palette <span class="hint">One per line: name | #hex</span></label><textarea class="ta" id="f-pal">${esc(J(c.palette))}</textarea></div>
+    <div class="fld"><label for="f-look">Look and sound <span class="hint">One per line: label | text</span></label><textarea class="ta" id="f-look">${esc(J(c.look))}</textarea></div>
+    <div class="fld full"><label for="f-rules">Standards <span class="hint">One per line</span></label><textarea class="ta" id="f-rules">${esc((c.rules||[]).join("\n"))}</textarea></div>
+    <div class="full" style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="mbtn pri" type="submit">Save concept</button>
+      <button class="mbtn" type="button" data-act="cancel">Cancel</button>
+      <button class="mbtn" type="button" id="advToggle">Advanced</button>
+    </div>
+    <div class="fld full" id="adv" hidden><label for="f-json">Advanced: the full concept as JSON <span class="hint">For case files, door stories, the verse block and laws. Saving here replaces the form.</span></label>
+      <textarea class="ta code" id="f-json">${esc(JSON.stringify(Object.assign({},c,{img:c.img&&c.img.startsWith("data:")?"(uploaded image)":c.img,imgSm:c.imgSm&&c.imgSm.startsWith("data:")?"(uploaded image)":c.imgSm}),null,2))}</textarea>
+      <div class="err" id="jerr"></div>
+      <button class="mbtn" type="button" id="saveJson">Save JSON</button></div>
+  </form></div>`;
+}
+function itemForm(ed){
+  const it=ed.draft;
+  return `<div class="mg-card"><h2>${ed.isNew?"Add a title":"Edit title"}</h2>
+  <form class="form" id="iForm">
+    <div class="fld full"><label>Poster <span class="hint">16:9 image works best</span></label><div class="up"><img id="iImgPrev" src="${esc(it.img||"")}" alt="" style="aspect-ratio:16/9"><input type="file" accept="image/*" id="iImg"></div></div>
+    <div class="fld full"><label for="it-t">Title</label><input class="inp" id="it-t" value="${esc(it.t)}" required></div>
+    <div class="fld full"><label for="it-d">Description</label><textarea class="ta" id="it-d">${esc(it.d)}</textarea></div>
+    <div class="fld full"><label for="it-g">Genres <span class="hint">Comma separated. Leave empty to use the row's genres.</span></label><input class="inp" id="it-g" value="${esc((it.g||[]).join(", "))}"></div>
+    <div class="full" style="display:flex;gap:8px"><button class="mbtn pri" type="submit">Save title</button><button class="mbtn" type="button" data-act="cancel">Cancel</button></div>
+  </form></div>`;
+}
+
+function readImage(file,maxW){
+  return new Promise((res,rej)=>{
+    if(!file) return res(null);
+    const fr=new FileReader();
+    fr.onload=()=>{ const im=new Image(); im.onload=()=>{ const k=Math.min(1,maxW/im.width); const cv=document.createElement("canvas"); cv.width=Math.round(im.width*k); cv.height=Math.round(im.height*k); cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height); let u=cv.toDataURL("image/webp",.82); if(!u.startsWith("data:image/webp")) u=cv.toDataURL("image/jpeg",.85); res(u); }; im.onerror=rej; im.src=fr.result; };
+    fr.onerror=rej; fr.readAsDataURL(file);
+  });
+}
+
+function mgRefresh(){ const b=$("#mgBody"); if(b){ b.innerHTML=mgBody(); } else { app.innerHTML=viewManager(); } wireManager(); }
+function mgRerenderAll(){ app.innerHTML=viewManager(); wireManager(); }
+function commit(msg){ saveDraft(); mgRerenderAll(); if(msg) toast(msg); }
+
+function wireManager(){
+  const lg=$("#login");
+  if(lg){ lg.addEventListener("submit",async e=>{ e.preventDefault(); const p1=$("#pw1").value, err=$("#lerr");
+      if(!SITE.managerHash){ const p2=$("#pw2").value; if(p1.length<6){ err.textContent="Use at least 6 characters."; return; } if(p1!==p2){ err.textContent="The passwords do not match."; return; } SITE.managerHash=await sha(p1); saveDraft(); }
+      else if(await sha(p1)!==SITE.managerHash){ err.textContent="That password is not correct."; return; }
+      authed=true; try{ sessionStorage.setItem("aap-auth","1"); }catch(e){} mgRerenderAll(); });
+    return; }
+  $$("[data-mg]").forEach(b=>b.onclick=()=>{ mgTab=b.dataset.mg; mgEdit=null; mgRerenderAll(); });
+  const ex=$("#mgExport"); ex&&(ex.onclick=()=>{ try{ const blob=new Blob([JSON.stringify(SITE,null,1)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="data.json"; document.body.appendChild(a); a.click(); a.remove(); toast("data.json downloaded"); }catch(e){ toast("Download blocked here. Use Copy data."); } });
+  const cp=$("#mgCopy"); cp&&(cp.onclick=()=>{ const t=JSON.stringify(SITE,null,1); try{ navigator.clipboard.writeText(t).then(()=>toast("Data copied. Paste it into data.json."),()=>toast("Copy was blocked by the browser.")); }catch(e){ toast("Copy was blocked by the browser."); } });
+  const ds=$("#mgDiscard"); ds&&(ds.onclick=()=>{ if(ds.dataset.c){ discardDraft(); mgEdit=null; mgRerenderAll(); toast("Draft discarded"); } else { ds.dataset.c="1"; ds.textContent="Click again to discard"; setTimeout(()=>{ if(ds.isConnected){ ds.textContent="Discard draft"; delete ds.dataset.c; } },3000); } });
+  const lk=$("#mgLock"); lk&&(lk.onclick=()=>{ authed=false; try{ sessionStorage.removeItem("aap-auth"); }catch(e){} mgRerenderAll(); });
+
+  $$("[data-act]").forEach(b=>b.onclick=()=>act(b));
+  $$("[data-row-f]").forEach(inp=>inp.onchange=()=>{ SITE.rows[+inp.dataset.ri][inp.dataset.rowF]=inp.value; saveDraft(); toast("Row saved"); });
+
+  const pf=$("#profForm"); pf&&pf.addEventListener("submit",async e=>{ e.preventDefault(); const s=SITE.settings;
+    s.email=$("#p-email").value.trim(); s.linkedin=$("#p-li").value.trim(); s.makerTitle=$("#p-title").value.trim(); s.makerBio=$("#p-bio").value.trim();
+    s.stats=P($("#p-stats").value).map(p=>[p[0]||"",p[1]||""]); s.knownFor=$("#p-known").value.trim(); s.brands=$("#p-brands").value.trim();
+    const np=$("#p-pw").value; if(np){ if(np.length<6){ toast("Password needs at least 6 characters"); return; } SITE.managerHash=await sha(np); }
+    commit("Profile saved"); });
+
+  const cf=$("#cForm");
+  if(cf){
+    const fi=$("#cImg"); fi.onchange=async()=>{ try{ const u=await readImage(fi.files[0],2000); if(u){ mgEdit.draft.img=u; mgEdit.draft.imgSm=u; $("#cImgPrev").src=u; } }catch(e){ toast("That image could not be read"); } };
+    $("#advToggle").onclick=()=>{ $("#adv").hidden=!$("#adv").hidden; };
+    $("#saveJson").onclick=()=>{ try{ const o=JSON.parse($("#f-json").value); if(!o.title) throw new Error("A title is required."); if(o.img==="(uploaded image)") o.img=mgEdit.draft.img; if(o.imgSm==="(uploaded image)") o.imgSm=mgEdit.draft.imgSm; finishConcept(o); }catch(err){ $("#jerr").textContent="That JSON is not valid: "+err.message; } };
+    cf.addEventListener("submit",e=>{ e.preventDefault(); const c=mgEdit.draft;
+      c.title=$("#f-title").value.trim(); c.genre=$("#f-genre").value.trim(); c.tags=$("#f-tags").value.split(",").map(s=>s.trim()).filter(Boolean);
+      c.moods=$("#f-moods").value.trim(); c.runtime=$("#f-run").value.trim(); c.year=$("#f-year").value.trim(); c.flagship=$("#f-flag").checked;
+      c.logline=$("#f-log").value.trim(); c.synopsis=$("#f-syn").value.trim(); c.statement=$("#f-stat").value.trim(); c.prose=paras($("#f-prose").value);
+      c.why=P($("#f-why").value).map(p=>[p[0]||"",p[1]||""]);
+      if($("#f-eps")) c.episodes=parseEps($("#f-eps").value);
+      if($("#f-light")){ c.light=parseEps($("#f-light").value); c.dark=parseEps($("#f-dark").value); c.darkNote=$("#f-dnote").value.trim(); c.seasonNames=[$("#f-s1").value.trim(),$("#f-s2").value.trim()]; }
+      c.anatomy=P($("#f-anat").value).map(p=>[p[0]||"",+p[1]||0]); c.palette=P($("#f-pal").value).map(p=>[p[0]||"",p[1]||"#222222"]);
+      c.look=P($("#f-look").value).map(p=>[p[0]||"",p[1]||""]); c.rules=L($("#f-rules").value);
+      if(!c.img){ toast("Add key art before saving"); return; }
+      finishConcept(c); });
+  }
+  const itf=$("#iForm");
+  if(itf){
+    const fi=$("#iImg"); fi.onchange=async()=>{ try{ const u=await readImage(fi.files[0],1600); if(u){ mgEdit.draft.img=u; $("#iImgPrev").src=u; } }catch(e){ toast("That image could not be read"); } };
+    itf.addEventListener("submit",e=>{ e.preventDefault(); const it=mgEdit.draft; it.t=$("#it-t").value.trim(); it.d=$("#it-d").value.trim();
+      const g=$("#it-g").value.split(",").map(s=>s.trim()).filter(Boolean); if(g.length) it.g=g; else delete it.g;
+      if(!it.img){ toast("Add a poster before saving"); return; }
+      const r=SITE.rows[mgEdit.ri]; if(mgEdit.isNew){ it.id=slug(it.t,allIds()); r.items.push(it); } else r.items[mgEdit.ii]=it;
+      mgEdit=null; commit("Title saved"); });
+  }
+}
+function finishConcept(c){
+  if(mgEdit.isNew){ c.id=slug(c.title,allIds()); c.hidden=false; SITE.concepts.push(c); }
+  else { c.id=SITE.concepts[mgEdit.i].id; SITE.concepts[mgEdit.i]=c; }
+  if(c.flagship) SITE.concepts.forEach(o=>{ if(o!==c) o.flagship=false; });
+  mgEdit=null; commit("Concept saved");
+}
+function swap(a,i,j){ const t=a[i]; a[i]=a[j]; a[j]=t; }
+function confirmBtn(b,fn){ if(b.dataset.c){ fn(); } else { b.dataset.c="1"; b.textContent="Confirm"; setTimeout(()=>{ if(b.isConnected){ b.textContent="Delete"; delete b.dataset.c; } },3000); } }
+function act(b){
+  const a=b.dataset.act, i=+b.dataset.i, ri=+b.dataset.ri, ii=+b.dataset.ii, cs=SITE.concepts;
+  switch(a){
+    case "c-up": swap(cs,i,i-1); commit(); break;
+    case "c-down": swap(cs,i,i+1); commit(); break;
+    case "c-vis": cs[i].hidden=!cs[i].hidden; commit(cs[i].hidden?"Hidden from the site":"Visible on the site"); break;
+    case "c-edit": mgEdit={type:"concept",i,draft:clone(cs[i])}; mgRefresh(); scrollTo(0,0); break;
+    case "c-new": mgEdit={type:"concept",isNew:true,draft:{title:"",year:"2026",genre:"",tags:[],moods:"",runtime:"",logline:"",synopsis:"",statement:"",prose:[],why:[],episodes:[],anatomy:[],palette:[],look:[],rules:[],img:"",imgSm:""}}; mgRefresh(); scrollTo(0,0); break;
+    case "c-del": confirmBtn(b,()=>{ cs.splice(i,1); commit("Concept deleted"); }); break;
+    case "r-up": swap(SITE.rows,ri,ri-1); commit(); break;
+    case "r-down": swap(SITE.rows,ri,ri+1); commit(); break;
+    case "r-vis": SITE.rows[ri].hidden=!SITE.rows[ri].hidden; commit(SITE.rows[ri].hidden?"Row hidden":"Row visible"); break;
+    case "r-del": confirmBtn(b,()=>{ SITE.rows.splice(ri,1); commit("Row deleted"); }); break;
+    case "r-new": SITE.rows.push({id:slug("row",allIds()),title:"New row",sub:"",label:"Project",channel:"",credit:"Produced by",size:"std",genres:[],hidden:false,items:[]}); commit("Row added. Give it a title and add titles to it."); break;
+    case "i-up": swap(SITE.rows[ri].items,ii,ii-1); commit(); break;
+    case "i-down": swap(SITE.rows[ri].items,ii,ii+1); commit(); break;
+    case "i-vis": { const it=SITE.rows[ri].items[ii]; it.hidden=!it.hidden; commit(it.hidden?"Hidden from the site":"Visible on the site"); break; }
+    case "i-edit": mgEdit={type:"item",ri,ii,draft:clone(SITE.rows[ri].items[ii])}; mgRefresh(); scrollTo(0,0); break;
+    case "i-new": mgEdit={type:"item",ri,isNew:true,draft:{t:"",d:"",img:"",hidden:false}}; mgRefresh(); scrollTo(0,0); break;
+    case "i-del": confirmBtn(b,()=>{ SITE.rows[ri].items.splice(ii,1); commit("Title deleted"); }); break;
+    case "cancel": mgEdit=null; mgRerenderAll(); break;
+  }
+}
+
+/* =================== ROUTER =================== */
+const app=$("#app"); let current=null, cleanup=[], pendingJump=null;
+function route(){
+  const h=(location.hash||"").slice(1);
+  const key=(h===""||h==="home")?"home":(h==="about"||h==="manager"||(byId(h)&&!byId(h).hidden))?h:"home";
+  if(key===current && key!=="manager") return;
+  if(current===null||reduce){ render(key); return; }
+  app.classList.add("out"); setTimeout(()=>render(key),300);
+}
+function render(key){
+  cleanup.forEach(f=>{try{f()}catch(e){}}); cleanup=[]; hidePop(); closeModal();
+  current=key;
+  if(key==="manager"){ mgEdit=null; app.innerHTML=viewManager(); document.title="Manager · Ans Ali Presents"; scrollTo(0,0); app.classList.remove("out"); wireManager(); updateDraftPill(); return; }
+  app.innerHTML = key==="home"?viewHome():key==="about"?viewAbout():viewConcept(byId(key));
+  document.title = key==="home"?"Ans Ali Presents":key==="about"?"Ans Ali · About":byId(key).title+" · Ans Ali Presents";
+  scrollTo(0,0); app.classList.remove("out");
+  $$(".links a[data-nav]").forEach(a=>a.classList.toggle("on",a.dataset.nav===key));
+  const pj=pendingJump; pendingJump=null;
+  wire(); updateDraftPill(); if(pj) setTimeout(()=>jump(pj),120);
+}
+function jump(id){
+  const el=id==="concepts"?$("#row-concepts"):id==="films"?($("#row-films")||$(".row:nth-of-type(2)")):id==="cafe"?$("#row-cafe"):$("#"+id);
+  if(el){ scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:reduce?"auto":"smooth"}); }
+}
+document.addEventListener("click",e=>{
+  const j=e.target.closest("[data-jump]");
+  if(j){ e.preventDefault(); const id=j.dataset.jump; if(current!=="home"){ pendingJump=id; if(location.hash==="#home"){ render("home"); } else location.hash="home"; } else jump(id); }
+});
+function updateDraftPill(){
+  let p=$("#draftpill");
+  if(hasDraft && current!=="manager"){ if(!p){ p=document.createElement("a"); p.id="draftpill"; p.className="draftpill"; p.href="#manager"; p.innerHTML='<i></i>Draft preview · open manager'; document.body.appendChild(p);} }
+  else if(p) p.remove();
+}
+
+/* =================== WIRING (site) =================== */
+function wire(){ stage(); wireBill(); wireRows(); wireTiles(); wireTabs(); wireSeals(); wireSeason(); wireCopy(); wireCounts(); }
+function stage(){
+  if(reduce||!("IntersectionObserver" in window)) return;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.remove("pre"); io.unobserve(e.target);} }),{rootMargin:"0px 0px -6% 0px",threshold:.06});
+  $$(".rv, .track, .chart").forEach(el=>{ if(el.getBoundingClientRect().top>innerHeight*.95){ el.classList.add("pre"); io.observe(el);} });
+  $$(".track").forEach(t=>$$(".tile",t).forEach((ti,i)=>ti.style.transitionDelay=(i*60)+"ms"));
+  $$(".curve .ln").forEach(p=>p.style.setProperty("--len",p.getTotalLength()));
+  cleanup.push(()=>io.disconnect());
+}
+function wireBill(){
+  const b=$("#bill"); if(!b) return; const cs=concepts();
+  const imgs=$$(".bill-stage img",b), th=$$(".bt",b), txt=$("#billText"); let i=0,t;
+  const show=n=>{ i=n; imgs.forEach((im,k)=>im.classList.toggle("on",k===i)); th.forEach((x,k)=>{x.classList.remove("on"); if(k===i){void x.offsetWidth; x.classList.add("on");}}); txt.innerHTML=billText(cs[i]); };
+  const loop=()=>{ clearInterval(t); if(!reduce&&imgs.length>1) t=setInterval(()=>{ if(!b.classList.contains("paused")) show((i+1)%imgs.length); },8000); };
+  th.forEach((x,k)=>x.addEventListener("click",()=>{show(k);loop();}));
+  b.addEventListener("pointerenter",()=>b.classList.add("paused")); b.addEventListener("pointerleave",()=>b.classList.remove("paused"));
+  show(0); loop(); cleanup.push(()=>clearInterval(t));
+}
+function wireRows(){
+  $$(".row").forEach(r=>{ const tr=$(".track",r);
+    $(".arrow.l",r).addEventListener("click",()=>tr.scrollBy({left:-tr.clientWidth*.85,behavior:"smooth"}));
+    $(".arrow.r",r).addEventListener("click",()=>tr.scrollBy({left:tr.clientWidth*.85,behavior:"smooth"}));
+    tr.addEventListener("scroll",()=>hidePop(),{passive:true});
+  });
+}
+const pop=$("#pop"); let popTimer=null, popFor=null;
+function popData(tile){
+  if(tile.dataset.kind==="concept"){ const c=byId(tile.dataset.id);
+    return {img:cimg(c,true),ratio:"21/9",title:c.title,meta:`<span class="new">New</span><span class="box">Series</span><span>${esc(c.runtime)}</span><span class="box">HD</span>`,tags:c.tags||[],desc:c.logline,open:()=>{location.hash=c.id;}};
+  }
+  const f=findWork(tile.dataset.id), r=f.r;
+  return {img:f.w.img,ratio:"16/9",title:f.w.t,meta:`<span class="box">${esc(r.label||r.title)}</span><span>By Ans Ali</span><span class="box">HD</span>`,tags:f.w.g||r.genres||[],desc:f.w.d,open:()=>openModal(f.w.id)};
+}
+function showPop(tile){
+  const d=popData(tile), r=tile.getBoundingClientRect(), w=Math.min(r.width*1.4, innerWidth-24);
+  let left=r.left+r.width/2-w/2; left=Math.max(12,Math.min(left,innerWidth-w-12));
+  pop.style.width=w+"px"; pop.style.left=left+"px";
+  pop.innerHTML=`<div class="pop-img" style="aspect-ratio:${d.ratio}"><img src="${esc(d.img)}" alt=""></div>
+    <div class="pop-body"><div class="pop-ctl"><button class="circ w" type="button" aria-label="Open">${SV.play}</button><button class="circ" type="button" aria-label="Details">${SV.plus}</button><button class="circ end" type="button" aria-label="More info">${SV.down}</button></div>
+    <h4>${esc(d.title)}</h4><div class="meta">${d.meta}</div><div class="dots">${d.tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div><p>${esc(d.desc)}</p></div>`;
+  const imgH=w/(d.ratio==="21/9"?21/9:16/9);
+  let top=r.top+r.height/2-imgH/2-6; const estH=imgH+170; if(top+estH>innerHeight-10) top=innerHeight-estH-10; top=Math.max(70,top);
+  pop.style.top=top+"px"; pop.classList.add("on"); popFor=tile;
+  $$(".circ,.pop-img",pop).forEach(b=>b.addEventListener("click",()=>{ hidePop(); d.open(); }));
+}
+function hidePop(){ clearTimeout(popTimer); pop.classList.remove("on"); popFor=null; }
+function wireTiles(){
+  $$(".tile").forEach(t=>{
+    if(fine){
+      t.addEventListener("pointerenter",()=>{ clearTimeout(popTimer); popTimer=setTimeout(()=>showPop(t),420); });
+      t.addEventListener("pointerleave",e=>{ clearTimeout(popTimer); if(!pop.contains(e.relatedTarget)) hidePop(); });
+    }
+    if(t.dataset.kind==="work") t.addEventListener("click",()=>{ hidePop(); openModal(t.dataset.id); });
+  });
+}
+pop.addEventListener("pointerleave",e=>{ if(!popFor||!popFor.contains(e.relatedTarget)) hidePop(); });
+addEventListener("scroll",()=>{ if(popFor) hidePop(); },{passive:true});
+
+const modal=$("#modal"), sheet=$("#sheet");
+function openModal(id){
+  const f=findWork(id); if(!f) return; const r=f.r, w=f.w;
+  const sib=r.items.filter(x=>x.id!==id&&!x.hidden).slice(0,6);
+  sheet.innerHTML=`<div class="sh-img"><img src="${esc(w.img)}" alt="${esc(w.t)} poster"><button class="x" type="button" aria-label="Close">${SV.x}</button></div>
+    <div class="sh-b"><div><h3>${esc(w.t)}</h3><div class="meta"><span class="box">${esc(r.label||r.title)}</span><span>By Ans Ali</span><span class="box">HD</span></div><p>${esc(w.d)}</p></div>
+    <div class="t-side" style="padding-top:0"><div>Genres: <b>${(w.g||r.genres||[]).map(esc).join(", ")}</b></div><div>${esc(r.credit||"Produced by")}: <b>Ans Ali</b></div>${r.channel?`<div>Channel: <b>${esc(r.channel)}</b></div>`:""}</div></div>
+    ${sib.length?`<div class="sh-more"><h4>More from ${esc(r.title)}</h4><div class="sh-grid">${sib.map(s=>`<button type="button" data-open="${esc(s.id)}"><img src="${esc(s.img)}" alt=""><span>${esc(s.t)}</span></button>`).join("")}</div></div>`:""}`;
+  modal.classList.add("on"); modal.scrollTop=0; document.body.style.overflow="hidden";
+  $(".x",sheet).addEventListener("click",closeModal); $(".x",sheet).focus();
+  $$("[data-open]",sheet).forEach(b=>b.addEventListener("click",()=>openModal(b.dataset.open)));
+}
+function closeModal(){ modal.classList.remove("on"); document.body.style.overflow=""; }
+modal.addEventListener("click",e=>{ if(e.target===modal) closeModal(); });
+addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeModal(); hidePop(); } });
+
+function wireTabs(){
+  const btns=$$(".tabs button"); if(!btns.length) return;
+  $$("[data-tab]").forEach(b=>b.addEventListener("click",()=>{ const t=$("#"+b.dataset.tab); if(t) scrollTo({top:t.getBoundingClientRect().top+scrollY-120,behavior:reduce?"auto":"smooth"}); }));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) btns.forEach(b=>b.classList.toggle("on",b.dataset.tab===e.target.id)); }),{rootMargin:"-40% 0px -55% 0px"});
+  btns.forEach(b=>{ const t=$("#"+b.dataset.tab); t&&io.observe(t); }); cleanup.push(()=>io.disconnect());
+}
+function wireSeals(){ $$(".unseal").forEach(b=>b.addEventListener("click",()=>{ const box=b.parentElement; $$(".sealed",box).forEach((s,i)=>setTimeout(()=>s.classList.remove("sealed"),i*400)); b.remove(); })); }
+function wireSeason(){ const s=$("#season"); if(!s) return; s.addEventListener("change",()=>{ const Lt=$("#season-light"), D=$("#season-dark"); const dark=s.value==="dark"; Lt.hidden=dark; D.hidden=!dark; $$(".rv.pre",dark?D:Lt).forEach(e=>e.classList.remove("pre")); }); }
+function toast(m){ const t=$("#toast"); t.textContent=m; t.classList.add("on"); clearTimeout(toast.t); toast.t=setTimeout(()=>t.classList.remove("on"),2400); }
+function wireCopy(){
+  const b=$("#copy"); if(!b) return;
+  b.addEventListener("click",()=>{ const em=$("#email"); const fb=()=>{ const r=document.createRange(); r.selectNodeContents(em); const s=getSelection(); s.removeAllRanges(); s.addRange(r); toast("Email selected"); };
+    try{ navigator.clipboard.writeText(em.textContent).then(()=>toast("Email copied"),fb); }catch(e){ fb(); } });
+}
+function wireCounts(){
+  if(reduce||!("IntersectionObserver" in window)) return;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(!e.isIntersecting) return; io.unobserve(e.target); const el=e.target,to=+el.dataset.count,suf=el.dataset.suf||"",t0=performance.now();
+    const st=n=>{ const k=Math.min((n-t0)/1300,1); el.textContent=Math.round(to*(1-Math.pow(1-k,3)))+suf; if(k<1) requestAnimationFrame(st); }; requestAnimationFrame(st); }),{threshold:.6});
+  $$("[data-count]").forEach(e=>io.observe(e)); cleanup.push(()=>io.disconnect());
+}
+
+const nav=$("#nav");
+addEventListener("scroll",()=>nav.classList.toggle("solid",scrollY>60),{passive:true});
+
+/* intro (skipped for the manager) */
+const intro=$("#intro"); let seen=false;
+try{ seen=sessionStorage.getItem("introSeen")==="1"; }catch(e){}
+if(seen||reduce||location.hash==="#manager"){ intro.classList.add("done"); }
+else{ const end=()=>{ intro.classList.add("done"); try{sessionStorage.setItem("introSeen","1");}catch(e){} }; setTimeout(end,2300); intro.addEventListener("click",end); }
+
+/* boot: published data.json, then this browser's draft */
+async function boot(){
+  try{ const r=await fetch("data.json",{cache:"no-store"}); if(r.ok){ const d=await r.json(); if(d&&d.concepts&&d.rows){ PUB=d; SITE=PUB; } } }catch(e){}
+  loadDraft();
+  addEventListener("hashchange",route);
+  route();
+}
+boot();
+})();
+</script>
+
+</body>
+</html>

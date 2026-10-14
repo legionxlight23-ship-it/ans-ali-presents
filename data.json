@@ -1,0 +1,1317 @@
+{
+ "version": 2,
+ "managerHash": "",
+ "settings": {
+  "email": "legionxlight23@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/ans-ali",
+  "makerTitle": "Details are the film.",
+  "makerBio": "I am an AI filmmaker and story director. I have built and grown narrative channels from zero, directed original short films, and produced commercial work for brands. Every project rests on one belief: an audience decides whether to trust a story in its smallest details.",
+  "stats": [
+   [
+    "20K+",
+    "Café Stories subscribers"
+   ],
+   [
+    "20+",
+    "Films and episodes produced"
+   ],
+   [
+    "4",
+    "YouTube channels built"
+   ],
+   [
+    "10+",
+    "AI tools in one pipeline"
+   ]
+  ],
+  "knownFor": "Café Stories, The Drawing, Viktor Reconstructions",
+  "brands": "BizFocus AI, One Regimen, TRW spec commercial"
+ },
+ "concepts": [
+  {
+   "id": "unforsaken",
+   "title": "Unforsaken",
+   "flagship": true,
+   "hidden": false,
+   "year": "2026",
+   "img": "img/unforsaken.webp",
+   "imgSm": "img/unforsaken-sm.webp",
+   "genre": "Survival Drama",
+   "tags": [
+    "Survival",
+    "Faith",
+    "Historical",
+    "Suspense"
+   ],
+   "moods": "Harrowing, hopeful, intense",
+   "runtime": "18 to 25 min",
+   "logline": "When every door closes, one remains.",
+   "synopsis": "In the old world, one person is stripped of everything and pushed to the very edge. Then help arrives from the one direction nobody expected.",
+   "statement": "Each film throws one person into a nightmare, and keeps making it worse.",
+   "prose": [
+    "Every time it seems nothing more can go wrong, something does. The audience should feel the horror and ask the question the film is really about: what would I do?",
+    "Then, at the very edge, with every exit shut, help arrives from the one direction nobody expected. Never magic. Always logical. Only at the end do we understand it was never chance.",
+    "The final image stays alive on screen. Over it, the ayah is heard in voiceover and its words appear. The film never preaches. The verse arrives as the answer to everything the audience has just felt."
+   ],
+   "why": [
+    [
+     "Survival is universal",
+     "Trapped, buried, lost or forgotten. Every viewer understands the fear, with no background knowledge needed."
+    ],
+    [
+     "Faith is the payoff",
+     "The verse is the reveal, not the premise, so it lands with the full weight of the story."
+    ],
+    [
+     "Built for retention",
+     "Escalating jeopardy keeps viewers to the final minute, which is exactly where the message lives."
+    ]
+   ],
+   "verse": {
+    "ar": "وَمَن يَتَّقِ ٱللَّهَ يَجْعَل لَّهُۥ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ",
+    "en": "Whoever is mindful of Allah, He will make a way out for him, and provide for him from where he does not expect.",
+    "ref": "At-Talaq 65:2-3 · The spine of the series"
+   },
+   "shape": true,
+   "laws": [
+    [
+     "Historical, fictional people",
+     "No prophets or companions on screen."
+    ],
+    [
+     "Act one plants a seed",
+     "One small act of goodness or faith that seems unimportant."
+    ],
+    [
+     "Act two takes everything",
+     "The fall, then problem stacked on problem."
+    ],
+    [
+     "Mercy in small doses",
+     "Just enough to survive to the next problem."
+    ],
+    [
+     "The edge",
+     "The worst moment, with every exit closed."
+    ],
+    [
+     "The door",
+     "Unexpected, but logical. Often the thing he feared, or the seed from act one."
+    ],
+    [
+     "The verse ends it",
+     "A living final shot, the ayah in voiceover, its words on screen."
+    ]
+   ],
+   "doors": [
+    {
+     "t": "The Well",
+     "era": "Arabia, 1100s",
+     "len": 22,
+     "descent": "Betrayed by his partners and thrown into a dry well. His leg breaks. No water, a snake in the dark, a sandstorm burying the opening, and wolves circling the rim.",
+     "edge": "His voice is gone. The sand keeps falling.",
+     "door": "A flash flood. The water he thinks will drown him rises, and rises, and lifts him to the rim.",
+     "verse": "Indeed, with hardship comes ease.",
+     "ref": "Ash-Sharh 94:5-6"
+    },
+    {
+     "t": "The Grave",
+     "era": "Damascus, 1000s",
+     "len": 24,
+     "descent": "A sudden sickness leaves him in a deathlike sleep. His family mourns him, washes him and buries him. He wakes in the dark beneath the earth, and the air is running out.",
+     "edge": "He stops clawing at the earth. He begins to pray.",
+     "door": "Grave robbers, digging that same night for his shroud and rings. The worst of men are the ones who pull him out.",
+     "verse": "Do not despair of relief from Allah.",
+     "ref": "Yusuf 12:87"
+    },
+    {
+     "t": "The Chain",
+     "era": "Mediterranean, 1500s",
+     "len": 21,
+     "descent": "A fisherman captured at sea and chained to an oar as a galley slave. Whipped and starved for years. In battle, the ship burns and sinks with him locked to it.",
+     "edge": "The water closes over him, still chained.",
+     "door": "The oar breaks free and floats. The chain he cursed for years keeps him bound to it, unconscious, until the current carries him ashore.",
+     "verse": "And He will provide for him from where he does not expect.",
+     "ref": "At-Talaq 65:3"
+    },
+    {
+     "t": "The Snow",
+     "era": "Hindu Kush, 1300s",
+     "len": 23,
+     "descent": "A messenger crossing the mountains in winter. His horse dies, an avalanche buries him alive, and frostbite takes his fingers. Above him, wolves are digging toward the scent of his horse.",
+     "edge": "He hears them coming closer through the snow.",
+     "door": "The wolves break through the crust above him. The predators he feared are what set him free.",
+     "verse": "Perhaps you dislike a thing and it is good for you.",
+     "ref": "Al-Baqarah 2:216"
+    },
+    {
+     "t": "The Siege",
+     "era": "Baghdad, 1258",
+     "len": 25,
+     "descent": "A mother and her infant as the Mongols sack the city. She hides among the dead as fire spreads. The baby begins to cry, and a soldier walks the bodies, testing them with a spear.",
+     "edge": "The spear stops beside her.",
+     "door": "A Christian neighbor she once helped shelters her in a church. Historically, Christians who took refuge in a Baghdad church were spared. Her small kindness returns as her only door.",
+     "verse": "Unquestionably, the help of Allah is near.",
+     "ref": "Al-Baqarah 2:214"
+    },
+    {
+     "t": "The Dungeon",
+     "era": "Aleppo, 1130s",
+     "len": 22,
+     "descent": "Imprisoned for a crime he did not commit and forgotten for years. His tunnel collapses, his cellmate dies beside him, and the guards stop bringing food.",
+     "edge": "He has stopped counting the days.",
+     "door": "The great earthquake of 1138 cracks the prison wall open.",
+     "verse": "Whoever is mindful of Allah and patient, Allah does not let the reward of those who do good be lost.",
+     "ref": "Yusuf 12:90"
+    }
+   ],
+   "anatomy": [
+    [
+     "Ordinary life",
+     3
+    ],
+    [
+     "The fall",
+     3
+    ],
+    [
+     "The descent",
+     8
+    ],
+    [
+     "The edge",
+     4
+    ],
+    [
+     "The door",
+     3
+    ],
+    [
+     "The ayah",
+     1
+    ]
+   ],
+   "palette": [
+    [
+     "Pit",
+     "#0a0806"
+    ],
+    [
+     "Earth",
+     "#3b2a1a"
+    ],
+    [
+     "Sand light",
+     "#c9a46a"
+    ],
+    [
+     "Dried blood",
+     "#6e1f17"
+    ],
+    [
+     "Shaft",
+     "#f1e8d6"
+    ]
+   ],
+   "look": [
+    [
+     "Camera",
+     "Tight and physical through the struggle. One wide frame at the edge, so the audience feels how alone he is."
+    ],
+    [
+     "Light",
+     "Hard single sources: a shaft of sun, a lantern, moonlight on snow. Darkness is a character."
+    ],
+    [
+     "Sound",
+     "Breath, heartbeat, wind and earth. The score is held back until the door opens."
+    ],
+    [
+     "Ending",
+     "Never a black screen. The ayah plays over a living final shot, with its text on screen."
+    ]
+   ],
+   "rules": [
+    "No death and no afterlife endings. Every film ends in survival.",
+    "The rescue is physically plausible and quietly set up earlier in the film.",
+    "Every verse is quoted accurately, with surah and ayah on screen.",
+    "Injury and fear are felt, never exploited.",
+    "No prophets or companions on screen. Protagonists are fictional people in real eras.",
+    "Every script passes scholar review before production."
+   ]
+  },
+  {
+   "id": "i-was-there",
+   "title": "I Was There",
+   "hidden": false,
+   "year": "2026",
+   "img": "img/i-was-there.webp",
+   "imgSm": "img/i-was-there-sm.webp",
+   "genre": "Cinematic Anthology",
+   "tags": [
+    "Epic",
+    "Sacred History",
+    "Spectacle"
+   ],
+   "moods": "Awe-inspiring, reverent, immersive",
+   "runtime": "10 to 14 min",
+   "logline": "Islamic history, narrated by the things that saw it happen.",
+   "synopsis": "The sea that parted. The fire that turned cool. The cave where the first word was revealed. Sacred moments told in first person by the witnesses that never left.",
+   "statement": "Some moments were too sacred to film, and too powerful to forget.",
+   "prose": [
+    "I Was There tells them through the only witnesses that never left: the sea, the fire, the stone, the cave. Each episode is narrated in the first person by an object or place that stood at the center of history.",
+    "We never show the prophets. We show what they saw, what they touched, and what changed forever after. The camera becomes the witness, and the audience stands exactly where history happened."
+   ],
+   "why": [
+    [
+     "The rule becomes the style",
+     "Prophets are never depicted, so the format is built on point of view, absence and environment."
+    ],
+    [
+     "Instantly recognizable",
+     "Audiences already know these stories. The new angle is what makes them stop scrolling."
+    ],
+    [
+     "Spectacle at scale",
+     "Walls of water and colossal fires are exactly where AI filmmaking outperforms a traditional budget."
+    ]
+   ],
+   "episodes": [
+    [
+     "I Am the Sea",
+     "The Red Sea, the night it was commanded to split for Musa and close on Pharaoh's army.",
+     "Ash-Shu'ara 26:63",
+     12
+    ],
+    [
+     "I Am the Fire",
+     "The fire built for Ibrahim, so vast that birds could not fly over it, and the moment it was told to be cool.",
+     "Al-Anbiya 21:69",
+     13
+    ],
+    [
+     "I Am the Whale",
+     "The darkness inside, the voice praying within it, and the shore where it was finally released.",
+     "As-Saffat 37:139-146",
+     11
+    ],
+    [
+     "I Am the Cave",
+     "Hira, on the night the first word was revealed: Iqra.",
+     "Al-Alaq 96:1-5",
+     12
+    ],
+    [
+     "I Am the Elephant",
+     "Mahmud, the lead elephant of Abraha's army, who knelt and refused to march on the Kaaba.",
+     "Al-Fil 105",
+     12
+    ],
+    [
+     "I Am the Stone",
+     "The Black Stone. Kissed by the Prophet ﷺ, stolen in 930, broken, and returned after twenty two years.",
+     "Historical record",
+     14
+    ],
+    [
+     "I Am the Chain",
+     "The great chain across Constantinople's harbor, the night Sultan Mehmed's ships were dragged over the hills around it.",
+     "Constantinople, 1453",
+     13
+    ]
+   ],
+   "anatomy": [
+    [
+     "Cold open",
+     1
+    ],
+    [
+     "The witness wakes",
+     2
+    ],
+    [
+     "The world before",
+     3
+    ],
+    [
+     "The moment",
+     4
+    ],
+    [
+     "The aftermath",
+     1.5
+    ],
+    [
+     "Verse and sources",
+     0.5
+    ]
+   ],
+   "palette": [
+    [
+     "Abyss",
+     "#0b1a24"
+    ],
+    [
+     "Deep teal",
+     "#1f4a5c"
+    ],
+    [
+     "Moonlight",
+     "#c9d6dc"
+    ],
+    [
+     "Torch",
+     "#e08a3c"
+    ],
+    [
+     "Void",
+     "#0a0a0c"
+    ]
+   ],
+   "look": [
+    [
+     "Camera",
+     "Low, immersive angles from the witness's position. The lens sits where the object sits."
+    ],
+    [
+     "Light",
+     "Practical sources only: moon, fire, torchlight."
+    ],
+    [
+     "Sound",
+     "One intimate narrator voice against enormous natural sound."
+    ]
+   ],
+   "rules": [
+    "No prophet or companion is ever shown, voiced, or detailed in silhouette.",
+    "Every Quranic reference appears on screen with surah and ayah.",
+    "Narration is reviewed by a qualified scholar before production.",
+    "Where history is uncertain, the witness says so."
+   ]
+  },
+  {
+   "id": "stories-he-told",
+   "title": "Stories He Told",
+   "hidden": false,
+   "year": "2026",
+   "img": "img/stories-he-told.webp",
+   "imgSm": "img/stories-he-told-sm.webp",
+   "genre": "Short Film Anthology",
+   "tags": [
+    "Drama",
+    "Parables",
+    "Hadith"
+   ],
+   "moods": "Emotional, intimate, moving",
+   "runtime": "8 to 12 min",
+   "logline": "The parables the Prophet ﷺ told, brought to life as cinema.",
+   "synopsis": "Trapped men, desperate sinners, tested souls. Stories preserved for fourteen centuries in authentic hadith, filmed as full dramatic shorts for the first time.",
+   "statement": "The Prophet ﷺ was a storyteller, and almost none of his stories has ever been filmed.",
+   "prose": [
+    "He spoke of trapped men, desperate sinners, tested souls and impossible faith. These stories have been preserved for fourteen centuries in authentic hadith.",
+    "Stories He Told turns them into short films with full characters, dialogue and drama. The characters are ordinary people, so we can show their faces, their fear and their choices.",
+    "Every film closes on the hadith itself, so the audience knows exactly who first told it."
+   ],
+   "why": [
+    [
+     "Untouched material",
+     "Some of the most dramatic stories in Islam have never been adapted. There is no competition on this shelf."
+    ],
+    [
+     "Full drama is permitted",
+     "Ordinary people as characters means performance, faces and dialogue, without crossing any line."
+    ],
+    [
+     "Teaches without preaching",
+     "The lesson arrives through the story. The hadith at the end lands as a revelation."
+    ]
+   ],
+   "episodes": [
+    [
+     "The Boulder",
+     "Three men are trapped in a cave by a falling rock. Each prays by the one sincere deed of his life, and the stone moves a little with every prayer.",
+     "Sahih al-Bukhari, Sahih Muslim",
+     10
+    ],
+    [
+     "The Ninety-Nine",
+     "A man who has killed ninety-nine people walks across the land looking for a way back to God.",
+     "Sahih al-Bukhari, Sahih Muslim",
+     11
+    ],
+    [
+     "The Test",
+     "A leper, a bald man and a blind man are each given everything. Years later, a stranger comes asking for help.",
+     "Sahih al-Bukhari, Sahih Muslim",
+     12
+    ],
+    [
+     "The Boy and the King",
+     "A boy the king cannot kill, and the one way he tells the king it can be done.",
+     "Sahih Muslim",
+     9
+    ],
+    [
+     "Juraij",
+     "A devoted monk is falsely accused by an entire town, until an infant speaks to clear his name.",
+     "Sahih al-Bukhari, Sahih Muslim",
+     10
+    ],
+    [
+     "The Debt at Sea",
+     "A man borrows a fortune, cannot find a ship to repay it, and throws the money into the ocean sealed inside a piece of wood.",
+     "Sahih al-Bukhari",
+     9
+    ]
+   ],
+   "anatomy": [
+    [
+     "Cold open",
+     1
+    ],
+    [
+     "The ordinary life",
+     2
+    ],
+    [
+     "The trial",
+     3.5
+    ],
+    [
+     "The choice",
+     2
+    ],
+    [
+     "The resolution",
+     1
+    ],
+    [
+     "The hadith",
+     0.5
+    ]
+   ],
+   "palette": [
+    [
+     "Umber",
+     "#2a1608"
+    ],
+    [
+     "Lamp",
+     "#7a4316"
+    ],
+    [
+     "Amber",
+     "#d99a4e"
+    ],
+    [
+     "Steel",
+     "#3b5566"
+    ],
+    [
+     "Night",
+     "#0d0b0a"
+    ]
+   ],
+   "look": [
+    [
+     "Camera",
+     "Intimate close-ups at the moment of choice. Wide, still frames for consequence."
+    ],
+    [
+     "Light",
+     "Chiaroscuro. Oil lamps and slivers of daylight carving faces out of darkness."
+    ],
+    [
+     "Sound",
+     "Performance first. A sparse score that enters only at the turn."
+    ]
+   ],
+   "rules": [
+    "Only parables from authentic collections, with the source on screen.",
+    "Story beats stay faithful to the narration. Invention is limited to setting, costume and supporting dialogue.",
+    "The closing hadith is given in translation with its reference.",
+    "Scholar review on every script."
+   ]
+  },
+  {
+   "id": "cold-case",
+   "title": "Cold Case: Ummah",
+   "hidden": false,
+   "year": "2026",
+   "img": "img/cold-case.webp",
+   "imgSm": "img/cold-case-sm.webp",
+   "genre": "Investigative Thriller",
+   "tags": [
+    "Mystery",
+    "True History",
+    "Thriller"
+   ],
+   "moods": "Suspenseful, cerebral, gripping",
+   "runtime": "18 to 24 min",
+   "logline": "The unsolved mysteries of the Muslim world, reopened.",
+   "synopsis": "A vanished fleet of 2,000 ships. A tomb opened days before a world war. A lost map of Columbus hidden inside an Ottoman one. Real cases, real twists, told like a thriller.",
+   "statement": "History is full of unanswered questions, and some of the greatest belong to the Muslim world.",
+   "prose": [
+    "Cold Case: Ummah reopens them one file at a time. Every episode moves like a thriller: a hook, the evidence, the turn, and a reveal that changes what you thought you knew.",
+    "Every twist comes from the real historical record. Nothing is invented, because the truth is already stranger than fiction."
+   ],
+   "why": [
+    [
+     "A proven appetite",
+     "True crime and mystery are among the most watched documentary forms online."
+    ],
+    [
+     "Twists that are real",
+     "Every reveal is drawn from the historical record, so it is both gripping and defensible."
+    ],
+    [
+     "Years of supply",
+     "From Mali to Samarkand to Naples, there are centuries of open files."
+    ]
+   ],
+   "cases": [
+    {
+     "t": "The Sultan Who Sailed West",
+     "id": "Mali, 1311",
+     "len": 22,
+     "hook": "A king of Mali gives up his throne to find the end of the Atlantic.",
+     "turn": "His first fleet of 200 ships vanishes. A single captain returns, describing a river in the middle of the ocean that swallowed the rest.",
+     "twist": "The king does not stop. He sets out himself with 2,000 ships, and is never seen again.",
+     "reveal": "The only account of the voyage comes from the man who inherited his throne: Mansa Musa, the richest man in history. Was he telling the truth, or the story that made him king?",
+     "src": "Recorded by al-Umari from Mansa Musa's own account"
+    },
+    {
+     "t": "The Tomb of Timur",
+     "id": "Samarkand, 1941",
+     "len": 20,
+     "hook": "June 1941. Soviet scientists open the tomb of Timur, despite warnings of a curse.",
+     "turn": "Within days, Germany invades the Soviet Union. Tens of millions will die.",
+     "twist": "Late in 1942, Timur is reburied with full Islamic rites. Within weeks, the tide turns at Stalingrad.",
+     "reveal": "The skeletons confirmed what legend had claimed for five centuries: Timur really was lame, and his grandson Ulugh Beg really had been beheaded on his own son's orders.",
+     "src": "Gerasimov expedition records. The curse is presented as legend"
+    },
+    {
+     "t": "The Admiral's Map",
+     "id": "Istanbul, 1929",
+     "len": 21,
+     "hook": "Workers converting Topkapi Palace into a museum find a 400 year old map drawn on gazelle skin.",
+     "turn": "The world claims it shows Antarctica centuries before its discovery.",
+     "twist": "The real secret is in the admiral's notes. He built it from about twenty sources, including a map drawn by Christopher Columbus that has never been found.",
+     "reveal": "Its maker, Piri Reis, the greatest navigator of his empire, was later executed by that same empire, in his eighties.",
+     "src": "Piri Reis map, 1513, Topkapi Palace Library"
+    },
+    {
+     "t": "The Peacock Throne",
+     "id": "Delhi, 1739",
+     "len": 19,
+     "hook": "Shah Jahan's throne took seven years to build and was worth more than the Taj Mahal.",
+     "turn": "In 1739 Nader Shah sacks Delhi and carries it away to Persia.",
+     "twist": "Eight years later Nader Shah is assassinated in his tent, and in the chaos the throne disappears.",
+     "reveal": "The throne later shown in Iran under the same name is a different throne. The original was most likely broken apart, and the Koh-i-Noor, taken in the same plunder, now sits in the British Crown Jewels.",
+     "src": "Mughal and Persian court chronicles"
+    },
+    {
+     "t": "The Prince Who Was Sold",
+     "id": "Naples, 1495",
+     "len": 23,
+     "hook": "1481. An Ottoman prince loses a war for the throne to his brother and flees to Europe.",
+     "turn": "The Christian powers treat him as a weapon against the Ottomans. He becomes the Pope's most valuable prisoner.",
+     "twist": "His own brother, the Sultan, pays the Pope a fortune every year to keep him locked away.",
+     "reveal": "In 1495, in Naples, he dies suddenly at thirty five. The rumors point to poison, and to the Borgias.",
+     "src": "Ottoman and Vatican records of Cem Sultan"
+    }
+   ],
+   "anatomy": [
+    [
+     "Hook",
+     2
+    ],
+    [
+     "Case file",
+     4
+    ],
+    [
+     "The turn",
+     4
+    ],
+    [
+     "The twist",
+     5
+    ],
+    [
+     "Final reveal",
+     4
+    ],
+    [
+     "Case status",
+     1
+    ]
+   ],
+   "palette": [
+    [
+     "Noir",
+     "#0a0a0a"
+    ],
+    [
+     "Archive",
+     "#3b2a14"
+    ],
+    [
+     "Lamp gold",
+     "#c89b52"
+    ],
+    [
+     "Thread red",
+     "#b3261e"
+    ],
+    [
+     "Paper",
+     "#e8e2d4"
+    ]
+   ],
+   "look": [
+    [
+     "Camera",
+     "Top-down evidence tables, slow push-ins on documents, reconstructions as desaturated flashbacks."
+    ],
+    [
+     "Light",
+     "Single tungsten pools against deep black."
+    ],
+    [
+     "Sound",
+     "Ticking, paper, low synth pulses. Silence before every reveal."
+    ]
+   ],
+   "rules": [
+    "Every twist is sourced from the historical record, with the source on screen.",
+    "Legend is labeled as legend. A curse is never presented as fact.",
+    "Open questions stay open. We never invent a solution.",
+    "Fact-checked against primary and academic sources."
+   ]
+  },
+  {
+   "id": "bab-ul-islam",
+   "title": "Bab-ul-Islam",
+   "hidden": false,
+   "year": "2026",
+   "img": "img/bab-ul-islam.webp",
+   "imgSm": "img/bab-ul-islam-sm.webp",
+   "genre": "Historical Epic",
+   "tags": [
+    "History",
+    "South Asia",
+    "Epic"
+   ],
+   "moods": "Majestic, unflinching, moving",
+   "runtime": "15 to 20 min",
+   "logline": "How Islam entered South Asia, and the darkest chapters the Ummah has lived through.",
+   "synopsis": "Season one follows the light: the arrival of Islam through Sindh and the civilization it built. Season two follows the dark: the tragedies Muslims have lived through, told without softening.",
+   "statement": "Islam entered South Asia through Sindh, the land later called the Gate of Islam.",
+   "prose": [
+    "This is our history, told in two seasons. The Light follows the arrival of Islam and the civilization it built. The Dark follows the darkest chapters Muslims have lived through.",
+    "A people that forgets its tragedies repeats them. Bab-ul-Islam remembers both, so the audience understands what was built, what was lost, and why."
+   ],
+   "why": [
+    [
+     "A story with a home",
+     "Almost everyone makes Arabia content. Almost nobody makes South Asia's Islamic history at this level."
+    ],
+    [
+     "Range in one brand",
+     "Pride and wonder in one season, grief and reckoning in the next."
+    ],
+    [
+     "Unseen by the world",
+     "Debal, Mansura and Makli are as cinematic as Rome, and almost unknown."
+    ]
+   ],
+   "seasonNames": [
+    "Season 1: The Light",
+    "Season 2: The Dark"
+   ],
+   "light": [
+    [
+     "Debal, 711",
+     "Muhammad bin Qasim's fleet lands near what is now Karachi, and a new chapter of the subcontinent begins.",
+     "711 CE",
+     18
+    ],
+    [
+     "Mansura",
+     "The lost Arab capital of Sindh, rebuilt from its ruins at the height of its life.",
+     "8th to 11th century",
+     17
+    ],
+    [
+     "Makli",
+     "One of the largest necropolises on earth, reconstructed as it stood, with the dynasties beneath it.",
+     "14th to 18th century",
+     16
+    ]
+   ],
+   "dark": [
+    [
+     "The Year the Kaaba Bled",
+     "The Qarmatians attack Makkah during Hajj, kill pilgrims inside the Haram, throw bodies into Zamzam and carry away the Black Stone.",
+     "930 CE",
+     19
+    ],
+    [
+     "Delhi, 1739",
+     "Nader Shah orders a massacre, and tens of thousands die in a single day. Muslim against Muslim.",
+     "1739",
+     18
+    ],
+    [
+     "The Bloody Gate",
+     "After the revolt fails, the British hunt Delhi. The Mughal princes are shot at a gate still called the Khooni Darwaza.",
+     "1857",
+     17
+    ],
+    [
+     "The Last of Andalusia",
+     "The Moriscos, Muslims forced to convert, are expelled from Spain entirely. Eight centuries end.",
+     "1609",
+     16
+    ],
+    [
+     "The Trains of 1947",
+     "Partition, through the eyes of the passengers on the trains that arrived carrying the dead.",
+     "1947",
+     20
+    ]
+   ],
+   "darkNote": "Karbala and 1971 belong among the darkest chapters, but given their sectarian and political weight, they enter the series only by mutual agreement.",
+   "anatomy": [
+    [
+     "Cold open",
+     1.5
+    ],
+    [
+     "Context",
+     4
+    ],
+    [
+     "The event",
+     7
+    ],
+    [
+     "The aftermath",
+     4
+    ],
+    [
+     "Legacy",
+     1.5
+    ]
+   ],
+   "palette": [
+    [
+     "Honey",
+     "#e9c46a"
+    ],
+    [
+     "Sandstone",
+     "#c4892f"
+    ],
+    [
+     "Sea mist",
+     "#6b8f9e"
+    ],
+    [
+     "Ash",
+     "#3a3a3c"
+    ],
+    [
+     "Dried red",
+     "#7c1d1d"
+    ]
+   ],
+   "look": [
+    [
+     "Camera",
+     "The Light: sweeping aerials and warm, wide compositions. The Dark: grounded and handheld."
+    ],
+    [
+     "Light",
+     "Golden dawn for the Light. Smoke-filtered, desaturated daylight for the Dark."
+    ],
+    [
+     "Sound",
+     "Regional instruments for the Light. Near silence for the Dark."
+    ]
+   ],
+   "rules": [
+    "Violence is implied, never graphic.",
+    "Every chapter rests on historians' sources, with competing accounts acknowledged.",
+    "No sectarian framing. Victims are honored, never used.",
+    "Sensitive chapters are reviewed with you before scripting."
+   ]
+  },
+  {
+   "id": "ayah",
+   "title": "Ayah",
+   "hidden": false,
+   "year": "2026",
+   "img": "img/ayah.webp",
+   "imgSm": "img/ayah-sm.webp",
+   "genre": "Nature Documentary",
+   "tags": [
+    "Nature",
+    "Reflection",
+    "Quran"
+   ],
+   "moods": "Calm, beautiful, contemplative",
+   "runtime": "6 to 9 min",
+   "logline": "One verse. One wonder of creation. Filmed like the finest nature documentaries on earth.",
+   "synopsis": "The Quran tells us to look: at the bee, the spider, the rain, the sea. Ayah looks, in macro, slow motion and silence, until the verse arrives.",
+   "statement": "Fourteen centuries ago, the Quran told people to look.",
+   "prose": [
+    "At the bee, the spider, the rain, the sea. Ayah is that instruction turned into cinema.",
+    "Each episode is built around a single verse and filmed with the ambition of the world's best natural history series. Very little narration, no lectures. Just the verse, the world it describes, and time to reflect.",
+    "The aim is wonder, never overclaimed science."
+   ],
+   "why": [
+    [
+     "The most shareable format",
+     "Short, beautiful and calm. Built to be shared, saved and replayed."
+    ],
+    [
+     "Reflection over claims",
+     "We avoid the scientific miracle style. The verse invites looking, and the film looks."
+    ],
+    [
+     "Evergreen",
+     "Nature does not date. Every episode keeps earning views for years."
+    ]
+   ],
+   "episodes": [
+    [
+     "The Bee",
+     "The creature inspired by its Lord to build its homes and make honey that heals.",
+     "An-Nahl 16:68-69",
+     8
+    ],
+    [
+     "The Weakest House",
+     "The spider's web: an engineering marvel the Quran calls the frailest of homes.",
+     "Al-Ankabut 29:41",
+     7
+    ],
+    [
+     "Darkness Upon Darkness",
+     "The deep ocean, waves beneath waves, where a hand held out can hardly be seen.",
+     "An-Nur 24:40",
+     9
+    ],
+    [
+     "The Barrier",
+     "Two seas that meet but do not mix.",
+     "Ar-Rahman 55:19-20",
+     6
+    ],
+    [
+     "The Dead Earth",
+     "Desert, then rain, then life rising out of what looked finished.",
+     "Ar-Rum 30:50",
+     7
+    ],
+    [
+     "The Camel",
+     "Do they not look at the camel, how it was created?",
+     "Al-Ghashiyah 88:17",
+     8
+    ]
+   ],
+   "anatomy": [
+    [
+     "Silence",
+     1
+    ],
+    [
+     "Observation",
+     3
+    ],
+    [
+     "The detail",
+     2
+    ],
+    [
+     "The verse",
+     1
+    ],
+    [
+     "Reflection",
+     1
+    ]
+   ],
+   "palette": [
+    [
+     "Honey",
+     "#f2b632"
+    ],
+    [
+     "Amber",
+     "#a86a12"
+    ],
+    [
+     "Deep sea",
+     "#0e2a47"
+    ],
+    [
+     "Turquoise",
+     "#2bb3a8"
+    ],
+    [
+     "Black",
+     "#060606"
+    ]
+   ],
+   "look": [
+    [
+     "Camera",
+     "Macro, high speed and aerial. Patient holds. The subject decides when the shot ends."
+    ],
+    [
+     "Light",
+     "Natural light, backlit so subjects glow from within."
+    ],
+    [
+     "Sound",
+     "Nature first, then a single recitation of the verse with translation."
+    ]
+   ],
+   "rules": [
+    "Verses are quoted accurately with translation and reference.",
+    "No overstated scientific claims. Reflection, not proof.",
+    "Recitation by a qualified reciter.",
+    "All Arabic calligraphy is checked by an Arabic specialist before release."
+   ]
+  },
+  {
+   "id": "the-other-side",
+   "title": "The Other Side",
+   "hidden": false,
+   "year": "2026",
+   "img": "img/the-other-side.webp",
+   "imgSm": "img/the-other-side-sm.webp",
+   "genre": "Historical Drama",
+   "tags": [
+    "Drama",
+    "History",
+    "Redemption"
+   ],
+   "moods": "Bold, provocative, powerful",
+   "runtime": "12 to 16 min",
+   "logline": "Famous turning points in Islamic history, told by the people who stood against them.",
+   "synopsis": "Pharaoh's magician. Abraha's elephant handler. A Mongol in burning Baghdad. A Crusader in Jerusalem. The story you know, from the side you have never seen.",
+   "statement": "Every great story in Islamic history had people on the wrong side of it.",
+   "prose": [
+    "Soldiers who followed orders, servants of tyrants, men who came to destroy. The Other Side tells famous events through their eyes.",
+    "The audience stands with the enemy and watches the moment the truth reaches them. The story you know becomes the story you have never seen."
+   ],
+   "why": [
+    [
+     "A twist built in",
+     "Viewers know how it ends. They have never watched it from this side."
+    ],
+    [
+     "Moral weight",
+     "Conversion, doubt, mercy, defiance. Every episode turns on one human decision."
+    ],
+    [
+     "A conversation starter",
+     "The format that fills comment sections, without compromising belief."
+    ]
+   ],
+   "episodes": [
+    [
+     "The Magician",
+     "A sorcerer in Pharaoh's court prepares for the contest of his life. By sunset he and his fellow magicians have believed, and Pharaoh promises to crucify them all.",
+     "Ta-Ha 20:70-73",
+     15
+    ],
+    [
+     "The Handler",
+     "The man who drove Abraha's lead elephant toward Makkah, and watched it kneel.",
+     "Al-Fil 105",
+     13
+    ],
+    [
+     "The Fire of Baghdad",
+     "A young Mongol soldier helps burn the greatest city on earth in 1258. Within decades, his own rulers embrace the faith he came to destroy.",
+     "Baghdad, 1258",
+     16
+    ],
+    [
+     "The Crusader",
+     "Jerusalem, 1187. A Crusader waits for Salahuddin's army, expecting the massacre his grandfather took part in during 1099. Instead, he receives mercy.",
+     "Jerusalem, 1099 and 1187",
+     14
+    ]
+   ],
+   "anatomy": [
+    [
+     "Cold open",
+     1
+    ],
+    [
+     "Inside the enemy",
+     4
+    ],
+    [
+     "The confrontation",
+     4
+    ],
+    [
+     "The breaking point",
+     3
+    ],
+    [
+     "The choice",
+     2
+    ]
+   ],
+   "palette": [
+    [
+     "Sun bleach",
+     "#e6d3a3"
+    ],
+    [
+     "Gold",
+     "#b8892f"
+    ],
+    [
+     "Shadow",
+     "#2b2118"
+    ],
+    [
+     "Steel",
+     "#5b6b73"
+    ],
+    [
+     "Black",
+     "#0b0907"
+    ]
+   ],
+   "look": [
+    [
+     "Camera",
+     "Locked to the enemy's eye line. We see the believers only as he sees them, until he changes."
+    ],
+    [
+     "Light",
+     "Harsh light on power. Warmer, softer light arrives with the turn."
+    ],
+    [
+     "Sound",
+     "The empire is loud. Belief arrives in quiet."
+    ]
+   ],
+   "rules": [
+    "Prophets are never shown, even from the enemy's view. Their presence is felt through reactions.",
+    "Fictional protagonists are placed inside documented events.",
+    "The enemy is human, never a cartoon, and never glorified.",
+    "Scholar review on every script."
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "id": "films",
+   "title": "Original Films",
+   "sub": "Written and directed by Ans Ali",
+   "label": "Short film",
+   "channel": "",
+   "credit": "Written and directed by",
+   "size": "big",
+   "genres": [
+    "Original",
+    "Cinematic"
+   ],
+   "hidden": false,
+   "items": [
+    {
+     "id": "drawing",
+     "t": "The Drawing",
+     "img": "img/work/drawing.webp",
+     "g": [
+      "Horror",
+      "Psychological"
+     ],
+     "d": "A primary school teacher keeps finding the same figure in her pupils' drawings. An original AI horror short in the prestige horror tradition, with one lead character held from the first frame to the last.",
+     "hidden": false
+    }
+   ]
+  },
+  {
+   "id": "cafe",
+   "title": "Café Stories",
+   "sub": "Classic detective mysteries · 20K+ subscribers",
+   "label": "Café Stories",
+   "channel": "Café Stories, 20K+ subscribers",
+   "credit": "Produced by",
+   "size": "std",
+   "genres": [
+    "Mystery",
+    "Classic detective",
+    "Series"
+   ],
+   "hidden": false,
+   "items": [
+    {
+     "id": "poppy",
+     "t": "Murder at Poppy Field Farm",
+     "img": "img/work/poppy.webp",
+     "d": "A body in the poppies, and a village that knows more than it says. A cinematic AI hook with full creative control over concept, storyboard and shots.",
+     "hidden": false
+    },
+    {
+     "id": "letter",
+     "t": "A Letter From the Dead",
+     "img": "img/work/letter.webp",
+     "d": "A letter arrives in a hand that should have stopped writing years ago.",
+     "hidden": false
+    },
+    {
+     "id": "vanishing",
+     "t": "The Vanishing Lady of Elmhurst",
+     "img": "img/work/vanishing.webp",
+     "d": "A woman walks into Elmhurst and never walks out.",
+     "hidden": false
+    },
+    {
+     "id": "sloane",
+     "t": "The Shadow Over Sloane Street",
+     "img": "img/work/sloane.webp",
+     "d": "Something follows the residents of Sloane Street home at night.",
+     "hidden": false
+    },
+    {
+     "id": "dove",
+     "t": "The Last Guest at Dove Cottage",
+     "img": "img/work/dove.webp",
+     "d": "One guest too many at Dove Cottage, and one fewer by morning.",
+     "hidden": false
+    },
+    {
+     "id": "will",
+     "t": "A Will Written in Pencil",
+     "img": "img/work/will.webp",
+     "d": "A fortune left in pencil, and a family ready to rub it out.",
+     "hidden": false
+    },
+    {
+     "id": "perfumer",
+     "t": "The Perfumer of Portobello",
+     "img": "img/work/perfumer.webp",
+     "d": "A scent that lingers long after the crime.",
+     "hidden": false
+    },
+    {
+     "id": "heiress",
+     "t": "The Heiress of Hyde Park Gate",
+     "img": "img/work/heiress.webp",
+     "d": "An heiress, a locked house, and too many people who want what is inside.",
+     "hidden": false
+    },
+    {
+     "id": "duchess",
+     "t": "Duchess in Disguise",
+     "img": "img/work/duchess.webp",
+     "d": "A duchess hides in plain sight, until someone sees through the mask.",
+     "hidden": false
+    },
+    {
+     "id": "diplomat",
+     "t": "The Diplomat and the Dying Lark",
+     "img": "img/work/diplomat.webp",
+     "d": "A diplomat's secret, and the songbird that gave it away.",
+     "hidden": false
+    },
+    {
+     "id": "blackswan",
+     "t": "The Black Swan of Bloomsbury",
+     "img": "img/work/blackswan.webp",
+     "d": "A quiet square in Bloomsbury, and the one woman who did not belong.",
+     "hidden": false
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "title": "Viktor Reconstructions",
+   "sub": "History, rebuilt with AI",
+   "label": "Viktor Reconstructions",
+   "channel": "Viktor Reconstructions",
+   "credit": "Produced by",
+   "size": "std",
+   "genres": [
+    "History",
+    "Reconstruction"
+   ],
+   "hidden": false,
+   "items": [
+    {
+     "id": "london",
+     "t": "London, 410 to 1485",
+     "img": "img/work/london.webp",
+     "d": "A thousand years of London rebuilt with AI, from the end of Roman rule to the close of the medieval city.",
+     "hidden": false
+    },
+    {
+     "id": "egypt",
+     "t": "From River to Pyramid",
+     "img": "img/work/egypt.webp",
+     "d": "The rise of Egypt, from farming villages on the Nile to the age of the pyramids, reconstructed shot by shot.",
+     "hidden": false
+    },
+    {
+     "id": "edinburgh",
+     "t": "Edinburgh: The City Above the Land",
+     "img": "img/work/edinburgh.webp",
+     "d": "Edinburgh rising on its ridge of rock across the centuries, rebuilt street by street.",
+     "hidden": false
+    }
+   ]
+  },
+  {
+   "id": "retro",
+   "title": "Retro Tomorrow",
+   "sub": "Retro-futuristic jazz, visualized",
+   "label": "Retro Tomorrow",
+   "channel": "Retro Tomorrow",
+   "credit": "Produced by",
+   "size": "std",
+   "genres": [
+    "Retro-futurism",
+    "Jazz",
+    "Visual album"
+   ],
+   "hidden": false,
+   "items": [
+    {
+     "id": "sanfrancisco",
+     "t": "The High Altitude Dinner Party",
+     "img": "img/work/sanfrancisco.webp",
+     "d": "A dinner party floating above 1955 San Francisco, set to slow retro-futuristic jazz.",
+     "hidden": false
+    },
+    {
+     "id": "starlight",
+     "t": "Starlight Skyline",
+     "img": "img/work/starlight.webp",
+     "d": "A chrome city after dark, lit by neon and starlight, with jazz drifting from the lounges.",
+     "hidden": false
+    },
+    {
+     "id": "midnight",
+     "t": "Midnight Train to Tomorrow",
+     "img": "img/work/midnight.webp",
+     "d": "A night journey on a train bound for the future, as the 1950s imagined it.",
+     "hidden": false
+    }
+   ]
+  }
+ ]
+}
