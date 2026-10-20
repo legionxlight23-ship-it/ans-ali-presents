@@ -13,7 +13,7 @@
 <meta name="description" content="Seven original Islamic cinema concepts, and the work of AI filmmaker Ans Ali.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap">
 <style>
 /* Layout: a streaming-service browse experience. Full-bleed billboard, horizontal rows, hover previews, title pages. */
 :root{
@@ -413,6 +413,64 @@ main.out{opacity:0}
 .steps code{background:#222;padding:2px 6px;border-radius:4px;font-size:13px}
 .draftpill{position:fixed;left:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);z-index:90;display:flex;gap:10px;align-items:center;background:#1c1c1c;border:1px solid #e5b33d;color:#fff;font-size:13px;font-weight:700;padding:9px 14px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
 .draftpill i{width:8px;height:8px;border-radius:50%;background:#e5b33d}
+/* ---------- budget, language, distribution ---------- */
+.ur{display:none}
+body.lang-ur .ur{display:block}
+body.lang-ur .en{display:none}
+.langbtn .ur{display:none}
+.langbtn .en{display:inline}
+body.lang-ur .langbtn .en{display:none}
+body.lang-ur .langbtn .ur{display:inline}
+.langbtn{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:6px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.28);font-size:14px;font-weight:700;color:#fff;background:rgba(255,255,255,.06);transition:background .2s}
+.langbtn:hover{background:rgba(255,255,255,.14)}
+.langbtn .en{font-family:"Noto Nastaliq Urdu",serif;font-weight:600;line-height:1.9}
+.urdu,.urdu-block,.urdu-in{font-family:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq",serif;direction:rtl;text-align:right}
+p.syn.urdu{font-size:clamp(17px,1.5vw,21px);line-height:2.3}
+.t-side .lg .urdu{line-height:2.2;font-size:16px}
+.urdu-block .statement{line-height:1.9;letter-spacing:0;font-weight:600;max-width:none;font-size:clamp(22px,2.6vw,34px)}
+.urdu-block .prose{line-height:2.4;font-size:18px;max-width:none}
+.sect-h .langbtn{margin:0}
+.bud-top{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin-bottom:16px}
+.bud-note{margin:0;font-size:14px;color:var(--soft)}
+.hfsw{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:#242424;border:1px solid #3a3a3a;font-size:14px;font-weight:700;transition:background .2s}
+.hfsw:hover{background:#2e2e2e}
+.hfsw .knob{position:relative;flex:none;width:38px;height:22px;border-radius:999px;background:var(--red);transition:background .3s}
+.hfsw .knob::after{content:"";position:absolute;top:3px;left:19px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .3s var(--ease)}
+.hfsw[aria-pressed="true"] .knob{background:#4a4a4a}
+.hfsw[aria-pressed="true"] .knob::after{left:3px}
+.bud-table,.bud-card{background:var(--bg2);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:clamp(16px,2.6vw,28px)}
+.bt-wrap{overflow-x:auto}
+.btab{width:100%;min-width:520px;border-collapse:collapse;font-size:15px}
+.btab th{text-align:left;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 10px 12px}
+.btab td{padding:14px 10px;border-top:1px solid #262626;font-variant-numeric:tabular-nums;white-space:nowrap}
+.btab td:first-child a{font-weight:800}
+.btab td:first-child a:hover{color:var(--red)}
+.bcell{display:flex;align-items:center;gap:12px}
+.bbar{flex:1;min-width:80px;height:8px;border-radius:4px;background:#262626;overflow:hidden}
+.bbar i{display:block;height:100%;border-radius:0 4px 4px 0;background:var(--red);transition:width .6s var(--ease)}
+@media (max-width:640px){.btab .hide-s{display:none}.btab{min-width:0}}
+.bud-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(16px,3vw,40px);align-items:center}
+@media (max-width:760px){.bud-grid{grid-template-columns:1fr}}
+.bud-big{display:grid;gap:6px}
+.bud-big small{font-size:12.5px;color:var(--muted);font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.bud-big b{font-family:var(--mark);font-weight:400;font-size:clamp(52px,6vw,84px);line-height:.95;font-variant-numeric:tabular-nums}
+.bud-big span{color:var(--soft);font-size:14.5px}
+.bud-lines{margin:0;display:grid;border-top:1px solid #2a2a2a}
+.bud-lines div{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid #2a2a2a;font-size:15px}
+.bud-lines dt{color:var(--soft)}
+.bud-lines dd{margin:0;white-space:nowrap;font-weight:700;font-variant-numeric:tabular-nums;text-align:right}
+.bud-lines dd em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--muted)}
+.bud-lines dd em.save{color:var(--green)}
+.bud-fine{margin:14px 0 0;font-size:12.5px;color:#8a8a8a;max-width:110ch;line-height:1.6}
+.g4b{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.fest-h{font-size:18px;font-weight:800;margin:32px 0 12px}
+.fests{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.fests a{display:grid;gap:4px;height:100%;padding:16px 18px;border-radius:8px;background:#121212;border:1px solid #262626;transition:border-color .3s,transform .4s var(--ease)}
+.fests a:hover{border-color:#555;transform:translateY(-2px)}
+.fests b{font-size:15px}
+.fests span{font-size:13.5px;color:var(--soft)}
+.fests small{font-size:12.5px;color:#e5b33d;font-weight:700}
+
 </style>
 
 <div class="bglight" aria-hidden="true"></div>
@@ -605,16 +663,98 @@ const DEFAULT = {
   ]
 };
 
+/* ---------- budget, Urdu and distribution data (merged into each concept) ---------- */
+DEFAULT.settings.budget = {
+  pkrPerUsd:280, hfUsdPerCredit:0.0526, hfDraftCr:3, hfFinalCr:16,
+  paygDraftUsd:0.1028, paygFinalUsd:0.5686, draftTakes:3, finalTakes:1.25, otherPkrPerMin:1500
+};
+DEFAULT.settings.festivals = [
+  ["Chroma Awards, Season 2","Online, backed by ElevenLabs, Google Cloud and fal","Open until 31 December 2026","https://chromaawards.com/"],
+  ["Reply AI Film Festival","Premiere in Venice, with an AI For Good award","Annual. Last deadline was early June","https://challenges.reply.com/challenges/creative/aifilmfestival/home/"],
+  ["Runway AI Festival","Runway, screenings worldwide","Annual. The 2026 edition ran in June","https://aif.runwayml.com/"],
+  ["AI for Good Film Festival","United Nations ITU, Geneva","Deadline 1 May 2027","https://aiforgood.itu.int/ai-for-good-film-festival/"]
+];
+const EXTRA = {
+  "unforsaken":{
+    budget:{min:22,share:.9},
+    ur:{logline:"جب ہر دروازہ بند ہو جائے، ایک دروازہ پھر بھی باقی رہتا ہے۔",
+      synopsis:"پرانی دنیا میں ایک انسان سے سب کچھ چھین لیا جاتا ہے اور اسے آخری حد تک دھکیل دیا جاتا ہے۔ پھر مدد اس سمت سے آتی ہے جس کی کسی کو توقع نہیں تھی۔",
+      statement:"ہر فلم ایک انسان کو ایک ڈراؤنے خواب میں ڈالتی ہے، اور حالات کو بد سے بدتر کرتی جاتی ہے۔",
+      prose:["ہر بار جب لگتا ہے کہ اب اس سے برا کچھ نہیں ہو سکتا، کچھ اور ہو جاتا ہے۔ ناظر کو وہ خوف محسوس ہونا چاہیے، اور وہ خود سے وہی سوال کرے جس کے بارے میں یہ فلم دراصل ہے: میں ہوتا تو کیا کرتا؟","پھر عین آخری لمحے، جب ہر راستہ بند ہو چکا ہوتا ہے، مدد اس سمت سے آتی ہے جس کی کسی کو توقع نہیں تھی۔ کبھی جادو نہیں، ہمیشہ منطقی۔ آخر میں جا کر سمجھ آتا ہے کہ یہ کبھی اتفاق نہیں تھا۔","آخری منظر سکرین پر زندہ رہتا ہے۔ اس پر آیت کی تلاوت سنائی دیتی ہے اور اس کے الفاظ ظاہر ہوتے ہیں۔ فلم وعظ نہیں کرتی۔ آیت اس سب کا جواب بن کر آتی ہے جو ناظر نے ابھی محسوس کیا۔"]},
+    beyond:[["Vertical micro-drama","Each film splits into 90 to 180 second cliffhanger episodes for Reels, TikTok and micro-drama apps. Survival tension is made for this format."],["Brand-funded season","A sponsor funds a season and is credited as presenter, while the channel keeps full ownership of the series."],["Festival entry","One film cut to festival length for the Chroma Awards and the Reply AI Film Festival, whose AI For Good award suits a story of faith and survival."],["Streaming anthology","Six films form a feature-length anthology for Islamic and regional streaming platforms."]]
+  },
+  "i-was-there":{
+    budget:{min:12,share:.85},
+    ur:{logline:"اسلامی تاریخ، ان چیزوں کی زبانی جنہوں نے اسے ہوتے دیکھا۔",
+      synopsis:"وہ سمندر جو پھٹ گیا۔ وہ آگ جو ٹھنڈی ہو گئی۔ وہ غار جہاں پہلا لفظ نازل ہوا۔ مقدس لمحات، ان گواہوں کی زبانی جو کبھی وہاں سے گئے ہی نہیں۔",
+      statement:"کچھ لمحات اتنے مقدس تھے کہ فلمائے نہ جا سکیں، اور اتنے طاقتور کہ بھلائے نہ جا سکیں۔",
+      prose:["یہ سیریز انہیں ان گواہوں کی زبانی سناتی ہے جو کبھی وہاں سے نہیں گئے: سمندر، آگ، پتھر، غار۔ ہر قسط کسی ایسی چیز یا جگہ کی زبانی بیان ہوتی ہے جو تاریخ کے مرکز میں موجود تھی۔","ہم انبیاء کو کبھی نہیں دکھاتے۔ ہم وہ دکھاتے ہیں جو انہوں نے دیکھا، جسے انہوں نے چھوا، اور جو ہمیشہ کے لیے بدل گیا۔ کیمرہ گواہ بن جاتا ہے، اور ناظر ٹھیک وہاں کھڑا ہوتا ہے جہاں تاریخ رقم ہوئی۔"]},
+    beyond:[["60 second moments","The peak of each episode, the sea parting or the fire turning cool, becomes a vertical cut that drives viewers to the full film."],["Festival showcase","Pure visual spectacle. The strongest showcase in this slate for the Runway AI Festival and the Chroma Awards."],["Streaming season","Seven episodes packaged as one season for Islamic streaming platforms and international Muslim channels."],["Audio season","First-person narration also works as a podcast season, reaching listeners as well as viewers."]]
+  },
+  "stories-he-told":{
+    budget:{min:10,share:.9},
+    ur:{logline:"وہ تمثیلیں جو نبی کریم ﷺ نے بیان فرمائیں، سینما کی صورت میں۔",
+      synopsis:"غار میں پھنسے لوگ، مایوس گناہگار، آزمائے گئے انسان۔ وہ کہانیاں جو چودہ صدیوں سے صحیح احادیث میں محفوظ ہیں، پہلی بار مکمل ڈرامائی فلموں کی صورت میں۔",
+      statement:"نبی کریم ﷺ کہانیاں سناتے تھے، اور ان میں سے تقریباً کوئی کہانی آج تک فلمائی نہیں گئی۔",
+      prose:["آپ ﷺ نے پھنسے ہوئے لوگوں، مایوس گناہگاروں، آزمائے گئے انسانوں اور ناممکن ایمان کا ذکر فرمایا۔ یہ کہانیاں چودہ صدیوں سے صحیح احادیث میں محفوظ ہیں۔","یہ سیریز انہیں مکمل کرداروں، مکالموں اور ڈرامے کے ساتھ مختصر فلموں میں ڈھالتی ہے۔ کردار عام انسان ہیں، اس لیے ہم ان کے چہرے، ان کا خوف اور ان کے فیصلے دکھا سکتے ہیں۔","ہر فلم خود حدیث پر ختم ہوتی ہے، تاکہ ناظر جان لے کہ یہ کہانی سب سے پہلے کس نے سنائی۔"]},
+    beyond:[["Vertical micro-drama","Short, complete and emotional. Each parable already fits a 2 to 3 minute vertical episode."],["Brand-funded season","A natural fit for a brand that wants to stand for values like honesty, mercy and trust."],["Family edition","An animated version for children opens a second audience without new writing."],["Festival entry","Dialogue-driven short films suit the narrative categories at AI film festivals."]]
+  },
+  "cold-case":{
+    budget:{min:20,share:.6},
+    ur:{logline:"مسلم دنیا کے حل نہ ہونے والے راز، دوبارہ کھولے گئے۔",
+      synopsis:"دو ہزار جہازوں کا گمشدہ بیڑا۔ ایک مقبرہ جو عالمی جنگ سے چند دن پہلے کھولا گیا۔ کولمبس کا ایک گمشدہ نقشہ جو ایک عثمانی نقشے میں چھپا ہے۔ حقیقی کیس، حقیقی موڑ، تھرلر کے انداز میں۔",
+      statement:"تاریخ جواب طلب سوالوں سے بھری پڑی ہے، اور ان میں سے کچھ بڑے سوال مسلم دنیا کے ہیں۔",
+      prose:["یہ سیریز انہیں ایک ایک فائل کر کے دوبارہ کھولتی ہے۔ ہر قسط ایک تھرلر کی طرح چلتی ہے: ایک ابتدائی جھٹکا، شواہد، ایک موڑ، اور ایک انکشاف جو آپ کی سوچ بدل دیتا ہے۔","ہر موڑ حقیقی تاریخی ریکارڈ سے لیا گیا ہے۔ کچھ بھی گھڑا نہیں جاتا، کیونکہ سچ پہلے ہی افسانے سے زیادہ حیران کن ہے۔"]},
+    beyond:[["True-crime podcast","The case-file structure doubles as a podcast, a large audience on its own."],["Shorts in three parts","Each case splits into hook, turn and reveal Shorts, with the reveal sending viewers to the full episode."],["Docuseries season","Five cases form one docuseries season for streaming platforms."],["Festival entry","Investigative documentary storytelling with real sources stands out at AI film festivals."]]
+  },
+  "bab-ul-islam":{
+    budget:{min:18,share:.75},
+    ur:{logline:"اسلام برصغیر میں کیسے داخل ہوا، اور امت کے تاریک ترین ابواب۔",
+      synopsis:"پہلا سیزن روشنی کی کہانی ہے: سندھ کے راستے اسلام کی آمد اور وہ تہذیب جو اس نے بنائی۔ دوسرا سیزن اندھیرے کی کہانی ہے: وہ سانحات جن سے مسلمان گزرے، بغیر کسی پردے کے۔",
+      statement:"اسلام سندھ کے راستے برصغیر میں داخل ہوا، وہ سرزمین جسے بعد میں باب الاسلام کہا گیا۔",
+      prose:["یہ ہماری تاریخ ہے، دو سیزنز میں۔ روشنی اسلام کی آمد اور اس کی بنائی ہوئی تہذیب کی کہانی ہے۔ اندھیرا ان تاریک ترین ابواب کی کہانی ہے جن سے مسلمان گزرے۔","جو قوم اپنے سانحات بھول جاتی ہے، وہ انہیں دہراتی ہے۔ باب الاسلام دونوں کو یاد رکھتی ہے، تاکہ ناظر سمجھ سکے کہ کیا بنایا گیا، کیا کھویا گیا، اور کیوں۔"]},
+    beyond:[["Pakistani streaming and TV","Pakistan's own history at this quality is rare, which makes it strong for local streaming platforms and television."],["Diaspora audience","South Asian Muslims abroad are a large and underserved audience on YouTube and Facebook."],["Festival entry","International AI festivals rarely see South Asian history. That difference is the advantage."],["Brand-funded season","Pakistani brands can present a season of national history and keep their name on it for years."]]
+  },
+  "ayah":{
+    budget:{min:8,share:.95},
+    ur:{logline:"ایک آیت۔ تخلیق کا ایک عجوبہ۔ دنیا کی بہترین نیچر ڈاکیومنٹریز کے معیار پر فلمایا گیا۔",
+      synopsis:"قرآن ہمیں دیکھنے کا کہتا ہے: شہد کی مکھی، مکڑی، بارش اور سمندر کو۔ یہ سیریز دیکھتی ہے، قریب سے، آہستہ رفتار میں اور خاموشی کے ساتھ، یہاں تک کہ آیت آ جاتی ہے۔",
+      statement:"چودہ صدیاں پہلے قرآن نے انسانوں سے کہا کہ دیکھو۔",
+      prose:["شہد کی مکھی کو، مکڑی کو، بارش کو، سمندر کو۔ یہ سیریز اسی حکم کو سینما میں ڈھالتی ہے۔","ہر قسط ایک آیت کے گرد بنی ہے اور دنیا کی بہترین نیچر سیریز جیسے معیار پر فلمائی جاتی ہے۔ بہت کم بیانیہ، کوئی لیکچر نہیں۔ صرف آیت، وہ دنیا جس کا وہ ذکر کرتی ہے، اور غور کرنے کا وقت۔","مقصد حیرت ہے، سائنس کے بڑھا چڑھا کر کیے گئے دعوے نہیں۔"]},
+    beyond:[["Built for Reels and Shorts","Short, calm and beautiful. The most shareable format in the slate for Facebook, Instagram and Shorts."],["Footage library","Every macro and aerial shot becomes a licensable footage library for other creators and channels."],["Festival entry","A strong fit for the AI for Good Film Festival in Geneva and the Chroma Awards."],["Brand-funded season","Natural product brands can present a season and sit beside images of honey, rain and sea."]]
+  },
+  "the-other-side":{
+    budget:{min:14,share:.9},
+    ur:{logline:"اسلامی تاریخ کے مشہور موڑ، ان لوگوں کی زبانی جو ان کے خلاف کھڑے تھے۔",
+      synopsis:"فرعون کا جادوگر۔ ابرہہ کے ہاتھی کا مہاوت۔ جلتے بغداد میں ایک منگول۔ یروشلم میں ایک صلیبی۔ وہ کہانی جو آپ جانتے ہیں، اس طرف سے جو آپ نے کبھی نہیں دیکھی۔",
+      statement:"اسلامی تاریخ کی ہر عظیم کہانی میں کچھ لوگ غلط طرف کھڑے تھے۔",
+      prose:["حکم ماننے والے سپاہی، ظالموں کے خادم، تباہی مچانے آنے والے لوگ۔ یہ سیریز مشہور واقعات کو ان کی آنکھوں سے دکھاتی ہے۔","ناظر دشمن کے ساتھ کھڑا ہوتا ہے اور وہ لمحہ دیکھتا ہے جب سچ اس تک پہنچتا ہے۔ جو کہانی آپ جانتے ہیں، وہ کہانی بن جاتی ہے جو آپ نے کبھی نہیں دیکھی۔"]},
+    beyond:[["Vertical micro-drama","Turning points with a twist ending suit episodic vertical drama."],["Festival entry","The bold point of view stands out in narrative categories at AI film festivals."],["Conversation engine","Every episode invites debate. Reaction and commentary videos carry it further."],["Streaming season","Four films form one season for Islamic and regional streaming platforms."]]
+  }
+};
+DEFAULT.concepts.forEach(c=>{ if(EXTRA[c.id]) Object.assign(c,clone0(EXTRA[c.id])); });
+function clone0(o){ return JSON.parse(JSON.stringify(o)); }
+function ensure(d){
+  if(!d||!d.settings) return d;
+  d.settings.budget=Object.assign({},DEFAULT.settings.budget,d.settings.budget||{});
+  if(!d.settings.festivals) d.settings.festivals=clone0(DEFAULT.settings.festivals);
+  d.concepts.forEach(c=>{ const x=EXTRA[c.id];
+    if(!c.budget) c.budget=x?clone0(x.budget):{min:12,share:.85};
+    if(!c.ur&&x) c.ur=clone0(x.ur);
+    if(!c.beyond) c.beyond=x?clone0(x.beyond):[]; });
+  return d;
+}
+
 /* =====================================================================
    STATE: published data (data.json or default), plus a draft that only
    exists in the manager's own browser until it is exported.
    ===================================================================== */
 const clone = o=>JSON.parse(JSON.stringify(o));
-let PUB = clone(DEFAULT);
+let PUB = ensure(clone(DEFAULT));
 let SITE = PUB;
 let hasDraft = false;
 const DKEY = "aap-draft-v2";
-function loadDraft(){ try{ const s=localStorage.getItem(DKEY); if(s){ SITE=JSON.parse(s); hasDraft=true; } }catch(e){} }
+function loadDraft(){ try{ const s=localStorage.getItem(DKEY); if(s){ SITE=ensure(JSON.parse(s)); hasDraft=true; } }catch(e){} }
 function saveDraft(){ try{ localStorage.setItem(DKEY, JSON.stringify(SITE)); hasDraft=true; }catch(e){ toast("This browser blocked saving. Export now to keep your changes."); } updateDraftPill(); }
 function discardDraft(){ try{ localStorage.removeItem(DKEY); }catch(e){} SITE=clone(PUB); hasDraft=false; updateDraftPill(); }
 
@@ -644,6 +784,59 @@ const RESERVED=["home","about","manager","contact"];
 function slug(s,taken){ let b=String(s).toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"item"; if(RESERVED.includes(b)) b+="-1"; let k=b,n=2; while(taken.includes(k)) k=b+"-"+(n++); return k; }
 function allIds(){ return SITE.concepts.map(c=>c.id).concat(...SITE.rows.map(r=>r.items.map(i=>i.id)),SITE.rows.map(r=>r.id)); }
 function epCount(c){ return c.cases?c.cases.length:c.doors?c.doors.length:c.light?(c.light.length+(c.dark||[]).length):(c.episodes||[]).length; }
+
+/* =================== BUDGET + LANGUAGE =================== */
+const BUD=()=>Object.assign({},DEFAULT.settings.budget,SITE.settings.budget||{});
+let useHF=true, lang="en", globalWired=false;
+function rateUsd(hf){ const b=BUD(); return hf?(b.draftTakes*b.hfDraftCr+b.finalTakes*b.hfFinalCr)*b.hfUsdPerCredit:(b.draftTakes*b.paygDraftUsd+b.finalTakes*b.paygFinalUsd); }
+function epCost(c,hf){ const b=BUD(), bd=c.budget||{}; const m=+bd.min||12, sh=+bd.share||.85, vs=m*60*sh; const video=vs*rateUsd(hf)*b.pkrPerUsd, other=m*b.otherPkrPerMin; return {m,sh,vs,video,other,total:video+other}; }
+const pkr=x=>"PKR "+(Math.round(x/1000)*1000).toLocaleString("en-US");
+const usdTxt=x=>"about USD "+(Math.round(x/BUD().pkrPerUsd/10)*10).toLocaleString("en-US");
+function hfSwitch(){ return `<button type="button" class="hfsw" data-hf aria-pressed="${!useHF}"><span class="knob" aria-hidden="true"></span><span>${useHF?"Remove Higgsfield":"Add Higgsfield back"}</span></button>`; }
+function pricedWith(){ return useHF?"Priced with Higgsfield credits":"Priced pay-as-you-go through the official Seedance 2.5 API (BytePlus ModelArk)"; }
+function assumptionText(){ const b=BUD(); return `Rough production cost only, before creative fees. Assumes about ${b.draftTakes} seconds of 480p drafts and ${b.finalTakes} seconds of 1080p finals generated for every second used on screen, at PKR ${b.pkrPerUsd} to the dollar. Higgsfield: ${b.hfDraftCr} credits per draft second and ${b.hfFinalCr} per 1080p second, at USD ${b.hfUsdPerCredit} per credit. Pay-as-you-go: USD ${b.paygDraftUsd} per 480p second and USD ${b.paygFinalUsd} per 1080p second. Images, voice and music add about PKR ${(+b.otherPkrPerMin).toLocaleString("en-US")} per finished minute. Prices checked October 2026.`; }
+function budgetTable(){
+  const rs=concepts().map(c=>({c,k:epCost(c,useHF)})); const max=Math.max(1,...rs.map(r=>r.k.total));
+  return `<div class="bud-table" id="budHome"><div class="bud-top"><p class="bud-note">${pricedWith()}</p>${hfSwitch()}</div>
+  <div class="bt-wrap"><table class="btab"><thead><tr><th scope="col">Concept</th><th scope="col">Episode</th><th scope="col">Cost per episode</th><th scope="col" class="hide-s">Per finished minute</th></tr></thead><tbody>
+  ${rs.map(r=>`<tr><td><a href="#${esc(r.c.id)}">${esc(r.c.title)}</a></td><td>${r.k.m} min</td><td><div class="bcell"><span class="bbar"><i style="width:${(r.k.total/max*100).toFixed(1)}%"></i></span><b>${pkr(r.k.total)}</b></div></td><td class="hide-s">${pkr(r.k.total/r.k.m)}</td></tr>`).join("")}
+  </tbody></table></div></div>`;
+}
+function budgetBandHTML(){ if(!concepts().length) return ""; return `<section class="band" id="budget-band"><div class="band-h rv"><span class="kick">Budget</span><h2>What one episode costs.</h2><p>A rough production budget for one finished episode of each concept, generated with Seedance 2.5 at 1080p. Use the switch to see the cost with Higgsfield removed.</p></div><div class="rv">${budgetTable()}</div><p class="bud-fine rv">${assumptionText()}</p></section>`; }
+function conceptBudgetCard(c){
+  const k=epCost(c,useHF), o=epCost(c,!useHF), d=Math.abs(k.total-o.total);
+  return `<div class="bud-card" data-budc="${esc(c.id)}"><div class="bud-top"><p class="bud-note">${pricedWith()}</p>${hfSwitch()}</div>
+  <div class="bud-grid">
+    <div class="bud-big"><small>One episode, about ${k.m} minutes</small><b>${pkr(k.total)}</b><span>${usdTxt(k.total)} · ${pkr(k.total/k.m)} per finished minute</span></div>
+    <dl class="bud-lines">
+      <div><dt>Video generation, Seedance 2.5</dt><dd>${pkr(k.video)}</dd></div>
+      <div><dt>Images, voice and music</dt><dd>${pkr(k.other)}</dd></div>
+      <div><dt>AI video on screen</dt><dd>${Math.round(k.vs/60)} of ${k.m} min</dd></div>
+      <div><dt>${useHF?"Without Higgsfield":"With Higgsfield"}</dt><dd>${pkr(o.total)}<em class="${useHF?"save":""}">${useHF?"saves ":"adds "}${pkr(d)}</em></dd></div>
+    </dl></div></div>`;
+}
+function conceptBudgetHTML(c){ return `<section class="sect" id="budget"><div class="sect-h"><h2>Budget</h2><span style="color:var(--muted);font-size:14px">Rough cost of one episode</span></div><div class="rv">${conceptBudgetCard(c)}</div><p class="bud-fine rv">${assumptionText()}</p></section>`; }
+function festList(){ return `<ul class="fests">${(SITE.settings.festivals||[]).map(f=>`<li class="rv"><a href="${esc(f[3])}" target="_blank" rel="noopener"><b>${esc(f[0])} ↗</b><span>${esc(f[1])}</span><small>${esc(f[2])}</small></a></li>`).join("")}</ul>`; }
+function beyondBandHTML(){ return `<section class="band" id="beyond-band"><div class="band-h rv"><span class="kick">Beyond YouTube</span><h2>One production. Many screens.</h2><p>Every episode is made once and keeps working in several places. This is what the channel gains.</p></div>
+  <div class="g4">
+    <div class="panel rv"><span class="n">01</span><h3>Facebook and vertical feeds</h3><p>Every episode is cut into 60 to 90 second vertical stories for Facebook, Instagram, TikTok and Shorts, each pointing back to the full film.</p></div>
+    <div class="panel rv"><span class="n">02</span><h3>Brand-funded seasons</h3><p>The model vertical drama studios now use: a brand funds a season and is credited as presenter, while the channel keeps full ownership of the series. Production pays for itself.</p></div>
+    <div class="panel rv"><span class="n">03</span><h3>Festivals and awards</h3><p>Selections and awards at international AI film festivals bring press, prize money and credibility to the channel's name.</p></div>
+    <div class="panel rv"><span class="n">04</span><h3>Streaming and licensing</h3><p>Finished seasons can be licensed to Islamic and regional streaming platforms, and footage can be licensed to other creators.</p></div>
+  </div>
+  <h3 class="fest-h rv">Where we can enter</h3>${festList()}</section>`; }
+function conceptBeyondHTML(c){ if(!(c.beyond||[]).length) return ""; return `<section class="sect" id="beyond"><div class="sect-h"><h2>Beyond YouTube</h2><span style="color:var(--muted);font-size:14px">Where this concept can also live</span></div><div class="g4b">${c.beyond.map((b,i)=>`<div class="panel rv"><span class="n">${String(i+1).padStart(2,"0")}</span><h3>${esc(b[0])}</h3><p>${esc(b[1])}</p></div>`).join("")}</div><h3 class="fest-h rv">Festivals to enter</h3>${festList()}</section>`; }
+function langBtn(c){ if(!c.ur||!c.ur.synopsis) return ""; return `<button type="button" class="langbtn" data-lang><span class="en" lang="ur">اردو میں پڑھیں</span><span class="ur">Read in English</span></button>`; }
+function applyLang(){ document.body.classList.toggle("lang-ur",lang==="ur"); }
+function refreshBudget(){ const h=$("#budHome"); if(h) h.outerHTML=budgetTable(); $$("[data-budc]").forEach(el=>{ const c=byId(el.dataset.budc); if(c) el.outerHTML=conceptBudgetCard(c); }); }
+function wireLang(){ applyLang(); }
+function wireBudget(){
+  if(globalWired) return; globalWired=true;
+  document.addEventListener("click",e=>{
+    if(e.target.closest("[data-hf]")){ useHF=!useHF; refreshBudget(); return; }
+    if(e.target.closest("[data-lang]")){ lang=lang==="ur"?"en":"ur"; applyLang(); }
+  });
+}
 
 /* =================== VIEWS =================== */
 function rowHTML(key,title,sub,items,kind,size){
@@ -694,6 +887,8 @@ function viewHome(){
       <div class="panel rv"><span class="n">04</span><h3>Real history only</h3><p>Legend is labeled as legend. Nothing is invented to make a story land harder.</p></div>
     </div>
   </section>
+  ${budgetBandHTML()}
+  ${beyondBandHTML()}
   <section class="band">
     <div class="band-h rv"><span class="kick">How we would begin</span><h2>One pilot. Then a season.</h2></div>
     <div class="g4" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
@@ -784,7 +979,7 @@ function curveSVG(){
 }
 function viewConcept(c){
   const hasShape=!!(c.shape||(c.laws&&c.laws.length));
-  const tabs=[["episodes",c.cases?"Case Files":"Episodes"],["overview","Overview"]].concat(hasShape?[["shape","The Shape"]]:[]).concat([["look","Look & Sound"],["standards","Standards"],["more","More Concepts"]]);
+  const tabs=[["episodes",c.cases?"Case Files":"Episodes"],["overview","Overview"]].concat(hasShape?[["shape","The Shape"]]:[]).concat([["budget","Budget"]]).concat((c.beyond||[]).length?[["beyond","Beyond YouTube"]]:[]).concat([["look","Look & Sound"],["standards","Standards"],["more","More Concepts"]]);
   const others=concepts().filter(o=>o.id!==c.id);
   return `
   <section class="t-hero"><img src="${esc(c.img)}" alt="${esc(c.title)} key art"><a class="back" href="#home">${SV.l.replace('<svg','<svg width="18" height="18"')}Browse</a></section>
@@ -793,11 +988,13 @@ function viewConcept(c){
       <div class="tagline"><b>A</b> ${c.flagship?"Flagship":"Concept"}</div>
       <h1>${esc(c.title)}</h1>
       <div class="meta"><span class="new">New concept</span><span>${esc(c.year)}</span><span class="box">Series</span><span>${epCount(c)} episodes proposed</span><span class="box">HD</span></div>
-      <p class="syn" style="font-size:clamp(17px,1.5vw,21px)">${esc(c.synopsis)}</p>
+      <p class="syn en" style="font-size:clamp(17px,1.5vw,21px)">${esc(c.synopsis)}</p>
+      ${c.ur&&c.ur.synopsis?`<p class="syn urdu ur" lang="ur" dir="rtl">${esc(c.ur.synopsis)}</p>`:""}
+      ${langBtn(c)}
       <div class="btns"><button class="btn btn-w" type="button" data-tab="episodes">${SV.play}${c.cases?"Open the files":"See episodes"}</button><a class="btn btn-g" href="#home" data-jump="contact">${SV.plus}Choose this concept</a></div>
     </div>
     <div class="t-side">
-      <div class="lg"><b>${esc(c.logline)}</b></div>
+      <div class="lg"><b class="en">${esc(c.logline)}</b>${c.ur&&c.ur.logline?`<b class="urdu ur" lang="ur" dir="rtl">${esc(c.ur.logline)}</b>`:""}</div>
       <div>Genres: <b>${(c.tags||[]).map(esc).join(", ")}</b></div>
       <div>This concept is: <b>${esc(c.moods)}</b></div>
       <div>Runtime: <b>${esc(c.runtime)} per episode</b></div>
@@ -811,9 +1008,10 @@ function viewConcept(c){
     ${episodesHTML(c)}
   </section>
   <section class="sect" id="overview">
-    <div class="sect-h"><h2>Overview</h2></div>
-    ${c.statement?`<p class="statement rv">${esc(c.statement)}</p>`:""}
-    <div class="prose">${(c.prose||[]).map(p=>`<p class="rv">${esc(p)}</p>`).join("")}</div>
+    <div class="sect-h"><h2>Overview</h2>${langBtn(c)}</div>
+    <div class="en">${c.statement?`<p class="statement rv">${esc(c.statement)}</p>`:""}
+    <div class="prose">${(c.prose||[]).map(p=>`<p class="rv">${esc(p)}</p>`).join("")}</div></div>
+    ${c.ur&&(c.ur.prose||[]).length?`<div class="ur urdu-block" lang="ur" dir="rtl">${c.ur.statement?`<p class="statement">${esc(c.ur.statement)}</p>`:""}<div class="prose">${c.ur.prose.map(p=>`<p>${esc(p)}</p>`).join("")}</div></div>`:""}
     ${c.why&&c.why.length?`<div class="g3">${c.why.map(w=>`<div class="panel rv"><h3>${esc(w[0])}</h3><p>${esc(w[1])}</p></div>`).join("")}</div>`:""}
     ${anatHTML(c)}
   </section>
@@ -822,6 +1020,8 @@ function viewConcept(c){
     ${c.shape?`<p class="prose rv" style="margin:0 0 20px">Each climb is a new problem, each small dip a mercy that keeps him alive. At the edge the line holds at its highest point. Then the door opens.</p><div class="curve-w rv">${curveSVG()}</div>`:""}
     ${c.laws&&c.laws.length?`<h3 style="font-size:18px;font-weight:800;margin:36px 0 14px">The laws of the series</h3><ol class="laws">${c.laws.map(l=>`<li class="rv"><b>${esc(l[0])}</b>${esc(l[1])}</li>`).join("")}</ol>`:""}
   </section>`:""}
+  ${conceptBudgetHTML(c)}
+  ${conceptBeyondHTML(c)}
   <section class="sect" id="look">
     <div class="sect-h"><h2>Look &amp; Sound</h2></div>
     <div class="look"><div class="rv"><div class="sw">${(c.palette||[]).map(p=>`<div><i style="background:${esc(p[1])}"></i>${esc(p[0])}<small>${esc(String(p[1]).toUpperCase())}</small></div>`).join("")}</div></div>
@@ -912,7 +1112,7 @@ function viewManager(){
         <button class="mbtn" type="button" id="mgLock">Lock</button>
       </div></div>
     <p class="mg-status">${hasDraft?"<b>Unpublished draft.</b> Your changes are saved in this browser and show only to you. Download data.json and upload it to GitHub to publish them.":"No unpublished changes. Everything matches the published site."}</p>
-    <div class="mg-tabs">${[["concepts","Concepts"],["work","Previous work"],["profile","Profile and contact"],["publish","How to publish"]].map(t=>`<button type="button" data-mg="${t[0]}" class="${mgTab===t[0]?"on":""}">${t[1]}</button>`).join("")}</div>
+    <div class="mg-tabs">${[["concepts","Concepts"],["work","Previous work"],["budget","Budget"],["profile","Profile and contact"],["publish","How to publish"]].map(t=>`<button type="button" data-mg="${t[0]}" class="${mgTab===t[0]?"on":""}">${t[1]}</button>`).join("")}</div>
     <div id="mgBody">${mgBody()}</div>
   </div>`;
 }
@@ -954,6 +1154,20 @@ function mgBody(){
             </div></div>`).join("")}</div>
         <div style="margin-top:12px"><button class="mbtn" type="button" data-act="i-new" data-ri="${ri}">+ Add a title to this row</button></div>
       </div>`).join("")+`<button class="mbtn pri" type="button" data-act="r-new">+ New row</button>`;
+  if(mgTab==="budget"){ const b=BUD(); const f=(id,label,val,step,hint)=>`<div class="fld"><label for="${id}">${label}${hint?` <span class="hint">${hint}</span>`:""}</label><input class="inp" id="${id}" type="number" min="0" step="${step}" value="${esc(val)}"></div>`;
+    return `<div class="mg-card"><h2>Rates used for every budget</h2><form class="form" id="budForm">
+      ${f("b-pkr","PKR per US dollar",b.pkrPerUsd,"0.01")}
+      ${f("b-other","Images, voice and music",b.otherPkrPerMin,"50","PKR per finished minute")}
+      ${f("b-hfcr","Higgsfield price per credit",b.hfUsdPerCredit,"0.0001","USD")}
+      ${f("b-hfd","Higgsfield credits per 480p draft second",b.hfDraftCr,"0.1")}
+      ${f("b-hff","Higgsfield credits per 1080p second",b.hfFinalCr,"0.1")}
+      ${f("b-pd","Pay-as-you-go USD per 480p draft second",b.paygDraftUsd,"0.0001")}
+      ${f("b-pf","Pay-as-you-go USD per 1080p second",b.paygFinalUsd,"0.0001")}
+      ${f("b-dt","Draft seconds generated per second used",b.draftTakes,"0.05")}
+      ${f("b-ft","Final seconds generated per second used",b.finalTakes,"0.05")}
+      <div class="full"><button class="mbtn pri" type="submit">Save rates</button></div></form>
+      <p class="mg-status" style="margin-top:18px">Each concept's minutes and AI video share are set in its Edit form, under Concepts.</p>
+      <div class="mg-list">${SITE.concepts.map(c=>{ const a=epCost(c,true), z=epCost(c,false); return `<div class="mg-item"><img src="${esc(cimg(c,true))}" alt=""><div><b>${esc(c.title)}</b><small>${a.m} min, ${Math.round(a.sh*100)}% AI video · With Higgsfield ${pkr(a.total)} · Without ${pkr(z.total)}</small></div><div></div></div>`; }).join("")}</div></div>`; }
   if(mgTab==="profile"){ const s=SITE.settings; return `<div class="mg-card"><form class="form" id="profForm">
       <div class="fld"><label for="p-email">Email</label><input class="inp" id="p-email" value="${esc(s.email)}"></div>
       <div class="fld"><label for="p-li">LinkedIn link</label><input class="inp" id="p-li" value="${esc(s.linkedin)}"></div>
@@ -1002,6 +1216,13 @@ function conceptForm(ed){
     <div class="fld full"><label for="f-syn">Synopsis</label><textarea class="ta" id="f-syn">${esc(c.synopsis)}</textarea></div>
     <div class="fld full"><label for="f-stat">Overview headline</label><input class="inp" id="f-stat" value="${esc(c.statement)}"></div>
     <div class="fld full"><label for="f-prose">Overview paragraphs <span class="hint">Leave a blank line between paragraphs</span></label><textarea class="ta" id="f-prose" style="min-height:150px">${esc((c.prose||[]).join("\n\n"))}</textarea></div>
+    <div class="fld full"><label for="f-urlog">Urdu logline</label><input class="inp urdu-in" dir="rtl" id="f-urlog" value="${esc((c.ur||{}).logline||"")}"></div>
+    <div class="fld full"><label for="f-ursyn">Urdu synopsis</label><textarea class="ta urdu-in" dir="rtl" id="f-ursyn">${esc((c.ur||{}).synopsis||"")}</textarea></div>
+    <div class="fld full"><label for="f-urstat">Urdu overview headline</label><input class="inp urdu-in" dir="rtl" id="f-urstat" value="${esc((c.ur||{}).statement||"")}"></div>
+    <div class="fld full"><label for="f-urprose">Urdu overview paragraphs <span class="hint">Leave a blank line between paragraphs</span></label><textarea class="ta urdu-in" dir="rtl" id="f-urprose" style="min-height:150px">${esc(((c.ur||{}).prose||[]).join("\n\n"))}</textarea></div>
+    <div class="fld"><label for="f-bmin">Budget: finished minutes per episode</label><input class="inp" id="f-bmin" type="number" min="1" step="1" value="${esc((c.budget||{}).min||12)}"></div>
+    <div class="fld"><label for="f-bshare">Budget: share of runtime that is AI video <span class="hint">Percent</span></label><input class="inp" id="f-bshare" type="number" min="10" max="100" step="5" value="${Math.round(((c.budget||{}).share||.85)*100)}"></div>
+    <div class="fld full"><label for="f-beyond">Beyond YouTube <span class="hint">One per line: title | text</span></label><textarea class="ta" id="f-beyond">${esc(J(c.beyond))}</textarea></div>
     <div class="fld full"><label for="f-why">Why it works <span class="hint">One per line: title | text</span></label><textarea class="ta" id="f-why">${esc(J(c.why))}</textarea></div>
     ${special?`<div class="fld full"><label>Episodes</label><p class="mg-status" style="margin:0">This concept uses ${special}. Edit them in Advanced below.</p></div>`:
       c.light?`<div class="fld"><label for="f-s1">Season 1 name</label><input class="inp" id="f-s1" value="${esc((c.seasonNames||[])[0]||"")}"></div><div class="fld"><label for="f-s2">Season 2 name</label><input class="inp" id="f-s2" value="${esc((c.seasonNames||[])[1]||"")}"></div>
@@ -1065,6 +1286,9 @@ function wireManager(){
   $$("[data-act]").forEach(b=>b.onclick=()=>act(b));
   $$("[data-row-f]").forEach(inp=>inp.onchange=()=>{ SITE.rows[+inp.dataset.ri][inp.dataset.rowF]=inp.value; saveDraft(); toast("Row saved"); });
 
+  const bf=$("#budForm"); bf&&bf.addEventListener("submit",e=>{ e.preventDefault(); const v=id=>Math.max(0,+$("#"+id).value||0); const b=Object.assign({},BUD());
+    b.pkrPerUsd=v("b-pkr")||b.pkrPerUsd; b.otherPkrPerMin=v("b-other"); b.hfUsdPerCredit=v("b-hfcr"); b.hfDraftCr=v("b-hfd"); b.hfFinalCr=v("b-hff"); b.paygDraftUsd=v("b-pd"); b.paygFinalUsd=v("b-pf"); b.draftTakes=v("b-dt"); b.finalTakes=v("b-ft");
+    SITE.settings.budget=b; commit("Rates saved"); });
   const pf=$("#profForm"); pf&&pf.addEventListener("submit",async e=>{ e.preventDefault(); const s=SITE.settings;
     s.email=$("#p-email").value.trim(); s.linkedin=$("#p-li").value.trim(); s.makerTitle=$("#p-title").value.trim(); s.makerBio=$("#p-bio").value.trim();
     s.stats=P($("#p-stats").value).map(p=>[p[0]||"",p[1]||""]); s.knownFor=$("#p-known").value.trim(); s.brands=$("#p-brands").value.trim();
@@ -1081,6 +1305,9 @@ function wireManager(){
       c.moods=$("#f-moods").value.trim(); c.runtime=$("#f-run").value.trim(); c.year=$("#f-year").value.trim(); c.flagship=$("#f-flag").checked;
       c.logline=$("#f-log").value.trim(); c.synopsis=$("#f-syn").value.trim(); c.statement=$("#f-stat").value.trim(); c.prose=paras($("#f-prose").value);
       c.why=P($("#f-why").value).map(p=>[p[0]||"",p[1]||""]);
+      c.ur={logline:$("#f-urlog").value.trim(),synopsis:$("#f-ursyn").value.trim(),statement:$("#f-urstat").value.trim(),prose:paras($("#f-urprose").value)};
+      c.budget={min:Math.max(1,+$("#f-bmin").value||12),share:Math.min(1,Math.max(.1,(+$("#f-bshare").value||85)/100))};
+      c.beyond=P($("#f-beyond").value).map(p=>[p[0]||"",p[1]||""]);
       if($("#f-eps")) c.episodes=parseEps($("#f-eps").value);
       if($("#f-light")){ c.light=parseEps($("#f-light").value); c.dark=parseEps($("#f-dark").value); c.darkNote=$("#f-dnote").value.trim(); c.seasonNames=[$("#f-s1").value.trim(),$("#f-s2").value.trim()]; }
       c.anatomy=P($("#f-anat").value).map(p=>[p[0]||"",+p[1]||0]); c.palette=P($("#f-pal").value).map(p=>[p[0]||"",p[1]||"#222222"]);
@@ -1113,7 +1340,7 @@ function act(b){
     case "c-down": swap(cs,i,i+1); commit(); break;
     case "c-vis": cs[i].hidden=!cs[i].hidden; commit(cs[i].hidden?"Hidden from the site":"Visible on the site"); break;
     case "c-edit": mgEdit={type:"concept",i,draft:clone(cs[i])}; mgRefresh(); scrollTo(0,0); break;
-    case "c-new": mgEdit={type:"concept",isNew:true,draft:{title:"",year:"2026",genre:"",tags:[],moods:"",runtime:"",logline:"",synopsis:"",statement:"",prose:[],why:[],episodes:[],anatomy:[],palette:[],look:[],rules:[],img:"",imgSm:""}}; mgRefresh(); scrollTo(0,0); break;
+    case "c-new": mgEdit={type:"concept",isNew:true,draft:{title:"",year:"2026",genre:"",tags:[],moods:"",runtime:"",logline:"",synopsis:"",statement:"",prose:[],why:[],episodes:[],anatomy:[],palette:[],look:[],rules:[],img:"",imgSm:"",budget:{min:12,share:.85},ur:{logline:"",synopsis:"",statement:"",prose:[]},beyond:[]}}; mgRefresh(); scrollTo(0,0); break;
     case "c-del": confirmBtn(b,()=>{ cs.splice(i,1); commit("Concept deleted"); }); break;
     case "r-up": swap(SITE.rows,ri,ri-1); commit(); break;
     case "r-down": swap(SITE.rows,ri,ri+1); commit(); break;
@@ -1165,7 +1392,7 @@ function updateDraftPill(){
 }
 
 /* =================== WIRING (site) =================== */
-function wire(){ stage(); wireBill(); wireRows(); wireTiles(); wireTabs(); wireSeals(); wireSeason(); wireCopy(); wireCounts(); }
+function wire(){ wireBudget(); wireLang(); stage(); wireBill(); wireRows(); wireTiles(); wireTabs(); wireSeals(); wireSeason(); wireCopy(); wireCounts(); }
 function stage(){
   if(reduce||!("IntersectionObserver" in window)) return;
   const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.remove("pre"); io.unobserve(e.target);} }),{rootMargin:"0px 0px -6% 0px",threshold:.06});
@@ -1271,7 +1498,7 @@ else{ const end=()=>{ intro.classList.add("done"); try{sessionStorage.setItem("i
 
 /* boot: published data.json, then this browser's draft */
 async function boot(){
-  try{ const r=await fetch("data.json",{cache:"no-store"}); if(r.ok){ const d=await r.json(); if(d&&d.concepts&&d.rows){ PUB=d; SITE=PUB; } } }catch(e){}
+  try{ const r=await fetch("data.json",{cache:"no-store"}); if(r.ok){ const d=await r.json(); if(d&&d.concepts&&d.rows){ PUB=ensure(d); SITE=PUB; } } }catch(e){}
   loadDraft();
   addEventListener("hashchange",route);
   route();

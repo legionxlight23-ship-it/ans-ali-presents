@@ -25,7 +25,44 @@
    ]
   ],
   "knownFor": "Café Stories, The Drawing, Viktor Reconstructions",
-  "brands": "BizFocus AI, One Regimen, TRW spec commercial"
+  "brands": "BizFocus AI, One Regimen, TRW spec commercial",
+  "budget": {
+   "pkrPerUsd": 280,
+   "hfUsdPerCredit": 0.0526,
+   "hfDraftCr": 3,
+   "hfFinalCr": 16,
+   "paygDraftUsd": 0.1028,
+   "paygFinalUsd": 0.5686,
+   "draftTakes": 3,
+   "finalTakes": 1.25,
+   "otherPkrPerMin": 1500
+  },
+  "festivals": [
+   [
+    "Chroma Awards, Season 2",
+    "Online, backed by ElevenLabs, Google Cloud and fal",
+    "Open until 31 December 2026",
+    "https://chromaawards.com/"
+   ],
+   [
+    "Reply AI Film Festival",
+    "Premiere in Venice, with an AI For Good award",
+    "Annual. Last deadline was early June",
+    "https://challenges.reply.com/challenges/creative/aifilmfestival/home/"
+   ],
+   [
+    "Runway AI Festival",
+    "Runway, screenings worldwide",
+    "Annual. The 2026 edition ran in June",
+    "https://aif.runwayml.com/"
+   ],
+   [
+    "AI for Good Film Festival",
+    "United Nations ITU, Geneva",
+    "Deadline 1 May 2027",
+    "https://aiforgood.itu.int/ai-for-good-film-festival/"
+   ]
+  ]
  },
  "concepts": [
   {
@@ -238,6 +275,38 @@
     "Injury and fear are felt, never exploited.",
     "No prophets or companions on screen. Protagonists are fictional people in real eras.",
     "Every script passes scholar review before production."
+   ],
+   "budget": {
+    "min": 22,
+    "share": 0.9
+   },
+   "ur": {
+    "logline": "جب ہر دروازہ بند ہو جائے، ایک دروازہ پھر بھی باقی رہتا ہے۔",
+    "synopsis": "پرانی دنیا میں ایک انسان سے سب کچھ چھین لیا جاتا ہے اور اسے آخری حد تک دھکیل دیا جاتا ہے۔ پھر مدد اس سمت سے آتی ہے جس کی کسی کو توقع نہیں تھی۔",
+    "statement": "ہر فلم ایک انسان کو ایک ڈراؤنے خواب میں ڈالتی ہے، اور حالات کو بد سے بدتر کرتی جاتی ہے۔",
+    "prose": [
+     "ہر بار جب لگتا ہے کہ اب اس سے برا کچھ نہیں ہو سکتا، کچھ اور ہو جاتا ہے۔ ناظر کو وہ خوف محسوس ہونا چاہیے، اور وہ خود سے وہی سوال کرے جس کے بارے میں یہ فلم دراصل ہے: میں ہوتا تو کیا کرتا؟",
+     "پھر عین آخری لمحے، جب ہر راستہ بند ہو چکا ہوتا ہے، مدد اس سمت سے آتی ہے جس کی کسی کو توقع نہیں تھی۔ کبھی جادو نہیں، ہمیشہ منطقی۔ آخر میں جا کر سمجھ آتا ہے کہ یہ کبھی اتفاق نہیں تھا۔",
+     "آخری منظر سکرین پر زندہ رہتا ہے۔ اس پر آیت کی تلاوت سنائی دیتی ہے اور اس کے الفاظ ظاہر ہوتے ہیں۔ فلم وعظ نہیں کرتی۔ آیت اس سب کا جواب بن کر آتی ہے جو ناظر نے ابھی محسوس کیا۔"
+    ]
+   },
+   "beyond": [
+    [
+     "Vertical micro-drama",
+     "Each film splits into 90 to 180 second cliffhanger episodes for Reels, TikTok and micro-drama apps. Survival tension is made for this format."
+    ],
+    [
+     "Brand-funded season",
+     "A sponsor funds a season and is credited as presenter, while the channel keeps full ownership of the series."
+    ],
+    [
+     "Festival entry",
+     "One film cut to festival length for the Chroma Awards and the Reply AI Film Festival, whose AI For Good award suits a story of faith and survival."
+    ],
+    [
+     "Streaming anthology",
+     "Six films form a feature-length anthology for Islamic and regional streaming platforms."
+    ]
    ]
   },
   {
@@ -387,6 +456,37 @@
     "Every Quranic reference appears on screen with surah and ayah.",
     "Narration is reviewed by a qualified scholar before production.",
     "Where history is uncertain, the witness says so."
+   ],
+   "budget": {
+    "min": 12,
+    "share": 0.85
+   },
+   "ur": {
+    "logline": "اسلامی تاریخ، ان چیزوں کی زبانی جنہوں نے اسے ہوتے دیکھا۔",
+    "synopsis": "وہ سمندر جو پھٹ گیا۔ وہ آگ جو ٹھنڈی ہو گئی۔ وہ غار جہاں پہلا لفظ نازل ہوا۔ مقدس لمحات، ان گواہوں کی زبانی جو کبھی وہاں سے گئے ہی نہیں۔",
+    "statement": "کچھ لمحات اتنے مقدس تھے کہ فلمائے نہ جا سکیں، اور اتنے طاقتور کہ بھلائے نہ جا سکیں۔",
+    "prose": [
+     "یہ سیریز انہیں ان گواہوں کی زبانی سناتی ہے جو کبھی وہاں سے نہیں گئے: سمندر، آگ، پتھر، غار۔ ہر قسط کسی ایسی چیز یا جگہ کی زبانی بیان ہوتی ہے جو تاریخ کے مرکز میں موجود تھی۔",
+     "ہم انبیاء کو کبھی نہیں دکھاتے۔ ہم وہ دکھاتے ہیں جو انہوں نے دیکھا، جسے انہوں نے چھوا، اور جو ہمیشہ کے لیے بدل گیا۔ کیمرہ گواہ بن جاتا ہے، اور ناظر ٹھیک وہاں کھڑا ہوتا ہے جہاں تاریخ رقم ہوئی۔"
+    ]
+   },
+   "beyond": [
+    [
+     "60 second moments",
+     "The peak of each episode, the sea parting or the fire turning cool, becomes a vertical cut that drives viewers to the full film."
+    ],
+    [
+     "Festival showcase",
+     "Pure visual spectacle. The strongest showcase in this slate for the Runway AI Festival and the Chroma Awards."
+    ],
+    [
+     "Streaming season",
+     "Seven episodes packaged as one season for Islamic streaming platforms and international Muslim channels."
+    ],
+    [
+     "Audio season",
+     "First-person narration also works as a podcast season, reaching listeners as well as viewers."
+    ]
    ]
   },
   {
@@ -531,6 +631,38 @@
     "Story beats stay faithful to the narration. Invention is limited to setting, costume and supporting dialogue.",
     "The closing hadith is given in translation with its reference.",
     "Scholar review on every script."
+   ],
+   "budget": {
+    "min": 10,
+    "share": 0.9
+   },
+   "ur": {
+    "logline": "وہ تمثیلیں جو نبی کریم ﷺ نے بیان فرمائیں، سینما کی صورت میں۔",
+    "synopsis": "غار میں پھنسے لوگ، مایوس گناہگار، آزمائے گئے انسان۔ وہ کہانیاں جو چودہ صدیوں سے صحیح احادیث میں محفوظ ہیں، پہلی بار مکمل ڈرامائی فلموں کی صورت میں۔",
+    "statement": "نبی کریم ﷺ کہانیاں سناتے تھے، اور ان میں سے تقریباً کوئی کہانی آج تک فلمائی نہیں گئی۔",
+    "prose": [
+     "آپ ﷺ نے پھنسے ہوئے لوگوں، مایوس گناہگاروں، آزمائے گئے انسانوں اور ناممکن ایمان کا ذکر فرمایا۔ یہ کہانیاں چودہ صدیوں سے صحیح احادیث میں محفوظ ہیں۔",
+     "یہ سیریز انہیں مکمل کرداروں، مکالموں اور ڈرامے کے ساتھ مختصر فلموں میں ڈھالتی ہے۔ کردار عام انسان ہیں، اس لیے ہم ان کے چہرے، ان کا خوف اور ان کے فیصلے دکھا سکتے ہیں۔",
+     "ہر فلم خود حدیث پر ختم ہوتی ہے، تاکہ ناظر جان لے کہ یہ کہانی سب سے پہلے کس نے سنائی۔"
+    ]
+   },
+   "beyond": [
+    [
+     "Vertical micro-drama",
+     "Short, complete and emotional. Each parable already fits a 2 to 3 minute vertical episode."
+    ],
+    [
+     "Brand-funded season",
+     "A natural fit for a brand that wants to stand for values like honesty, mercy and trust."
+    ],
+    [
+     "Family edition",
+     "An animated version for children opens a second audience without new writing."
+    ],
+    [
+     "Festival entry",
+     "Dialogue-driven short films suit the narrative categories at AI film festivals."
+    ]
    ]
   },
   {
@@ -688,6 +820,37 @@
     "Legend is labeled as legend. A curse is never presented as fact.",
     "Open questions stay open. We never invent a solution.",
     "Fact-checked against primary and academic sources."
+   ],
+   "budget": {
+    "min": 20,
+    "share": 0.6
+   },
+   "ur": {
+    "logline": "مسلم دنیا کے حل نہ ہونے والے راز، دوبارہ کھولے گئے۔",
+    "synopsis": "دو ہزار جہازوں کا گمشدہ بیڑا۔ ایک مقبرہ جو عالمی جنگ سے چند دن پہلے کھولا گیا۔ کولمبس کا ایک گمشدہ نقشہ جو ایک عثمانی نقشے میں چھپا ہے۔ حقیقی کیس، حقیقی موڑ، تھرلر کے انداز میں۔",
+    "statement": "تاریخ جواب طلب سوالوں سے بھری پڑی ہے، اور ان میں سے کچھ بڑے سوال مسلم دنیا کے ہیں۔",
+    "prose": [
+     "یہ سیریز انہیں ایک ایک فائل کر کے دوبارہ کھولتی ہے۔ ہر قسط ایک تھرلر کی طرح چلتی ہے: ایک ابتدائی جھٹکا، شواہد، ایک موڑ، اور ایک انکشاف جو آپ کی سوچ بدل دیتا ہے۔",
+     "ہر موڑ حقیقی تاریخی ریکارڈ سے لیا گیا ہے۔ کچھ بھی گھڑا نہیں جاتا، کیونکہ سچ پہلے ہی افسانے سے زیادہ حیران کن ہے۔"
+    ]
+   },
+   "beyond": [
+    [
+     "True-crime podcast",
+     "The case-file structure doubles as a podcast, a large audience on its own."
+    ],
+    [
+     "Shorts in three parts",
+     "Each case splits into hook, turn and reveal Shorts, with the reveal sending viewers to the full episode."
+    ],
+    [
+     "Docuseries season",
+     "Five cases form one docuseries season for streaming platforms."
+    ],
+    [
+     "Festival entry",
+     "Investigative documentary storytelling with real sources stands out at AI film festivals."
+    ]
    ]
   },
   {
@@ -846,6 +1009,37 @@
     "Every chapter rests on historians' sources, with competing accounts acknowledged.",
     "No sectarian framing. Victims are honored, never used.",
     "Sensitive chapters are reviewed with you before scripting."
+   ],
+   "budget": {
+    "min": 18,
+    "share": 0.75
+   },
+   "ur": {
+    "logline": "اسلام برصغیر میں کیسے داخل ہوا، اور امت کے تاریک ترین ابواب۔",
+    "synopsis": "پہلا سیزن روشنی کی کہانی ہے: سندھ کے راستے اسلام کی آمد اور وہ تہذیب جو اس نے بنائی۔ دوسرا سیزن اندھیرے کی کہانی ہے: وہ سانحات جن سے مسلمان گزرے، بغیر کسی پردے کے۔",
+    "statement": "اسلام سندھ کے راستے برصغیر میں داخل ہوا، وہ سرزمین جسے بعد میں باب الاسلام کہا گیا۔",
+    "prose": [
+     "یہ ہماری تاریخ ہے، دو سیزنز میں۔ روشنی اسلام کی آمد اور اس کی بنائی ہوئی تہذیب کی کہانی ہے۔ اندھیرا ان تاریک ترین ابواب کی کہانی ہے جن سے مسلمان گزرے۔",
+     "جو قوم اپنے سانحات بھول جاتی ہے، وہ انہیں دہراتی ہے۔ باب الاسلام دونوں کو یاد رکھتی ہے، تاکہ ناظر سمجھ سکے کہ کیا بنایا گیا، کیا کھویا گیا، اور کیوں۔"
+    ]
+   },
+   "beyond": [
+    [
+     "Pakistani streaming and TV",
+     "Pakistan's own history at this quality is rare, which makes it strong for local streaming platforms and television."
+    ],
+    [
+     "Diaspora audience",
+     "South Asian Muslims abroad are a large and underserved audience on YouTube and Facebook."
+    ],
+    [
+     "Festival entry",
+     "International AI festivals rarely see South Asian history. That difference is the advantage."
+    ],
+    [
+     "Brand-funded season",
+     "Pakistani brands can present a season of national history and keep their name on it for years."
+    ]
    ]
   },
   {
@@ -986,6 +1180,38 @@
     "No overstated scientific claims. Reflection, not proof.",
     "Recitation by a qualified reciter.",
     "All Arabic calligraphy is checked by an Arabic specialist before release."
+   ],
+   "budget": {
+    "min": 8,
+    "share": 0.95
+   },
+   "ur": {
+    "logline": "ایک آیت۔ تخلیق کا ایک عجوبہ۔ دنیا کی بہترین نیچر ڈاکیومنٹریز کے معیار پر فلمایا گیا۔",
+    "synopsis": "قرآن ہمیں دیکھنے کا کہتا ہے: شہد کی مکھی، مکڑی، بارش اور سمندر کو۔ یہ سیریز دیکھتی ہے، قریب سے، آہستہ رفتار میں اور خاموشی کے ساتھ، یہاں تک کہ آیت آ جاتی ہے۔",
+    "statement": "چودہ صدیاں پہلے قرآن نے انسانوں سے کہا کہ دیکھو۔",
+    "prose": [
+     "شہد کی مکھی کو، مکڑی کو، بارش کو، سمندر کو۔ یہ سیریز اسی حکم کو سینما میں ڈھالتی ہے۔",
+     "ہر قسط ایک آیت کے گرد بنی ہے اور دنیا کی بہترین نیچر سیریز جیسے معیار پر فلمائی جاتی ہے۔ بہت کم بیانیہ، کوئی لیکچر نہیں۔ صرف آیت، وہ دنیا جس کا وہ ذکر کرتی ہے، اور غور کرنے کا وقت۔",
+     "مقصد حیرت ہے، سائنس کے بڑھا چڑھا کر کیے گئے دعوے نہیں۔"
+    ]
+   },
+   "beyond": [
+    [
+     "Built for Reels and Shorts",
+     "Short, calm and beautiful. The most shareable format in the slate for Facebook, Instagram and Shorts."
+    ],
+    [
+     "Footage library",
+     "Every macro and aerial shot becomes a licensable footage library for other creators and channels."
+    ],
+    [
+     "Festival entry",
+     "A strong fit for the AI for Good Film Festival in Geneva and the Chroma Awards."
+    ],
+    [
+     "Brand-funded season",
+     "Natural product brands can present a season and sit beside images of honey, rain and sea."
+    ]
    ]
   },
   {
@@ -1113,6 +1339,37 @@
     "Fictional protagonists are placed inside documented events.",
     "The enemy is human, never a cartoon, and never glorified.",
     "Scholar review on every script."
+   ],
+   "budget": {
+    "min": 14,
+    "share": 0.9
+   },
+   "ur": {
+    "logline": "اسلامی تاریخ کے مشہور موڑ، ان لوگوں کی زبانی جو ان کے خلاف کھڑے تھے۔",
+    "synopsis": "فرعون کا جادوگر۔ ابرہہ کے ہاتھی کا مہاوت۔ جلتے بغداد میں ایک منگول۔ یروشلم میں ایک صلیبی۔ وہ کہانی جو آپ جانتے ہیں، اس طرف سے جو آپ نے کبھی نہیں دیکھی۔",
+    "statement": "اسلامی تاریخ کی ہر عظیم کہانی میں کچھ لوگ غلط طرف کھڑے تھے۔",
+    "prose": [
+     "حکم ماننے والے سپاہی، ظالموں کے خادم، تباہی مچانے آنے والے لوگ۔ یہ سیریز مشہور واقعات کو ان کی آنکھوں سے دکھاتی ہے۔",
+     "ناظر دشمن کے ساتھ کھڑا ہوتا ہے اور وہ لمحہ دیکھتا ہے جب سچ اس تک پہنچتا ہے۔ جو کہانی آپ جانتے ہیں، وہ کہانی بن جاتی ہے جو آپ نے کبھی نہیں دیکھی۔"
+    ]
+   },
+   "beyond": [
+    [
+     "Vertical micro-drama",
+     "Turning points with a twist ending suit episodic vertical drama."
+    ],
+    [
+     "Festival entry",
+     "The bold point of view stands out in narrative categories at AI film festivals."
+    ],
+    [
+     "Conversation engine",
+     "Every episode invites debate. Reaction and commentary videos carry it further."
+    ],
+    [
+     "Streaming season",
+     "Four films form one season for Islamic and regional streaming platforms."
+    ]
    ]
   }
  ],
